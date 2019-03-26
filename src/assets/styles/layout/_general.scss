@@ -1,0 +1,15 @@
+body {
+	font-family: $ff_main;
+	min-height: 100vh;
+	overflow-x: hidden;
+	color: $clr_dark_2;
+	font-size: $fz_main;
+	line-height: 1.4;
+	transition: all $trans;
+	background: transparent;
+	margin: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}

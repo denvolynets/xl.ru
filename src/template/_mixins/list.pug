@@ -1,0 +1,25 @@
+- var staticPath = "./assets/";
+
+include ../components/breadcrumb/breadcrumb
+include ../components/btn/btn
+
+include ../components/carousel/carousel
+include ../components/header/header
+include ../components/popups/popups
+
+mixin title(...titleParts)
+	- var t = "AntTrans"
+	each titlePart in titleParts.reverse()
+		- t = titlePart + " / " + t
+	title #{t}
+
+mixin statcss(href)
+	link(rel="stylesheet" href=href)
+
+mixin statjs(href)
+	script(src=href)
+
+mixin selectBox(options, defaultText)
+	select(data-default-text=`${defaultText ? defaultText : ''}`)
+		each option in options
+			option=option
