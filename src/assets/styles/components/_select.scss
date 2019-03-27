@@ -20,7 +20,7 @@
 
 .selectboxit .selectboxit-arrow-container .selectboxit-arrow {
 	@include arrow($clr_highlight, 2px, 4.5px, 'down');
-	
+
 	top: 7px;
 	transition: all $trans;
 }
@@ -51,7 +51,7 @@
 	margin-top: -1px;
 }
 
-.selectboxit-list > .selectboxit-focus > .selectboxit-option-anchor {
+.selectboxit-list>.selectboxit-focus>.selectboxit-option-anchor {
 	color: $clr_main;
 	background: $clr_main;
 }
@@ -66,7 +66,8 @@
 	font-family: $ff_bold;
 	font-size: $fs_1;
 	color: $clr_black;
-	
+	float: none;
+
 	&:after {
 		border-color: rgba($clr_main, 1);
 		width: 10px;
@@ -80,7 +81,7 @@
 		opacity: 1;
 		border-color: rgba($clr_main, 1);
 	}
-	
+
 	.list {
 		top: calc(100% - 3px);
 		box-shadow: none;

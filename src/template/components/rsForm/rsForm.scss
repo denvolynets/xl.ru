@@ -1,0 +1,55 @@
+.rs-form {
+	.nice-select {
+		float: none;
+
+		&:hover {
+			border-color: $clr_main;
+		}
+
+		.list {
+			right: 0;
+		}
+
+		&.open,
+		&.focus {
+			border-color: $clr_main;
+		}
+	}
+
+	&__field {
+		margin-bottom: 15px;
+	}
+
+	&__textarea {
+		width: 100%;
+		min-height: 65px;
+		padding: 10px;
+		border: 1px solid $clr_border;
+		transition: all .2s;
+		outline: none;
+
+		&:focus {
+			border-color: $clr_main;
+		}
+
+		&:hover {
+			border-color: $clr_main;
+		}
+	}
+
+	&__input {
+		border: 1px solid $clr_border;
+		padding: 10px 15px;
+		width: 100%;
+		transition: all .2s;
+		outline: none;
+
+		&:focus {
+			border-color: $clr_main;
+		}
+
+		&:hover {
+			border-color: $clr_main;
+		}
+	}
+}

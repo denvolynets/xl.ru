@@ -33,8 +33,12 @@ const app = {
 				removalDelay: 300,
 				mainClass: 'my-mfp-slide-bottom'
 			},
-			isMobile: () => { return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); },
-			isIE: () => { return navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1; }
+			isMobile: () => {
+				return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+			},
+			isIE: () => {
+				return navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1;
+			}
 		};
 
 		$('input[type="number"]').niceNumber();
@@ -62,5 +66,6 @@ $(document).ready(app.load);
 function requireAll(r) {
 	r.keys().forEach(r);
 }
+
 requireAll(require.context('./assets/images/svg/', true, /\.svg$/));
 requireAll(require.context('./template/pages/', true, /\.pug$/));
