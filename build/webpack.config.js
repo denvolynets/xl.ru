@@ -16,6 +16,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
+const pugData = require('../src/template/pugData.js');
 
 module.exports = (env) => {
 	let prod = env.NODE_ENV === 'production';
@@ -146,7 +147,24 @@ module.exports = (env) => {
 			},
 			{
 				test: /\.pug$/,
-				loaders: [`file-loader?name=${configUtils.htmlFilesPath}[name].html`, 'pug-html-loader?pretty&exports=false']
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: `${configUtils.htmlFilesPath}[name].html`
+						}
+					},
+					{
+						loader: 'pug-html-loader',
+						options: {
+							pretty: false,
+							exports: false,
+							data: {
+								$data: pugData
+							}
+						}
+					}
+				]
 			}
 			]
 		},
