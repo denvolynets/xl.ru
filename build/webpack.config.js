@@ -20,6 +20,15 @@ const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 module.exports = (env) => {
 	let prod = env.NODE_ENV === 'production';
 	let outputPath = prod ? configUtils.outputPathProd : configUtils.outputPathDev;
+	let consoleStats = {
+		all: false,
+		modules: true,
+		maxModules: 0,
+		errors: true,
+		warnings: true,
+		moduleTrace: true,
+		errorDetails: true
+	};
 	return {
 		mode: prod ? 'production' : 'development',
 		devtool: prod ? 'none' : 'inline-source-map',
@@ -38,17 +47,10 @@ module.exports = (env) => {
 			contentBase: path.resolve(__dirname, '../src'),
 			overlay: true,
 			compress: true,
-			port: 9090
+			port: 9090,
+			stats: consoleStats
 		},
-		stats: {
-			all: false,
-			modules: true,
-			maxModules: 0,
-			errors: true,
-			warnings: true,
-			moduleTrace: true,
-			errorDetails: true
-		},
+		stats: consoleStats,
 		performance: {
 			hints: false
 		},

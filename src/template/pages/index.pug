@@ -12,7 +12,7 @@ block content
 			+btn('fill','submit', false, 'btn-submit')
 		.b-forms.b-component
 			h3.h3 Формы
-			.rs-form
+			form.rs-form(id="rsform")
 				+rsForm('text', '', 'ФИО')
 				+rsForm('tel', '','Телефон', 'true')
 				+rsForm('text', 'date-input','Дата', 'true')
