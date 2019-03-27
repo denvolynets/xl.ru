@@ -4,7 +4,7 @@ import '../src/assets/styles/_app.scss';
 // JS npm scripts
 import '../node_modules/jquery.nice-number/dist/jquery.nice-number';
 import '../node_modules/magnific-popup/dist/jquery.magnific-popup.min';
-import '../node_modules/jquery-nice-select/js/jquery.nice-select.min';
+// import '../node_modules/jquery-nice-select/js/jquery.nice-select.min';
 import '../node_modules/overlayscrollbars/js/jquery.overlayScrollbars.min';
 import '../node_modules/inputmask/dist/jquery.inputmask.bundle';
 
@@ -59,6 +59,11 @@ const app = {
 		setTimeout(() => {
 			$('body').addClass('show-body');
 		}, 150);
+
+		/*
+			*@ test polyfill in IE
+		*/
+		Promise.resolve(32).then(x => console.log(x));
 	}
 };
 

@@ -33,13 +33,14 @@ module.exports = (env) => {
 		devtool: prod ? 'none' : 'inline-source-map',
 		context: path.resolve(__dirname, '../src'),
 		cache: true,
-		entry: {
-			app: './app.js'
-		},
+		entry: [
+			'./vendor.js',
+			'./app.js'
+		],
 		output: {
 			path: path.resolve(__dirname, '../dist'),
 			publicPath: prod ? './' : '/',
-			filename: 'assets/js/[name].bundle.js'
+			filename: 'assets/js/app.bundle.js'
 		},
 		devServer: {
 			contentBase: path.resolve(__dirname, '../src'),
@@ -171,7 +172,7 @@ module.exports = (env) => {
 					}
 				]),
 				new ExtractTextPlugin({
-					filename: 'assets/css/[name].bundle.css',
+					filename: 'assets/css/app.bundle.css',
 					allChunks: true
 				}),
 
