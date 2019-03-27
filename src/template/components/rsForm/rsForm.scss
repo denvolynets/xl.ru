@@ -27,6 +27,7 @@
 		padding: 10px;
 		border: 1px solid $clr_border;
 		transition: all .2s;
+		color: $clr_dark_2;
 		outline: none;
 
 		&:focus {
@@ -44,6 +45,7 @@
 		width: 100%;
 		transition: all .2s;
 		outline: none;
+		color: $clr_dark_2;
 
 		&:focus {
 			border-color: $clr_main;
