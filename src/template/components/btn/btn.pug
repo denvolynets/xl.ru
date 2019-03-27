@@ -1,20 +1,19 @@
-mixin btn(size = 'md', color = 'transparent', type = 'link', agree = false)
+mixin btn(style = 'primary', type = 'link', agree = false, value = false)
     if agree
         .btn-wrapper.rsform-group
             if type == 'submit'
                 .btn-inner
-                    button(type="submit" class=`btn-${size == null ? 'md' : size} btn-${color}`).btn&attributes(attributes)
+                    button(type="submit" class=`btn-${style}`)&attributes(attributes)
                       block
                 small Нажимая кнопку «отправить» #[a(href='/') я даю согласие на обработку персональных данных]
             else
                 .btn-inner
-                    a(href="javascript:void(0)" class=`btn-${size == null ? 'md' : size} btn-${color}`).btn&attributes(attributes)
+                    a(href="javascript:void(0)" class=`btn-${style}`)&attributes(attributes)
                       block
                 small Нажимая кнопку «отправить» #[a(href='/') я даю согласие на обработку персональных данных]
     else
         if type == 'submit'
-                button(type="submit" class=`btn-${size == null ? 'md' : size} btn-${color}`).btn&attributes(attributes)
-                  block
+                input(type="submit" class=`btn btn-${style}` value=`${value}`)
         else
-                a(href="javascript:void(0)" class=`btn-${size == null ? 'md' : size} btn-${color}`).btn&attributes(attributes)
+                a(href="javascript:void(0)" class=`btn btn-${style}`)&attributes(attributes)
                   block
