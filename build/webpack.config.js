@@ -17,16 +17,6 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 
-const consoleStats = {
-	all: false,
-	modules: true,
-	maxModules: 0,
-	errors: true,
-	warnings: true,
-	moduleTrace: true,
-	errorDetails: true
-};
-
 module.exports = (env) => {
 	let prod = env.NODE_ENV === 'production';
 	let outputPath = prod ? configUtils.outputPathProd : configUtils.outputPathDev;
@@ -48,10 +38,17 @@ module.exports = (env) => {
 			contentBase: path.resolve(__dirname, '../src'),
 			overlay: true,
 			compress: true,
-			port: 9090,
-			stats: consoleStats
+			port: 9090
 		},
-		stats: consoleStats,
+		stats: {
+			all: false,
+			modules: true,
+			maxModules: 0,
+			errors: true,
+			warnings: true,
+			moduleTrace: true,
+			errorDetails: true
+		},
 		performance: {
 			hints: false
 		},
@@ -178,7 +175,7 @@ module.exports = (env) => {
 				}),
 				new FriendlyErrorsWebpackPlugin({
 					compilationSuccessInfo: {
-						messages: ['You server is running here http://localhost:9090']
+						messages: [prod ? `Build complete at folder "${configUtils.outputPathProd.replace(/\./g, '')}"` : 'You server is running here http://localhost:9090']
 					}
 				}),
 				new webpack.ProvidePlugin({
