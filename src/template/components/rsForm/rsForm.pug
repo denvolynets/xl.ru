@@ -1,4 +1,4 @@
-mixin rsForm()
+mixin rsForm(dateField=false)
 	form(action="", class=`rs-form`)
 		.rs-form__field
 			input(type="text", class='rs-form__input', placeholder="ФИО",data-validate="true")
@@ -6,6 +6,8 @@ mixin rsForm()
 			input(type="email", class='rs-form__input', placeholder="E-mail",data-validate="true")
 		.rs-form__field
 			input(type="tel", class='rs-form__input', placeholder="Телефон",data-validate="true")
+		.rs-form__field
+			input(type="text", class='rs-form__input date-input', placeholder="Дата",data-validate="true")
 		.rs-form__field
 			+selectBox(['Москва', 'Санкт-Петербург'], 'Выберите регион...')
 		.rs-form__field
