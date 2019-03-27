@@ -5,7 +5,7 @@ export default function carousel() {
 		let t = $(this);
 		let params = t.parent().data('swiper');
 		let dataParams = {
-			effect: 'fade',
+			effect: 'slide',
 			speed: 800,
 			slidesPerView: 1,
 			slidesPerGroup: 1,

@@ -1,5 +1,6 @@
-let Optimize = false;
 
+const { configUtils } = require('../webpack-config-utils.js');
+const Optimize = false;
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -11,44 +12,43 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const yargs = require('yargs');
 const argv = yargs.boolean('disable-compression-plugin').argv;
-
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 
-const consoleStats = {
-	all: false,
-	modules: true,
-	maxModules: 0,
-	errors: true,
-	warnings: true,
-	moduleTrace: true,
-	errorDetails: true
-};
-
 module.exports = (env) => {
 	let prod = env.NODE_ENV === 'production';
+	let outputPath = prod ? configUtils.outputPathProd : configUtils.outputPathDev;
 	return {
 		mode: prod ? 'production' : 'development',
 		devtool: prod ? 'none' : 'inline-source-map',
 		context: path.resolve(__dirname, '../src'),
 		cache: true,
-		entry: {
-			app: './app.js'
-		},
+		entry: [
+			'./vendor.js',
+			'./app.js'
+		],
 		output: {
-			path: path.resolve(__dirname, '../dist'),
+			path: path.resolve(__dirname, outputPath),
 			publicPath: prod ? './' : '/',
-			filename: 'assets/js/[name].bundle.js'
+			filename: `${configUtils.jsPath}/app.bundle.js`
 		},
 		devServer: {
 			contentBase: path.resolve(__dirname, '../src'),
 			overlay: true,
 			compress: true,
-			port: 9090,
-			stats: consoleStats
+			port: 9090
 		},
-		stats: consoleStats,
+		stats: {
+			all: false,
+			modules: true,
+			maxModules: 0,
+			errors: true,
+			warnings: true,
+			moduleTrace: true,
+			errorDetails: true
+		},
 		performance: {
 			hints: false
 		},
@@ -110,7 +110,7 @@ module.exports = (env) => {
 				exclude: [
 					path.resolve(__dirname, '../src/assets/images/svg/'),
 					path.resolve(__dirname, '../src/assets/fonts/'),
-					path.resolve(__dirname, '../dist/assets/svg-sptire/')
+					path.resolve(__dirname, `${outputPath}/assets/svg-sptire/`)
 				],
 				options: {
 					emitFile: false,
@@ -144,12 +144,13 @@ module.exports = (env) => {
 			},
 			{
 				test: /\.pug$/,
-				loaders: ['file-loader?name=../dist/[name].html', 'pug-html-loader?pretty&exports=false']
+				loaders: [`file-loader?name=${configUtils.htmlFilesPath}[name].html`, 'pug-html-loader?pretty&exports=false']
 			}
 			]
 		},
 		plugins: (function(argv) {
 			let pluginsComplete = [
+				new CleanWebpackPlugin(),
 				new SpriteLoaderPlugin({
 					plainSprite: true,
 					spriteAttrs: {
@@ -158,20 +159,12 @@ module.exports = (env) => {
 				}),
 				new CopyWebpackPlugin([
 					{
-						from: '../manifest.json',
-						to: 'manifest.json'
-					},
-					{
-						from: '../browserconfig.xml',
-						to: 'browserconfig.xml'
-					},
-					{
 						from: 'assets/images',
 						to: 'assets/images'
 					}
 				]),
 				new ExtractTextPlugin({
-					filename: 'assets/css/[name].bundle.css',
+					filename: `${configUtils.cssPath}/app.bundle.css`,
 					allChunks: true
 				}),
 
@@ -182,7 +175,7 @@ module.exports = (env) => {
 				}),
 				new FriendlyErrorsWebpackPlugin({
 					compilationSuccessInfo: {
-						messages: ['You server is running here http://localhost:9090']
+						messages: [prod ? `Build complete at folder "${configUtils.outputPathProd.replace(/\./g, '')}"` : 'You server is running here http://localhost:9090']
 					}
 				}),
 				new webpack.ProvidePlugin({

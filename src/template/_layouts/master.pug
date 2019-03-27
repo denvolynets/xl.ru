@@ -1,11 +1,14 @@
 include ../_mixins/list
+
 doctype html
 html(lang="ru")
 	include ../_shared/head
 	block head
 	body
-		div#main
-			block content
-			include ../components/footer/footer
-			.g-hide
-				+popups()
+		#main
+			.page-container
+				+header()
+				block content
+			+footer()
+		.g-hide
+			+popups()
