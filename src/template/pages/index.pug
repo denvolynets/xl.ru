@@ -3,22 +3,34 @@ block title
 	+title("Redsoft UI Kit")
 block content
 	.container
-		.b-typographie
-			h3 Заголовки
-				h1 Redsoft
-				h2 Redsoft
-				h3 Redsoft
-				h4 Redsoft
-				h5 Redsoft
-				h6 Redsoft
+		
 		.b-buttons.b-component
-			h3 Кнопки
-			a(href="javascript:void(0)", class="btn btn-primary") btn btn-primary
-			a(href="javascript:void(0)", class="btn btn-border") btn btn-border
-			a(href="javascript:void(0)", class="btn btn-fill") btn btn-fill
+			h3.h3 Кнопки
+			+btn() btn-primary
+			+btn('fill') btn-fill
+			+btn('border') btn-border
+			+btn('fill','submit', false, 'btn-submit')
 		.b-forms.b-component
-			h3 Формы
-			+rsForm()
+			h3.h3 Формы
+			.rs-form
+				+rsForm('text', '', 'ФИО')
+				+rsForm('tel', '','Телефон', 'true')
+				+rsForm('text', 'date-input','Дата', 'true')
+				+rsForm('password', '','Пароль', 'true')
+				+rsForm('text', '', 'Ваше сообщение...', 'true', true)
+				.rs-form__footer
+					input(type="submit", value="Отправить", class='btn btn-fill btn-submit')
+				
 		.b-carousel.b-component
-			h3 Слайдеры
+			h3.h3 Слайдеры
 			+carousel()
+		.b-typographie.b-component
+			h3.h3 Заголовки
+				h1.h1 Redsoft
+				h2.h2 Redsoft
+				h3.h3 Redsoft
+				h4.h4 Redsoft
+				h5.h5 Redsoft
+				h6.h6 Redsoft
+		.b-checkboxes.b-component
+			

@@ -1,16 +1,8 @@
-mixin rsForm(dateField=false)
-	form(action="", class=`rs-form`)
-		.rs-form__field
-			input(type="text", class='rs-form__input', placeholder="ФИО",data-validate="true")
-		.rs-form__field
-			input(type="email", class='rs-form__input', placeholder="E-mail",data-validate="true")
-		.rs-form__field
-			input(type="tel", class='rs-form__input', placeholder="Телефон",data-validate="true")
-		.rs-form__field
-			input(type="text", class='rs-form__input date-input', placeholder="Дата",data-validate="true")
-		.rs-form__field
-			+selectBox(['Москва', 'Санкт-Петербург'], 'Выберите регион...')
-		.rs-form__field
-			textarea(class='rs-form__textarea', placeholder="Ваше сообщение...", data-validate="true")
-		.rs-form__footer
-			input(type="submit", value="Отправить", class='btn btn-fill btn-submit')
+mixin rsForm(type="text", dopClass, placeholder, validate = false, textarea = false)
+	if !textarea 
+			.rs-form__field
+				input(type=`${type}`, class=`rs-form__input ${dopClass}`, placeholder=`${placeholder}`, data-validate=`${validate}`)
+	else 
+		textarea(type='textarea' class="rs-form__textarea", placeholder=`${placeholder}`)
+		
+		
