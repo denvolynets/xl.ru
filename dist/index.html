@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Home / AntTrans</title>
+    <title>Redsoft UI Kit / AntTrans</title>
     <meta charset="utf-8">
     <meta name="description" content="...">
     <meta name="keywords" content="...">
@@ -20,15 +20,98 @@
   <body>
     <div id="main">
       <div class="page-container">
-        <h1>Home</h1>
-        <nav>
-          <li><a href="/about.html">Home</a></li>
-          <li><a href="/about.html">About</a></li>
-        </nav>
+        <header class="header">
+          <div class="header__inner">
+            <div class="header__burger"></div>
+            <div class="header__logo">
+              <div class="container">
+                <h1 class="h1">Redsoft UI Kit</h1>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="container">
+          <div class="b-buttons b-component">
+            <h3 class="h3">Кнопки</h3><a class="btn btn-primary" href="javascript:void(0)">btn-primary</a><a class="btn btn-fill" href="javascript:void(0)">btn-fill</a><a class="btn btn-border" href="javascript:void(0)">btn-border</a>
+            <input class="btn btn-fill" type="submit" value="btn-submit"/>
+          </div>
+          <div class="b-forms b-component">
+            <h3 class="h3">Формы</h3>
+            <div class="rs-form">
+              <div class="rs-form__field">
+                <input class="rs-form__input " type="text" placeholder="ФИО" data-validate="false"/>
+              </div>
+              <div class="rs-form__field">
+                <input class="rs-form__input " type="tel" placeholder="Телефон" data-validate="true"/>
+              </div>
+              <div class="rs-form__field">
+                <input class="rs-form__input date-input" type="text" placeholder="Дата" data-validate="true"/>
+              </div>
+              <div class="rs-form__field">
+                <input class="rs-form__input " type="password" placeholder="Пароль" data-validate="true"/>
+              </div>
+              <textarea class="rs-form__textarea" type="textarea" placeholder="Ваше сообщение..."></textarea>
+              <div class="rs-form__footer">
+                <input class="btn btn-fill btn-submit" type="submit" value="Отправить">
+              </div>
+            </div>
+          </div>
+          <div class="b-carousel b-component">
+            <h3 class="h3">Слайдеры</h3>
+            <div class="carousel carousel-banner">
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide js-scroll-zoom" style="background-image: url(./assets/images/temp/undefined)">
+                    <div class="g-grid">
+                      <div class="carousel-inner">
+                        <h1>Title 1</h1>
+                        <p>Subtitle 1</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide js-scroll-zoom" style="background-image: url(./assets/images/temp/undefined)">
+                    <div class="g-grid">
+                      <div class="carousel-inner">
+                        <h1>Title 2</h1>
+                        <p>Subtitle 2</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide js-scroll-zoom" style="background-image: url(./assets/images/temp/undefined)">
+                    <div class="g-grid">
+                      <div class="carousel-inner">
+                        <h1>Title 3</h1>
+                        <p>Subtitle 3</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-navs g-grid">
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="b-typographie b-component">
+            <h3 class="h3">Заголовки
+              <h1 class="h1">Redsoft</h1>
+              <h2 class="h2">Redsoft</h2>
+              <h3 class="h3">Redsoft</h3>
+              <h4 class="h4">Redsoft</h4>
+              <h5 class="h5">Redsoft</h5>
+              <h6 class="h6">Redsoft</h6>
+            </h3>
+          </div>
+          <div class="b-checkboxes b-component"></div>
+        </div>
       </div>
-      <div class="g-hide">
-        <div class="g-hide__popups"></div>
-      </div>
+      <footer class="footer">
+        <div class="footer__inner"></div>
+      </footer>
+    </div>
+    <div class="g-hide">
+      <div class="g-hide__popups"></div>
     </div>
   </body>
 </html>

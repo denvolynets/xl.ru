@@ -1,2 +1,2 @@
 import 'core-js';
-import '../src/assets/libs/jquery.nice-select.min';
+import 'jquery-nice-select/js/jquery.nice-select.min';

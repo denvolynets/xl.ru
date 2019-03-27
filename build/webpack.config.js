@@ -1,5 +1,6 @@
-let Optimize = false;
 
+const { configUtils } = require('../webpack-config-utils.js');
+const Optimize = false;
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -11,7 +12,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const yargs = require('yargs');
 const argv = yargs.boolean('disable-compression-plugin').argv;
-
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
@@ -28,6 +29,7 @@ const consoleStats = {
 
 module.exports = (env) => {
 	let prod = env.NODE_ENV === 'production';
+	let outputPath = prod ? configUtils.outputPathProd : configUtils.outputPathDev;
 	return {
 		mode: prod ? 'production' : 'development',
 		devtool: prod ? 'none' : 'inline-source-map',
@@ -38,9 +40,9 @@ module.exports = (env) => {
 			'./app.js'
 		],
 		output: {
-			path: path.resolve(__dirname, '../dist'),
+			path: path.resolve(__dirname, outputPath),
 			publicPath: prod ? './' : '/',
-			filename: 'assets/js/app.bundle.js'
+			filename: `${configUtils.jsPath}/app.bundle.js`
 		},
 		devServer: {
 			contentBase: path.resolve(__dirname, '../src'),
@@ -111,7 +113,7 @@ module.exports = (env) => {
 				exclude: [
 					path.resolve(__dirname, '../src/assets/images/svg/'),
 					path.resolve(__dirname, '../src/assets/fonts/'),
-					path.resolve(__dirname, '../dist/assets/svg-sptire/')
+					path.resolve(__dirname, `${outputPath}/assets/svg-sptire/`)
 				],
 				options: {
 					emitFile: false,
@@ -145,12 +147,13 @@ module.exports = (env) => {
 			},
 			{
 				test: /\.pug$/,
-				loaders: ['file-loader?name=../dist/[name].html', 'pug-html-loader?pretty&exports=false']
+				loaders: [`file-loader?name=${configUtils.htmlFilesPath}[name].html`, 'pug-html-loader?pretty&exports=false']
 			}
 			]
 		},
 		plugins: (function(argv) {
 			let pluginsComplete = [
+				new CleanWebpackPlugin(),
 				new SpriteLoaderPlugin({
 					plainSprite: true,
 					spriteAttrs: {
@@ -159,20 +162,12 @@ module.exports = (env) => {
 				}),
 				new CopyWebpackPlugin([
 					{
-						from: '../manifest.json',
-						to: 'manifest.json'
-					},
-					{
-						from: '../browserconfig.xml',
-						to: 'browserconfig.xml'
-					},
-					{
 						from: 'assets/images',
 						to: 'assets/images'
 					}
 				]),
 				new ExtractTextPlugin({
-					filename: 'assets/css/app.bundle.css',
+					filename: `${configUtils.cssPath}/app.bundle.css`,
 					allChunks: true
 				}),
 
