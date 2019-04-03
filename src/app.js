@@ -14,6 +14,7 @@ import toggleTabs from '../src/assets/scripts/toggleTabs';
 
 // JS template components
 import carousel from './template/components/carousel/carousel';
+import formValidate from './template/components/rsForm/rsForm';
 import svg4everybody from 'svg4everybody';
 
 const app = {
@@ -52,6 +53,7 @@ const app = {
 		carousel();
 		svg4everybody();
 		toggleTabs();
+		formValidate();
 
 		if (readyFUNC.isIE()) $('body').addClass('ie');
 		if (readyFUNC.isMobile()) $('body').addClass('touch');
@@ -61,8 +63,8 @@ const app = {
 		}, 150);
 
 		/*
-			*@ test polyfill in IE
-		*/
+		 *@ test polyfill in IE
+		 */
 		Promise.resolve(32).then(x => console.log(x));
 	}
 };
