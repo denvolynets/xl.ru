@@ -19,16 +19,17 @@ block content
 			+btn('fill') btn-fill
 			+btn('border') btn-border
 			+btn('fill','submit', false, 'btn-submit')
-		.b-forms.b-component.rs-form
+		.b-forms.b-component
 			h3.h3 2. Формы
-			+rsForm('text', '', 'ФИО')
-			+rsForm('tel', '','Телефон', '{"type":"numbersCount","minL":11,"message": "В поле Телефон недостаточно символов"}')
-			+rsForm('email', '', 'E-mail', '{"type":"email","message": "Некорректный E-mail"}')
-			+rsForm('text', 'date-input','Дата', '{"type":"numbersCount","minL":10,"message": "В поле Дата недостаточно символов"}')
-			+rsForm('password', '','Пароль', '{"type":"default","message": "Поле обязательно для заполнения"}')
-			+rsForm('text', '', 'Ваше сообщение...', '{"type":"default","message": "Поле обязательно для заполнения"}', true)
-			.rs-form__footer
-				input(type="submit", value="Отправить", class='btn btn-fill btn-submit btn-validate')
+			.rs-form
+				+rsForm('text', '', 'ФИО')
+				+rsForm('tel', '','Телефон', '{"type":"numbersCount","minL":11,"message": "В поле Телефон недостаточно символов"}')
+				+rsForm('email', '', 'E-mail', '{"type":"email","message": "Некорректный E-mail"}')
+				+rsForm('text', 'date-input','Дата', '{"type":"numbersCount","minL":10,"message": "В поле Дата недостаточно символов"}')
+				+rsForm('password', '','Пароль', '{"type":"default","message": "Поле обязательно для заполнения"}')
+				+rsForm('text', '', 'Ваше сообщение...', '{"type":"default","message": "Поле обязательно для заполнения"}', true)
+				.rs-form__footer
+					input(type="submit", value="Отправить", class='btn btn-fill btn-submit btn-validate')
 
 		.b-carousel.b-component
 			h3.h3 3. Слайдеры

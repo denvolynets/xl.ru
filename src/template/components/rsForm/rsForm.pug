@@ -4,6 +4,7 @@ mixin rsForm(type="text", dopClass, placeholder, validate = false, textarea = fa
 				input(type=`${type}`, class=`rs-form__input ${dopClass}`, placeholder=`${placeholder}`, data-validate=`${validate}`)
 				span.error-label
 	else 
-		textarea(type='textarea' class="rs-form__textarea", placeholder=`${placeholder}`)
+		.rs-form__field
+			textarea(type='textarea' class="rs-form__textarea", placeholder=`${placeholder}` data-validate=`${validate}`)
 		
 		
