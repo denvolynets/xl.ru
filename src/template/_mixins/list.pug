@@ -20,6 +20,14 @@ mixin statcss(href)
 
 mixin statjs(href)
 	script(src=href)
+	
+mixin radio(text)
+	input(type="radio")&attributes(attributes)
+	label(for=attributes.id)=text
+	
+mixin checkbox(text)
+	input(type="checkbox")&attributes(attributes)
+	label(for=attributes.id)=text
 
 mixin selectBox(options, defaultText)
 	select&attributes(attributes)(data-default-text=`${defaultText ? defaultText : ''}`)
