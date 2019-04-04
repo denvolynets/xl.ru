@@ -4,12 +4,12 @@ import '../src/assets/styles/_app.scss';
 // JS npm scripts
 
 // JS assets scripts
-import imgToSvg from '../src/assets/scripts/imgToSvg';
-import toggleTabs from '../src/assets/scripts/toggleTabs';
+import imgToSvg from './assets/scripts/imgToSvg';
+import toggleTabs from './assets/scripts/toggleTabs';
+import formValidate from './assets/scripts/formValidate';
 
 // JS template components
-import carousel from './template/components/carousel/carousel';
-import formValidate from './template/components/formField/formValidate';
+import carousel from './templates/blocks/carousel/carousel';
 import svg4everybody from 'svg4everybody';
 import noUiSlider from 'nouislider';
 
@@ -86,4 +86,4 @@ function requireAll(r) {
 }
 
 requireAll(require.context('./assets/images/svg/', true, /\.svg$/));
-requireAll(require.context('./template/pages/', true, /\.pug$/));
+requireAll(require.context('./templates/pages/', true, /\.pug$/));

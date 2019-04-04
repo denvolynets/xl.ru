@@ -30,7 +30,7 @@ export default function formValidate() {
 			$(element).parent(form.field).removeClass('error').addClass('success');
 		},
 		submitHandler: function(form) {
-			console.log('form validate');
+			alert('form validate');
 		}
 	});
 

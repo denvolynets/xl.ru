@@ -5,7 +5,7 @@ $frame-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.4);
 $menu-width: 30px;
 $menu-height: 16px;
 $line-height: 2px;
-$line-color: white;
+$line-color: $clr_main;
 $line-color-hover: $clr_yell;
 $line-border-radius: 3px;
 $line-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
@@ -30,11 +30,11 @@ $line-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
 		animation-fill-mode: both;
 		animation-duration: 0.7s;
 
-		&--second {
+		&:nth-child(2) {
 			top: calc(50% - #{$line-height} / 2);
 		}
 
-		&--third {
+		&:nth-child(3) {
 			top: calc(100% - #{$line-height});
 		}
 	}
@@ -44,11 +44,11 @@ $line-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
 	.line {
 		animation-name: forward-one;
 
-		&--second {
+		&:nth-child(2) {
 			animation-name: forward-two;
 		}
 
-		&--third {
+		&:nth-child(3) {
 			animation-name: forward-three;
 		}
 	}
@@ -59,11 +59,11 @@ $line-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
 		animation-name: backward-one;
 		animation-direction: reverse;
 
-		&--second {
+		&:nth-child(2) {
 			animation-name: backward-two;
 		}
 
-		&--third {
+		&:nth-child(3) {
 			animation-name: backward-three;
 		}
 	}

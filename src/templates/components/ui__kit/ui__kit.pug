@@ -1,8 +1,9 @@
-extends ../_layouts/master.pug
-block title
-	+title("Redsoft UI Kit")
-block content
+mixin ui__kit()
 	.container
+		.menu-icon
+			.line
+			.line
+			.line
 		.b-component
 			ul
 				each item in $data.headerLink

@@ -16,7 +16,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
-const pugData = require('../src/template/pugData.js');
+const pugData = require('../src/templates/pugData.js');
 
 module.exports = (env) => {
 	let prod = env.NODE_ENV === 'production';
@@ -234,7 +234,7 @@ module.exports = (env) => {
 					new HardSourceWebpackPlugin({
 						environmentHash: {
 							root: process.cwd(),
-							directories: ['assets/template', 'assets/fonts', 'assets/libs', 'assets/styles', 'assets/images/temp', 'assets/scripts']
+							directories: ['assets/templates', 'assets/fonts', 'assets/libs', 'assets/styles', 'assets/images/temp', 'assets/scripts']
 						}
 					}),
 					new StyleLintPlugin(),

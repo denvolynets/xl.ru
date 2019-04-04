@@ -30,6 +30,11 @@
 @import '../../../node_modules/nouislider/distribute/nouislider.min.css';
 
 /*
+  PUG blocks
+*/
+@import '../../templates/blocks/**/*.scss';
+
+/*
   PUG components
 */
-@import '../../template/components/**/*.scss';
+@import '../../templates/components/**/*.scss';
