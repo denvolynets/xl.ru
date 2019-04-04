@@ -7,6 +7,7 @@ import '../node_modules/magnific-popup/dist/jquery.magnific-popup.min';
 // import '../node_modules/jquery-nice-select/js/jquery.nice-select.min';
 import '../node_modules/overlayscrollbars/js/jquery.overlayScrollbars.min';
 import '../node_modules/inputmask/dist/jquery.inputmask.bundle';
+import noUiSlider from '../node_modules/nouislider/distribute/nouislider';
 
 // JS assets scripts
 import imgToSvg from '../src/assets/scripts/imgToSvg';
@@ -48,6 +49,19 @@ const app = {
 		$('.date-input').inputmask('99.99.9999');
 		$('.js-popup').magnificPopup(readyFUNC.mfpOpt);
 		$('.scrollbar-outer').overlayScrollbars({});
+
+		var rangeSlider = document.querySelector('.range-slider');
+
+		noUiSlider.create(rangeSlider, {
+			start: [20, 80],
+			connect: true,
+			behaviour: 'tap',
+			step: 10,
+			range: {
+				'min': 0,
+				'max': 100
+			}
+		});
 
 		imgToSvg();
 		carousel();
