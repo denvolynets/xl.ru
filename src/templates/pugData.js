@@ -21,3 +21,4 @@ exports.footerLink = (max = 5) => {
 };
 
 exports.selectOptions = ['', 'Тестовое значение 1', 'Тестовое значение 2'];
+exports.slides = [{ title: 'Title 1', subtitle: 'Subtitle 1' }, { title: 'Title 2', subtitle: 'Subtitle 2' }, { title: 'Title 3', subtitle: 'Subtitle 3' }];

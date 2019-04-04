@@ -12,6 +12,7 @@
 
 		.list {
 			right: 0;
+			border: 1px solid $clr_main;
 		}
 
 		&.open,
@@ -25,14 +26,26 @@
 	}
 
 	&__field {
-		margin-bottom: 15px;
+		margin-bottom: 20px;
 		position: relative;
 		padding-bottom: 10px;
+		$fd: &;
+
+		&#{$fd}-checkbox {
+			margin-bottom: 30px;
+		}
 
 		&.error {
 			#{$f}__input,
 			.nice-select {
 				border-color: $clr_error;
+			}
+
+			&#{$fd}-checkbox {
+				label:before {
+					background-color: $clr_error;
+					border-color: $clr_error;
+				}
 			}
 		}
 

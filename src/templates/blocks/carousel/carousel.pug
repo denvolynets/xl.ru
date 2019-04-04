@@ -1,5 +1,5 @@
 mixin carousel(slides, type = 'banner')
-	- slides = slides || [{title: "Title 1", subtitle: "Subtitle 1"}, {title: "Title 2", subtitle: "Subtitle 2"},{title: "Title 3", subtitle: "Subtitle 3"}]
+	- slides = slides || $data.slides
 	.carousel(class=`carousel__${type}`)&attributes(attributes)
 		.swiper-container
 			.swiper-wrapper

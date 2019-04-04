@@ -1,6 +1,6 @@
 mixin formField(type="text", placeholder, options = [], textarea = false)
 	if (type == 'text' || type == 'tel' || type == 'password')
-		.form__field
+		.form__field.js-form__field
 			input&attributes(attributes)(
 				type=`${type}`,
 				autocomplete="off",
@@ -9,8 +9,11 @@ mixin formField(type="text", placeholder, options = [], textarea = false)
 			)
 			span.error-label
 	else if (type == 'select')
-		.form__field
+		.form__field.js-form__field
 			+selectBox(options)&attributes(attributes)(type=`${type}`)
+	else if (type == 'checkbox')
+		.form__field.js-form__field.form__field-checkbox
+			+checkbox(placeholder)&attributes(attributes)(data-msg="")
 	else
-		.form__field
+		.form__field.js-form__field
 			textarea(type='textarea' class="form__textarea", placeholder=`${placeholder}` data-validate=`${validate}`)

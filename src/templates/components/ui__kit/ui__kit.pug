@@ -16,6 +16,7 @@ mixin ui__kit()
 				+formField('password', 'Пароль')(name="password", minlength="6", password="true", required)#password
 				+formField('password', 'Повторите пароль')(name="password-confirm", password="true", equalTo="#password", required)#password-confirm
 				+formField('select', 'Выберите значение', $data.selectOptions)(name="select", required)
+				+formField('checkbox', 'Чекбокс 1')(name="checkbox", id="checkbox" required)
 				.form__footer
 					+btn('fill','submit', false, 'Отправить')
 
@@ -40,9 +41,9 @@ mixin ui__kit()
 						+checkbox("Чекбокс 2")(id="checkbox1")
 				.b-boxes__block
 					.b-boxes__input
-						+radio("Радиокнопка 1")(name="radios",  id="radio1")
+						+radio("Радиокнопка 1")(name="radios", id="radio1")
 					.b-boxes__input
-						+radio("Радиокнопка 2")(name="radios",  id="radio2")
+						+radio("Радиокнопка 2")(name="radios", id="radio2")
 		.b-range-slider.b-component
 			h3.h3 6. Range-slider
 			.range-slider

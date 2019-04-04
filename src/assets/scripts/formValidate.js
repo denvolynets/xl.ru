@@ -2,7 +2,7 @@ import './formValidateMethods';
 export default function formValidate() {
 	const form = {
 		name: '.form',
-		field: '.form__field'
+		field: '.js-form__field'
 	};
 
 	$(form.name).validate({
