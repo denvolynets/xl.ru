@@ -49,18 +49,14 @@ mixin ui__kit()
 			.b-boxes
 				.b-boxes__block
 					.b-boxes__input
-						input(type="checkbox", id="checkbox")
-						label(for="checkbox") Чекбокс 1
+						+checkbox("Чекбокс 1")(id="checkbox")
 					.b-boxes__input
-						input(type="checkbox", id="checkbox2")
-						label(for="checkbox2") Чекбокс 2
+						+checkbox("Чекбокс 2")(id="checkbox1")
 				.b-boxes__block
 					.b-boxes__input
-						input(type="radio", name="radios", id="radio1")
-						label(for="radio1") Радиокнопка 1
+						+radio("Радиокнопка 1")(name="radios",  id="radio1")
 					.b-boxes__input
-						input(type="radio", name="radios", id="radio2")
-						label(for="radio2")  Радиокнопка 2
+						+radio("Радиокнопка 2")(name="radios",  id="radio2")
 		.b-range-slider.b-component
 			h3.h3 6. Range-slider
 			.range-slider
