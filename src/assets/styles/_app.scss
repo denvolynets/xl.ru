@@ -1,4 +1,3 @@
-
 /*
   Utils
 */
@@ -7,9 +6,9 @@
 @import './utils/keyframes';
 
 /*
-  Components
+  Common
 */
-@import './components/*.scss';
+@import './common/*.scss';
 
 /*
   Layout
@@ -28,8 +27,14 @@
 @import '../../../node_modules/magnific-popup/dist/magnific-popup.css';
 @import '../../../node_modules/jquery-nice-select/scss/nice-select.scss';
 @import '../../../node_modules/overlayscrollbars/css/OverlayScrollbars.min.css';
+@import '../../../node_modules/nouislider/distribute/nouislider.min.css';
+
+/*
+  PUG blocks
+*/
+@import '../../templates/blocks/**/*.scss';
 
 /*
   PUG components
 */
-@import '../../template/components/**/*.scss';
+@import '../../templates/components/**/*.scss';

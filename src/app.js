@@ -2,19 +2,17 @@
 import '../src/assets/styles/_app.scss';
 
 // JS npm scripts
-import '../node_modules/jquery.nice-number/dist/jquery.nice-number';
-import '../node_modules/magnific-popup/dist/jquery.magnific-popup.min';
-// import '../node_modules/jquery-nice-select/js/jquery.nice-select.min';
-import '../node_modules/overlayscrollbars/js/jquery.overlayScrollbars.min';
-import '../node_modules/inputmask/dist/jquery.inputmask.bundle';
 
 // JS assets scripts
-import imgToSvg from '../src/assets/scripts/imgToSvg';
-import toggleTabs from '../src/assets/scripts/toggleTabs';
+import imgToSvg from './assets/scripts/imgToSvg';
+import toggleTabs from './assets/scripts/toggleTabs';
+import formValidate from './assets/scripts/formValidate';
 
 // JS template components
-import carousel from './template/components/carousel/carousel';
+import carousel from './templates/blocks/carousel/carousel';
+import hamburger from './templates/blocks/hamburger/hamburger';
 import svg4everybody from 'svg4everybody';
+import noUiSlider from 'nouislider';
 
 const app = {
 	load: () => {
@@ -42,16 +40,33 @@ const app = {
 		};
 
 		$('input[type="number"]').niceNumber();
-		$('select').niceSelect();
 		$('input[type="tel"]').inputmask('+7 (999) 999-99-99');
 		$('.date-input').inputmask('99.99.9999');
+		$('.email-input').inputmask('email');
+		$('.card-input').inputmask(['9{4} 9{4} 9{4} 9{4}']);
 		$('.js-popup').magnificPopup(readyFUNC.mfpOpt);
 		$('.scrollbar-outer').overlayScrollbars({});
+
+		var rangeSlider = document.querySelector('.range-slider');
+
+		noUiSlider.create(rangeSlider, {
+			start: [20, 80],
+			connect: true,
+			behaviour: 'tap',
+			step: 10,
+			range: {
+				'min': 0,
+				'max': 100
+			}
+		});
 
 		imgToSvg();
 		carousel();
 		svg4everybody();
 		toggleTabs();
+		formValidate();
+		hamburger();
+		$('select').niceSelect();
 
 		if (readyFUNC.isIE()) $('body').addClass('ie');
 		if (readyFUNC.isMobile()) $('body').addClass('touch');
@@ -61,9 +76,9 @@ const app = {
 		}, 150);
 
 		/*
-			*@ test polyfill in IE
-		*/
-		Promise.resolve(32).then(x => console.log(x));
+		 *@ test polyfill in IE
+		 */
+		// Promise.resolve(32).then(x => console.log(x));
 	}
 };
 
@@ -74,4 +89,4 @@ function requireAll(r) {
 }
 
 requireAll(require.context('./assets/images/svg/', true, /\.svg$/));
-requireAll(require.context('./template/pages/', true, /\.pug$/));
+requireAll(require.context('./templates/pages/', true, /\.pug$/));
