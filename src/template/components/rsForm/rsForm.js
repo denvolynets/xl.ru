@@ -1,6 +1,12 @@
 export default function formValidate() {
 	var btnValidate = document.querySelector('.btn-validate');
+	$('.rs-form').validate({
+		submitHandler: function(form) {
+			alert('form validate');
+		}
+	});
 
+	return;
 	btnValidate.addEventListener('click', (e) => {
 		var fieldArray = [];
 		var errors = 0;

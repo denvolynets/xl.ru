@@ -21,13 +21,15 @@ block content
 			+btn('fill','submit', false, 'btn-submit')
 		.b-forms.b-component
 			h3.h3 2. Формы
-			.rs-form
-				+rsForm('text', '', 'ФИО')
-				+rsForm('tel', '','Телефон', '{"type":"numbersCount","minL":11,"message": "В поле Телефон недостаточно символов"}')
-				+rsForm('email', '', 'E-mail', '{"type":"email","message": "Некорректный E-mail"}')
-				+rsForm('text', 'date-input','Дата', '{"type":"numbersCount","minL":10,"message": "В поле Дата недостаточно символов"}')
-				+rsForm('password', '','Пароль', '{"type":"default","message": "Поле обязательно для заполнения"}')
-				+rsForm('text', '', 'Ваше сообщение...', '{"type":"default","message": "Поле обязательно для заполнения"}', true)
+			form.rs-form
+				//- +rsForm('text', '', 'ФИО')
+				//- +rsForm('tel', '','Телефон', '{"type":"numbersCount","minL":11,"message": "В поле Телефон недостаточно символов"}')
+				//- +rsForm('email', '', 'E-mail', '{"type":"email","message": "Некорректный E-mail"}')
+				//- +rsForm('text', 'date-input','Дата', '{"type":"numbersCount","minL":10,"message": "В поле Дата недостаточно символов"}')
+				//- +rsForm('password', '','Пароль', '{"type":"default","message": "Поле обязательно для заполнения"}')
+				//- +rsForm('text', '', 'Ваше сообщение...', '{"type":"default","message": "Поле обязательно для заполнения"}', true)
+				+rsForm('email', '', 'E-mail')(name="email", required)
+				+rsForm('text', '', 'ФИО')(data-msg="Поле ФИО обязательно для заполнения", name="fio", minlength="3", required)
 				.rs-form__footer
 					input(type="submit", value="Отправить", class='btn btn-fill btn-submit btn-validate')
 

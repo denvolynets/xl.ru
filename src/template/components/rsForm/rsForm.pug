@@ -1,10 +1,13 @@
 mixin rsForm(type="text", dopClass, placeholder, validate = false, textarea = false)
 	if !textarea 
 			.rs-form__field
-				input(type=`${type}`, class=`rs-form__input ${dopClass}`, placeholder=`${placeholder}`, data-validate=`${validate}`)
+				input&attributes(attributes)(
+					type=`${type}`,
+					class=`rs-form__input ${dopClass}`,
+					placeholder=`${placeholder}`,
+					data-validate=`${validate}`
+				)
 				span.error-label
 	else 
 		.rs-form__field
 			textarea(type='textarea' class="rs-form__textarea", placeholder=`${placeholder}` data-validate=`${validate}`)
-		
-		
