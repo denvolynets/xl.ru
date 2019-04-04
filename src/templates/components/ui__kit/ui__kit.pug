@@ -13,10 +13,14 @@ mixin ui__kit()
 				+formField('tel', 'Телефон')(name="phoneRU", required)
 				+formField('text', 'Дата')(name="date", required).date-input
 				+formField('text', 'E-mail')(name="email", required).email-input
+				+formField('text', 'Банковская карта')(name="creditcard", required).card-input
 				+formField('password', 'Пароль')(name="password", minlength="6", password="true", required)#password
 				+formField('password', 'Повторите пароль')(name="password-confirm", password="true", equalTo="#password", required)#password-confirm
 				+formField('select', 'Выберите значение', $data.selectOptions)(name="select", required)
-				+formField('checkbox', 'Чекбокс 1')(name="checkbox", id="checkbox" required)
+				+formField('checkbox', 'Чекбокс 1')(name="checkbox", id="checkbox-form" required)
+				.form__radios.js-form__radios
+					+formField('radio', 'Радио-баттон 1')(name="radiost", id="radio-form-1" required)
+					+formField('radio', 'Радио-баттон 2')(name="radiost", id="radio-form-2" required)
 				.form__footer
 					+btn('fill','submit', false, 'Отправить')
 

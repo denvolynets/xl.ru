@@ -2,7 +2,8 @@ import './formValidateMethods';
 export default function formValidate() {
 	const form = {
 		name: '.form',
-		field: '.js-form__field'
+		field: '.js-form__field',
+		fieldRadio: '.js-form__radios'
 	};
 
 	$(form.name).validate({
@@ -18,16 +19,36 @@ export default function formValidate() {
 			},
 			select: {
 				valueNotEquals: true
+			},
+			radio: {
+				required: true
+			},
+			creditcard: {
+				required: true,
+				vmcardsonly: true
+			}
+		},
+		message: {
+			radio: {
+				required: 'Выберите одно из значений'
 			}
 		},
 		errorPlacement: function(error, element) {
-			error.appendTo($(element).parent(form.field));
+			if ($(element).attr('type') == 'radio') {
+				error.appendTo($(element).parents(form.fieldRadio));
+			} else {
+				error.appendTo($(element).parent(form.field));
+			}
 		},
 		highlight: function(element) {
-			$(element).parent(form.field).removeClass('success').addClass('error');
+			let radio = $(element).attr('type') == 'radio';
+			let parent = radio ? form.fieldRadio : form.field;
+			$(element).parents(parent).removeClass('success').addClass('error');
 		},
 		unhighlight: function(element) {
-			$(element).parent(form.field).removeClass('error').addClass('success');
+			let radio = $(element).attr('type') == 'radio';
+			let parent = radio ? form.fieldRadio : form.field;
+			$(element).parents(parent).removeClass('error').addClass('success');
 		},
 		submitHandler: function(form) {
 			alert('form validate');

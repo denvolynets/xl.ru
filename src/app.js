@@ -43,6 +43,7 @@ const app = {
 		$('input[type="tel"]').inputmask('+7 (999) 999-99-99');
 		$('.date-input').inputmask('99.99.9999');
 		$('.email-input').inputmask('email');
+		$('.card-input').inputmask(['9{4} 9{4} 9{4} 9{4}']);
 		$('.js-popup').magnificPopup(readyFUNC.mfpOpt);
 		$('.scrollbar-outer').overlayScrollbars({});
 

@@ -24,6 +24,17 @@
 	&__footer {
 		margin-top: 10px;
 	}
+	
+	&__radios {
+		&.error {
+			#{$f}__field {
+				label:before {
+					background-color: $clr_error;
+					border-color: $clr_error;
+				}
+			}
+		}
+	}
 
 	&__field {
 		margin-bottom: 20px;

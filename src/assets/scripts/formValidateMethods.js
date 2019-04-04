@@ -15,3 +15,12 @@ $.validator.addMethod('emailValid', function(emailVal, element) {
 $.validator.addMethod('valueNotEquals', function(value, element, arg) {
 	return arg !== value;
 }, 'Выбрано пустое значение');
+
+$.validator.addMethod('vmcardsonly', function(value, element, param) {
+	value = value.replace(/\D/g, '');
+	if (value.charAt(0) == 4 || value.charAt(0) == 5) {
+		return value.length == 16;
+	} else {
+		return false;
+	}
+}, 'Введите правильный номер банковской карты.');
