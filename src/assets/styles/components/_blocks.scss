@@ -2,6 +2,11 @@
 	max-width: 100%;
 }
 
+.range-slider {
+	.noUi-connect {
+		background: $clr_main;
+	}
+}
 
 .b-component {
 	margin-bottom: 50px;
@@ -9,10 +14,22 @@
 	padding-bottom: 50px;
 }
 
+.b-boxes {
+	display: flex;
+
+	&__block {
+		flex-basis: 50%;
+	}
+
+	&__input {
+		margin-bottom: 5px;
+	}
+}
+
 .redsoft {
-	color: $clr_primary;
 	text-decoration: none;
 	display: inline-block;
+	color: $clr_main;
 
 	&__inner {
 		display: flex;
@@ -20,16 +37,15 @@
 
 		&:hover {
 			path {
-				fill: $clr_main;
+				fill: $clr_primary;
 			}
 
 			.redsoft__caption {
-				color: $clr_main;
+				color: $clr_primary;
+
 			}
 		}
 	}
-
-
 
 	&__caption {
 		padding-left: 20px;
@@ -41,7 +57,7 @@
 		height: 50px;
 
 		path {
-			fill: $clr_primary;
+			fill: $clr_main;
 			transition: all .2s;
 		}
 	}

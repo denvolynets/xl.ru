@@ -11,6 +11,7 @@ import toggleTabs from '../src/assets/scripts/toggleTabs';
 import carousel from './template/components/carousel/carousel';
 import formValidate from './template/components/formField/formValidate';
 import svg4everybody from 'svg4everybody';
+import noUiSlider from 'nouislider';
 
 const app = {
 	load: () => {
@@ -43,6 +44,19 @@ const app = {
 		$('.email-input').inputmask('email');
 		$('.js-popup').magnificPopup(readyFUNC.mfpOpt);
 		$('.scrollbar-outer').overlayScrollbars({});
+
+		var rangeSlider = document.querySelector('.range-slider');
+
+		noUiSlider.create(rangeSlider, {
+			start: [20, 80],
+			connect: true,
+			behaviour: 'tap',
+			step: 10,
+			range: {
+				'min': 0,
+				'max': 100
+			}
+		});
 
 		imgToSvg();
 		carousel();
