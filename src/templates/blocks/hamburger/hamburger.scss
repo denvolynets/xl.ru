@@ -1,16 +1,12 @@
-$frame-size: 200px;
-$frame-color: $clr_yell;
-$frame-border-radius: 5px;
-$frame-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.4);
-$menu-width: 30px;
-$menu-height: 16px;
-$line-height: 2px;
-$line-color: white;
+$menu-width: 70px;
+$menu-height: #{$menu-width / 1.4};
+$line-height: #{$menu-width * 0.1};
+$line-color: $clr_main;
 $line-color-hover: $clr_yell;
 $line-border-radius: 3px;
 $line-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
 
-.menu-icon {
+.hamburger {
 	position: relative;
 	width: $menu-width;
 	height: $menu-height;
@@ -30,41 +26,41 @@ $line-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
 		animation-fill-mode: both;
 		animation-duration: 0.7s;
 
-		&--second {
+		&:nth-child(2) {
 			top: calc(50% - #{$line-height} / 2);
 		}
 
-		&--third {
+		&:nth-child(3) {
 			top: calc(100% - #{$line-height});
 		}
 	}
-}
 
-.menu-icon.forward {
-	.line {
-		animation-name: forward-one;
+	&.forward {
+		.line {
+			animation-name: forward-one;
 
-		&--second {
-			animation-name: forward-two;
-		}
+			&:nth-child(2) {
+				animation-name: forward-two;
+			}
 
-		&--third {
-			animation-name: forward-three;
+			&:nth-child(3) {
+				animation-name: forward-three;
+			}
 		}
 	}
-}
 
-.menu-icon.backward {
-	.line {
-		animation-name: backward-one;
-		animation-direction: reverse;
+	&.backward {
+		.line {
+			animation-name: backward-one;
+			animation-direction: reverse;
 
-		&--second {
-			animation-name: backward-two;
-		}
+			&:nth-child(2) {
+				animation-name: backward-two;
+			}
 
-		&--third {
-			animation-name: backward-three;
+			&:nth-child(3) {
+				animation-name: backward-three;
+			}
 		}
 	}
 }

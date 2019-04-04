@@ -14,7 +14,6 @@ input[type="password"] {
 	width: 100%;
 	transition: border-color .2s;
 	outline: none;
-	border-radius: $br_r;
 
 	&::placeholder {
 		color: $clr_dark_2;
@@ -75,9 +74,9 @@ input[type="checkbox"] {
 			left: 0;
 			width: 22px;
 			height: 22px;
-			border: 1px solid #cdd1da;
+			border: 1px solid #CDD1DA;
 			border-radius: 50%;
-			background: #fff;
+			background: #FFF;
 		}
 
 		&:after {
@@ -97,7 +96,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"] {
-	& + label {
+	&+label {
+
 		&:before,
 		&:after {
 			border-radius: 0;

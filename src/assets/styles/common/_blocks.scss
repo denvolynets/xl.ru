@@ -1,0 +1,27 @@
+.b-forms {
+	max-width: 100%;
+}
+
+.range-slider {
+	.noUi-connect {
+		background: $clr_main;
+	}
+}
+
+.b-component {
+	margin-bottom: 50px;
+	border-bottom: 1px solid #e12b2b;
+	padding-bottom: 50px;
+}
+
+.b-boxes {
+	display: flex;
+
+	&__block {
+		flex-basis: 50%;
+	}
+
+	&__input {
+		margin-bottom: 5px;
+	}
+}

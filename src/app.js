@@ -10,6 +10,7 @@ import formValidate from './assets/scripts/formValidate';
 
 // JS template components
 import carousel from './templates/blocks/carousel/carousel';
+import hamburger from './templates/blocks/hamburger/hamburger';
 import svg4everybody from 'svg4everybody';
 import noUiSlider from 'nouislider';
 
@@ -63,6 +64,7 @@ const app = {
 		svg4everybody();
 		toggleTabs();
 		formValidate();
+		hamburger();
 		$('select').niceSelect();
 
 		if (readyFUNC.isIE()) $('body').addClass('ie');

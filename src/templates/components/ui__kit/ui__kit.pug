@@ -1,19 +1,5 @@
 mixin ui__kit()
 	.container
-		.menu-icon
-			.line
-			.line
-			.line
-		.b-component
-			ul
-				each item in $data.headerLink
-					li
-						a(href=item.link)=item.name
-		.b-component
-			ul
-				each item in $data.footerLink(10)
-					li
-						a(href=item.link)=item.name
 		.b-buttons.b-component
 			h3.h3 1. Кнопки
 			+btn() btn-primary
@@ -60,3 +46,6 @@ mixin ui__kit()
 		.b-range-slider.b-component
 			h3.h3 6. Range-slider
 			.range-slider
+		.b-component
+			h3.h3 7. Hamburger
+			+hamburger
