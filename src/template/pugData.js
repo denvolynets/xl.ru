@@ -19,3 +19,5 @@ exports.footerLink = (max = 5) => {
 	}
 	return arr;
 };
+
+exports.selectOptions = ['', 'Тестовое значение 1', 'Тестовое значение 2'];

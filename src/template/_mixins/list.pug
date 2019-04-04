@@ -6,7 +6,7 @@ include ../components/breadcrumb/breadcrumb
 include ../components/btn/btn
 include ../components/carousel/carousel
 include ../components/popups/popups
-include ../components/rsForm/rsForm
+include ../components/formField/formField
 
 
 mixin title(...titleParts)
@@ -22,6 +22,9 @@ mixin statjs(href)
 	script(src=href)
 
 mixin selectBox(options, defaultText)
-	select(data-default-text=`${defaultText ? defaultText : ''}`)
+	select&attributes(attributes)(data-default-text=`${defaultText ? defaultText : ''}`)
 		each option in options
-			option=option
+			if (option == '')
+				option(value="", data-display="Выберите значение") Выберите значение
+			else
+				option(value=option)=option

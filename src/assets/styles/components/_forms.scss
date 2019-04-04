@@ -14,7 +14,7 @@ input[type="password"] {
 	width: 100%;
 	transition: border-color .2s;
 	outline: none;
-
+	border-radius: $br_r;
 
 	&::placeholder {
 		color: $clr_dark_2;

@@ -1,12 +1,41 @@
+import './formValidateMethods';
 export default function formValidate() {
-	var btnValidate = document.querySelector('.btn-validate');
-	$('.rs-form').validate({
+	const form = {
+		name: '.form',
+		field: '.form__field'
+	};
+
+	$(form.name).validate({
+		rules: {
+			phoneRU: {
+				phoneValid: true
+			},
+			date: {
+				dateValid: true
+			},
+			email: {
+				emailValid: true
+			},
+			select: {
+				valueNotEquals: true
+			}
+		},
+		errorPlacement: function(error, element) {
+			error.appendTo($(element).parent(form.field));
+		},
+		highlight: function(element) {
+			$(element).parent(form.field).removeClass('success').addClass('error');
+		},
+		unhighlight: function(element) {
+			$(element).parent(form.field).removeClass('error').addClass('success');
+		},
 		submitHandler: function(form) {
-			alert('form validate');
+			console.log('form validate');
 		}
 	});
 
 	return;
+	var btnValidate = document.querySelector('.btn-validate');
 	btnValidate.addEventListener('click', (e) => {
 		var fieldArray = [];
 		var errors = 0;

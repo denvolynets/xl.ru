@@ -1,0 +1,16 @@
+mixin formField(type="text", placeholder, options = [], textarea = false)
+	if (type == 'text' || type == 'tel' || type == 'password')
+		.form__field
+			input&attributes(attributes)(
+				type=`${type}`,
+				autocomplete="off",
+				class=`form__input`,
+				placeholder=`${placeholder}`
+			)
+			span.error-label
+	else if (type == 'select')
+		.form__field
+			+selectBox(options)&attributes(attributes)(type=`${type}`)
+	else
+		.form__field
+			textarea(type='textarea' class="form__textarea", placeholder=`${placeholder}` data-validate=`${validate}`)

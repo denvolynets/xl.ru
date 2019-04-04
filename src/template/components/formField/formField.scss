@@ -1,0 +1,67 @@
+.form {
+	max-width: 500px;
+	$f: &;
+
+	.nice-select {
+		float: none;
+		font-size: 16px;
+
+		&:hover {
+			border-color: $clr_main;
+		}
+
+		.list {
+			right: 0;
+		}
+
+		&.open,
+		&.focus {
+			border-color: $clr_main;
+		}
+	}
+
+	&__footer {
+		margin-top: 10px;
+	}
+
+	&__field {
+		margin-bottom: 15px;
+		position: relative;
+		padding-bottom: 10px;
+
+		&.error {
+			#{$f}__input,
+			.nice-select {
+				border-color: $clr_error;
+			}
+		}
+
+		&.success {
+			#{$f}__input,
+			.nice-select {
+				border-color: $clr_highlight;
+			}
+		}
+
+		label.error {
+			color: $clr_error;
+			position: absolute;
+			bottom: -10px;
+			left: 0;
+			font-size: 14px;
+		}
+
+		select {
+			display: block !important;
+			position: absolute;
+			visibility: hidden;
+			pointer-events: none;
+			user-select: none;
+			z-index: -100;
+		}
+	}
+
+	&__input {
+		position: relative;
+	}
+}

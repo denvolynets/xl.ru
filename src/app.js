@@ -2,11 +2,6 @@
 import '../src/assets/styles/_app.scss';
 
 // JS npm scripts
-import '../node_modules/jquery.nice-number/dist/jquery.nice-number';
-import '../node_modules/magnific-popup/dist/jquery.magnific-popup.min';
-// import '../node_modules/jquery-nice-select/js/jquery.nice-select.min';
-import '../node_modules/overlayscrollbars/js/jquery.overlayScrollbars.min';
-import '../node_modules/inputmask/dist/jquery.inputmask.bundle';
 
 // JS assets scripts
 import imgToSvg from '../src/assets/scripts/imgToSvg';
@@ -14,7 +9,7 @@ import toggleTabs from '../src/assets/scripts/toggleTabs';
 
 // JS template components
 import carousel from './template/components/carousel/carousel';
-import formValidate from './template/components/rsForm/rsForm';
+import formValidate from './template/components/formField/formValidate';
 import svg4everybody from 'svg4everybody';
 
 const app = {
@@ -43,9 +38,9 @@ const app = {
 		};
 
 		$('input[type="number"]').niceNumber();
-		$('select').niceSelect();
 		$('input[type="tel"]').inputmask('+7 (999) 999-99-99');
 		$('.date-input').inputmask('99.99.9999');
+		$('.email-input').inputmask('email');
 		$('.js-popup').magnificPopup(readyFUNC.mfpOpt);
 		$('.scrollbar-outer').overlayScrollbars({});
 
@@ -54,6 +49,7 @@ const app = {
 		svg4everybody();
 		toggleTabs();
 		formValidate();
+		$('select').niceSelect();
 
 		if (readyFUNC.isIE()) $('body').addClass('ie');
 		if (readyFUNC.isMobile()) $('body').addClass('touch');
@@ -65,7 +61,7 @@ const app = {
 		/*
 		 *@ test polyfill in IE
 		 */
-		Promise.resolve(32).then(x => console.log(x));
+		// Promise.resolve(32).then(x => console.log(x));
 	}
 };
 
