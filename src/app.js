@@ -19,7 +19,7 @@ const app = {
 		app.bindEvents();
 	},
 	bindEvents: () => {
-		let readyFUNC = {
+		let initData = {
 			mfpOpt: {
 				type: 'inline',
 				fixedContentPos: false,
@@ -31,54 +31,59 @@ const app = {
 				removalDelay: 300,
 				mainClass: 'my-mfp-slide-bottom'
 			},
-			isMobile: () => {
+			masks: {
+				tel: '+7 (999) 999-99-99',
+				date: '99.99.9999',
+				email: 'email',
+				card: ['9{4} 9{4} 9{4} 9{4}', { placeholder: '∗' }]
+			},
+			isMobile: function() {
 				return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 			},
-			isIE: () => {
+			isIE: function() {
 				return navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1;
+			},
+			initMasks: function() {
+				Object.keys(this.masks).map((maskName, index) => {
+					let maskPlaceholder = this.masks[maskName];
+
+					if (typeof maskPlaceholder == 'object') {
+						$(`input.${maskName}-input`).inputmask(...maskPlaceholder);
+					} else {
+						$(`input.${maskName}-input`).inputmask(maskPlaceholder);
+					}
+				});
+			},
+			initLibs: function() {
+				$('select').niceSelect();
+				$('input[type="number"]').niceNumber();
+				$('.js-popup').magnificPopup(this.mfpOpt);
+				$('.js-popup-close').click(function() { $.magnificPopup.close(); });
+				$('.scrollbar-outer').overlayScrollbars({});
+				this.initMasks();
+				noUiSlider.create(document.querySelector('.range-slider'), {
+					start: [20, 80],
+					connect: true,
+					behaviour: 'tap',
+					step: 10,
+					range: {
+						'min': 0,
+						'max': 100
+					}
+				});
 			}
 		};
 
-		$('input[type="number"]').niceNumber();
-		$('input[type="tel"]').inputmask('+7 (999) 999-99-99');
-		$('.date-input').inputmask('99.99.9999');
-		$('.email-input').inputmask('email');
-		$('.card-input').inputmask(['9{4} 9{4} 9{4} 9{4}']);
-		$('.js-popup').magnificPopup(readyFUNC.mfpOpt);
-		$('.scrollbar-outer').overlayScrollbars({});
-
-		var rangeSlider = document.querySelector('.range-slider');
-
-		noUiSlider.create(rangeSlider, {
-			start: [20, 80],
-			connect: true,
-			behaviour: 'tap',
-			step: 10,
-			range: {
-				'min': 0,
-				'max': 100
-			}
-		});
-
+		initData.initLibs();
 		imgToSvg();
 		carousel();
 		svg4everybody();
 		toggleTabs();
 		formValidate();
 		hamburger();
-		$('select').niceSelect();
 
-		if (readyFUNC.isIE()) $('body').addClass('ie');
-		if (readyFUNC.isMobile()) $('body').addClass('touch');
-
-		setTimeout(() => {
-			$('body').addClass('show-body');
-		}, 150);
-
-		/*
-		 *@ test polyfill in IE
-		 */
-		// Promise.resolve(32).then(x => console.log(x));
+		if (initData.isIE()) $('body').addClass('ie');
+		if (initData.isMobile()) $('body').addClass('touch');
 	}
 };
 

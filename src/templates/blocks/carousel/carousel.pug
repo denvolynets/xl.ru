@@ -5,7 +5,7 @@ mixin carousel(slides, type = 'banner')
 			.swiper-wrapper
 				each slide in slides
 					if (type == 'banner')
-						.swiper-slide.js-scroll-zoom(style=`background-image: url(./assets/images/temp/${slide.img})`)
+						.swiper-slide.js-scroll-zoom(style=`${slide.img ? `background-image: url(./assets/images/temp/${slide.img}`: ``}`)
 							.g-grid
 								.carousel__inner
 									h1=slide.title
