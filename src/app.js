@@ -58,6 +58,7 @@ const app = {
 				$('select').niceSelect();
 				$('input[type="number"]').niceNumber();
 				$('.js-popup').magnificPopup(this.mfpOpt);
+				$('.js-popup-close').click(function() { $.magnificPopup.close(); });
 				$('.scrollbar-outer').overlayScrollbars({});
 				this.initMasks();
 				noUiSlider.create(document.querySelector('.range-slider'), {

@@ -1,14 +1,14 @@
 mixin ui__kit()
 	.container
 		.b-buttons.b-component
-			h3.h3 1. Кнопки
-			+btn() btn-primary
+			h3.h3 1. Buttons
+			+btn btn-primary
 			+btn('fill') btn-fill
 			+btn('border') btn-border
 			+btn('fill','submit', false, 'btn-submit')
 			+btn('disabled') btn-disabled
 		.b-forms.b-component
-			h3.h3 2. Формы
+			h3.h3 2. Form
 			form.form
 				+formField('text', 'ФИО')(
 					data-msg="Поле ФИО обязательно для заполнения",
@@ -39,18 +39,18 @@ mixin ui__kit()
 					data-msg="Выберите один из вариантов"
 					required
 				)
-				+formField('checkbox', 'Чекбокс 1')(name="checkbox", id="checkbox-form" required)
+				+formField('checkbox', 'Чекбокс 1')(name="checkbox", id="checkbox-form", required)
 				.form__radios.js-form__radios
-					+formField('radio', 'Радио-баттон 1')(name="radiost", id="radio-form-1" required)
-					+formField('radio', 'Радио-баттон 2')(name="radiost", id="radio-form-2" required)
+					+formField('radio', 'Радио-баттон 1')(name="radiost", id="radio-form-1", required)
+					+formField('radio', 'Радио-баттон 2')(name="radiost", id="radio-form-2", required)
 				.form__footer
 					+btn('fill','submit', false, 'Отправить')
 
 		.b-carousel.b-component
-			h3.h3 3. Слайдеры
+			h3.h3 3. Carousel
 			+carousel()
 		.b-typographie.b-component
-			h3.h3 4. Заголовки
+			h3.h3 4. Titles
 				h1.h1 Redsoft h1
 				h2.h2 Redsoft h2
 				h3.h3 Redsoft h3
@@ -76,3 +76,6 @@ mixin ui__kit()
 		.b-component
 			h3.h3 7. Hamburger
 			+hamburger
+		.b-component
+			h3.h3 8. Popups
+			+btn-popup('fill', '#contact') Open popup
