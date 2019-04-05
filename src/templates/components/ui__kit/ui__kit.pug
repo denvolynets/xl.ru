@@ -16,7 +16,7 @@ mixin ui__kit()
 					minlength="3",
 					required
 				)
-				+formField('tel', 'Телефон')(name="phoneRU" required)
+				+formField('tel', 'Телефон')(name="phoneRU" required).tel-input
 				+formField('text', 'Дата')(name="date", required).date-input
 				+formField('text', 'E-mail')(name="email", required).email-input
 				+formField('text', 'Банковская карта')(name="creditcard", required).card-input

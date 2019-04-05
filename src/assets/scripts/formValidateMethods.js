@@ -48,11 +48,10 @@ const vData = {
 	validResultClasses: function(element, type, formClasses) {
 		let radio = $(element).attr('type') == 'radio';
 		let parent = radio ? formClasses.fieldRadio : formClasses.field;
-
 		if ($(element).is('[required]')) {
 			type == 'highlight'
 				? $(element).parents(parent).removeClass('success').addClass('error')
-				: $(element).parents(parent).removeClass('success').removeClass('error');
+				: $(element).parents(parent).removeClass('error').addClass('success');
 		}
 	},
 	checkFormOnInit: function() {
