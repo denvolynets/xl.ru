@@ -75,9 +75,9 @@ input[type="checkbox"] {
 			left: 0;
 			width: 22px;
 			height: 22px;
-			border: 1px solid #CDD1DA;
+			border: 1px solid #cdd1da;
 			border-radius: 50%;
-			background: #FFF;
+			background: #fff;
 			transition: all $trans;
 		}
 
@@ -98,8 +98,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"] {
-	&+label {
-
+	& + label {
 		&:before,
 		&:after {
 			border-radius: 0;
