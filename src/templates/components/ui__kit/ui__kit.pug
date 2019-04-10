@@ -2,6 +2,7 @@ mixin ui__kit()
 	.container
 		.b-buttons.b-component
 			h3.h3 1. Buttons
+				.anchor#b-buttons
 			+btn btn-primary
 			+btn('fill') btn-fill
 			+btn('border') btn-border
@@ -9,6 +10,7 @@ mixin ui__kit()
 			+btn('disabled') btn-disabled
 		.b-forms.b-component
 			h3.h3 2. Form
+				.anchor#b-forms
 			form.form
 				+formField('text', 'ФИО')(
 					data-msg="Поле ФИО обязательно для заполнения",
@@ -48,9 +50,11 @@ mixin ui__kit()
 
 		.b-carousel.b-component
 			h3.h3 3. Carousel
+				.anchor#b-carousel
 			+carousel()
 		.b-typographie.b-component
 			h3.h3 4. Titles
+				.anchor#b-typographie
 				h1.h1 Redsoft h1
 				h2.h2 Redsoft h2
 				h3.h3 Redsoft h3
@@ -59,6 +63,7 @@ mixin ui__kit()
 				h6.h6 Redsoft h6
 		.b-component
 			h3.h3 5. Checkbox, Radio-input
+				.anchor#b-checkboxes
 			.b-boxes
 				.b-boxes__block
 					.b-boxes__input
@@ -72,10 +77,13 @@ mixin ui__kit()
 						+radio("Радиокнопка 2")(name="radios", id="radio2")
 		.b-range-slider.b-component
 			h3.h3 6. Range-slider
+				.anchor#b-range-slider
 			.range-slider
 		.b-component
 			h3.h3 7. Hamburger
+				.anchor#hamburger
 			+hamburger
 		.b-component
 			h3.h3 8. Popups
+				.anchor#popups
 			+btn-popup('fill', '#contact') Open popup
