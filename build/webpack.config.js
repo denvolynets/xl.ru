@@ -56,120 +56,131 @@ module.exports = (env) => {
 			hints: false
 		},
 		module: {
-			rules: [{
-				test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
-				use: [{
-					loader: 'babel-loader',
-					options: {
-						cacheDirectory: true,
-						presets: ['es2015']
-					}
-				}]
-			},
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: [{
-					loader: 'eslint-loader'
-				}]
-			},
-			{
-				test: /\.css$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: 'css-loader'
-				})
-			},
-			{
-				test: /\.(sass|scss)$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: [{
-						loader: 'css-loader',
-						query: {
-							importLoaders: 1,
-							sourceMap: !prod
-						}
-					},
-					'sass-loader?sourceMap'
-					]
-				})
-			},
-			{
-				test: /\.svg$/,
-				include: [
-					path.resolve(__dirname, '../src/assets/images/svg/')
-				],
-				loader: 'svg-sprite-loader',
-				options: {
-					extract: true,
-					spriteFilename: 'assets/images/svg-sprite/sprite.svg'
-				}
-			},
-			{
-				test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
-				loader: 'url-loader',
-				exclude: [
-					path.resolve(__dirname, '../src/assets/images/svg/'),
-					path.resolve(__dirname, '../src/assets/fonts/'),
-					path.resolve(__dirname, `${outputPath}/assets/svg-sptire/`)
-				],
-				options: {
-					emitFile: false,
-					limit: 3000,
-					name: '../../[path][name].[ext]'
-				}
-			},
-			{
-				test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
-				include: [
-					path.resolve(__dirname, '../src/assets/fonts/')
-				],
-				loader: 'url-loader',
-				options: {
-					limit: 5000,
-					publicPath: prod ? '../../' : '/',
-					name: prod ? '[path][name].[ext]' : '../[path][name].[ext]'
-				}
-			},
-			{
-				test: /\.(mp4)(\?.*)?$/,
-				loader: 'url-loader',
-				options: {
-					limit: 10000,
-					name: 'assets/videos/[name].[hash:7].[ext]'
-				}
-			},
-			{
-				test: /\.(sass|scss)$/,
-				loader: 'import-glob-loader'
-			},
-			{
-				test: /\.pug$/,
-				use: [
+			rules: (function(argv) {
+				let rules = [
 					{
-						loader: 'file-loader',
-						options: {
-							name: `${configUtils.htmlFilesPath}[name].html`
-						}
-					},
-					{
-						loader: 'pug-html-loader',
-						options: {
-							pretty: false,
-							exports: false,
-							data: {
-								$data: pugData
+						test: /\.(js|jsx)$/,
+						exclude: /node_modules/,
+						use: [{
+							loader: 'babel-loader',
+							options: {
+								cacheDirectory: true,
+								presets: ['es2015']
 							}
+						}]
+					},
+					{
+						test: /\.css$/,
+						use: ExtractTextPlugin.extract({
+							fallback: 'style-loader',
+							use: 'css-loader'
+						})
+					},
+					{
+						test: /\.(sass|scss)$/,
+						use: ExtractTextPlugin.extract({
+							fallback: 'style-loader',
+							use: [{
+								loader: 'css-loader',
+								query: {
+									importLoaders: 1,
+									sourceMap: !prod
+								}
+							},
+							'sass-loader?sourceMap'
+							]
+						})
+					},
+					{
+						test: /\.svg$/,
+						include: [
+							path.resolve(__dirname, '../src/assets/images/svg/')
+						],
+						loader: 'svg-sprite-loader',
+						options: {
+							extract: true,
+							spriteFilename: 'assets/images/svg-sprite/sprite.svg'
 						}
+					},
+					{
+						test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
+						loader: 'url-loader',
+						exclude: [
+							path.resolve(__dirname, '../src/assets/images/svg/'),
+							path.resolve(__dirname, '../src/assets/fonts/'),
+							path.resolve(__dirname, `${outputPath}/assets/svg-sptire/`)
+						],
+						options: {
+							emitFile: false,
+							limit: 3000,
+							name: '../../[path][name].[ext]'
+						}
+					},
+					{
+						test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+						include: [
+							path.resolve(__dirname, '../src/assets/fonts/')
+						],
+						loader: 'url-loader',
+						options: {
+							limit: 5000,
+							publicPath: prod ? '../../' : '/',
+							name: prod ? '[path][name].[ext]' : '../[path][name].[ext]'
+						}
+					},
+					{
+						test: /\.(mp4)(\?.*)?$/,
+						loader: 'url-loader',
+						options: {
+							limit: 10000,
+							name: 'assets/videos/[name].[hash:7].[ext]'
+						}
+					},
+					{
+						test: /\.(sass|scss)$/,
+						loader: 'import-glob-loader'
+					},
+					{
+						test: /\.pug$/,
+						use: [
+							{
+								loader: 'file-loader',
+								options: {
+									name: `${configUtils.htmlFilesPath}[name].html`
+								}
+							},
+							{
+								loader: 'pug-html-loader',
+								options: {
+									pretty: false,
+									exports: false,
+									data: {
+										$data: pugData
+									}
+								}
+							}
+						]
 					}
-				]
-			}
-			]
+				];
+
+				if (configUtils.esLint) {
+					rules.push(
+						{
+							test: /\.js$/,
+							exclude: /node_modules/,
+							use: [
+								{
+									loader: 'eslint-loader'
+								}
+							]
+						}
+					);
+				}
+				return rules;
+			})(argv)
 		},
 		plugins: (function(argv) {
-			let pluginsComplete = [
+			let plugins = [
 				new CleanWebpackPlugin(),
 				new SpriteLoaderPlugin({
 					plainSprite: true,
@@ -208,7 +219,7 @@ module.exports = (env) => {
 			];
 
 			if (argv.env.NODE_ENV === 'production') {
-				pluginsComplete.push(
+				plugins.push(
 					new OptimizeCssAssetsPlugin({
 						cssProcessor: require('cssnano'),
 						cssProcessorPluginOptions: {
@@ -229,15 +240,18 @@ module.exports = (env) => {
 				);
 			}
 
+			if (configUtils.styleLint) {
+				plugins.push(new StyleLintPlugin());
+			}
+
 			if (Optimize) { //! работает не всегда хорошо, нужно тестировать
-				pluginsComplete.push(
+				plugins.push(
 					new HardSourceWebpackPlugin({
 						environmentHash: {
 							root: process.cwd(),
-							directories: ['assets/templates', 'assets/fonts', 'assets/libs', 'assets/styles', 'assets/images/temp', 'assets/scripts']
+							directories: ['assets/templates', 'assets/fonts', 'assets/libs', 'assets/styles', 'assets/images', 'assets/scripts']
 						}
 					}),
-					new StyleLintPlugin(),
 					new ParallelUglifyPlugin({
 						cacheDir: path.join('node_modules', '.cache', 'parallel-uglify'),
 						sourceMap: !prod,
@@ -246,7 +260,7 @@ module.exports = (env) => {
 					})
 				);
 			}
-			return pluginsComplete;
+			return plugins;
 		})(argv)
 	};
 };

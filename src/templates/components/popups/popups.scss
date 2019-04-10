@@ -1,3 +1,20 @@
 .popup {
-	display: block;
+	display: flex;
+	flex-direction: column;
+	max-width: 500px;
+	width: 100%;
+	background-color: $clr_wh;
+	color: $clr_dark_2;
+	margin: auto;
+	padding: 40px 20px;
+
+	&__container {
+		display: none;
+	}
+
+	&__header {
+		font-size: 25px;
+		text-align: center;
+		text-transform: uppercase;
+	}
 }

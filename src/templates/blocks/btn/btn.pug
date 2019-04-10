@@ -1,4 +1,4 @@
-mixin btn(style = 'primary', type = 'link', agree = false, value = false)
+mixin btn(style = 'primary', type = 'link', agree = false)
     if agree
         .btn-wrapper.rsform-group
             if type == 'submit'
@@ -13,7 +13,11 @@ mixin btn(style = 'primary', type = 'link', agree = false, value = false)
                 small Нажимая кнопку «отправить» #[a(href='/') я даю согласие на обработку персональных данных]
     else
         if type == 'submit'
-                input(type="submit" class=`btn btn-${style}` value=`${value}`)
+                input(type="submit" class=`btn btn-${style}`)&attributes(attributes)
         else
                 a(href="javascript:void(0)" class=`btn btn-${style}`)&attributes(attributes)
                   block
+
+mixin btn-popup(style = 'primary', idPopup = '')
+    a(href=idPopup, class=`btn js-popup btn-${style}`)&attributes(attributes)
+        block
