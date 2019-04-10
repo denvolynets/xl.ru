@@ -58,12 +58,12 @@ input[type="checkbox"] {
 	margin: 10px 0 0 7px;
 
 	&:checked {
-		& + label:after {
+		&+label:after {
 			opacity: 1;
 		}
 	}
 
-	& + label {
+	&+label {
 		position: relative;
 		padding: 0 0 0 35px;
 		cursor: pointer;

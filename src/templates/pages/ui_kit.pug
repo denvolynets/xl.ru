@@ -1,0 +1,87 @@
+include ../_mixins/list
+
+doctype html
+html(lang="ru")
+	include ../_shared/head
+	block head
+	body
+		#main.ui-kit
+			.page-container
+				header.header
+					.container
+						.header__inner
+							.header__menu
+								.menu-trigger Меню
+								.menu
+									.menu__list
+										.menu__item
+											a.menu__link(href='#b-buttons') Кнопки
+										.menu__item
+											a.menu__link(href='#b-forms') Формы
+							.header__logo
+								.container
+									h1.h1 Redsoft UI Kit
+				.main-content
+					.container
+						.b-buttons.b-component
+							h3.h3 1. Кнопки
+							+btn() btn-primary
+							+btn('fill') btn-fill
+							+btn('border') btn-border
+							+btn('fill','submit', false, 'btn-submit')
+						.b-forms.b-component#b-forms
+							h3.h3 2. Формы
+							form.form
+								+formField('text', 'ФИО')(data-msg="Поле ФИО обязательно для заполнения", data-msg-minlength="Пожалуйста, введите не меньше 3 символов.", minlength="3", required)
+								+formField('tel', 'Телефон')(name="phoneRU", required)
+								+formField('text', 'Дата')(name="date", required).date-input
+								+formField('text', 'E-mail')(name="email", required).email-input
+								+formField('text', 'Банковская карта')(name="creditcard", required).card-input
+								+formField('password', 'Пароль')(name="password", minlength="6", password="true", required)#password
+								+formField('password', 'Повторите пароль')(name="password-confirm", password="true", equalTo="#password", required)#password-confirm
+								+formField('select', 'Выберите значение', $data.selectOptions)(name="select", required)
+								+formField('checkbox', 'Чекбокс 1')(name="checkbox", id="checkbox-form" required)
+								.form__radios.js-form__radios
+									+formField('radio', 'Радио-баттон 1')(name="radiost", id="radio-form-1" required)
+									+formField('radio', 'Радио-баттон 2')(name="radiost", id="radio-form-2" required)
+								.form__footer
+									+btn('fill','submit', false, 'Отправить')
+
+						.b-carousel.b-component
+							h3.h3 3. Слайдеры
+							+carousel()
+						.b-typographie.b-component
+							h3.h3 4. Заголовки
+								h1.h1 Redsoft h1
+								h2.h2 Redsoft h2
+								h3.h3 Redsoft h3
+								h4.h4 Redsoft h4
+								h5.h5 Redsoft h5
+								h6.h6 Redsoft h6
+						.b-component
+							h3.h3 5. Checkbox, Radio-input
+							.b-boxes
+								.b-boxes__block
+									.b-boxes__input
+										+checkbox("Чекбокс 1")(id="checkbox")
+									.b-boxes__input
+										+checkbox("Чекбокс 2")(id="checkbox1")
+								.b-boxes__block
+									.b-boxes__input
+										+radio("Радиокнопка 1")(name="radios", id="radio1")
+									.b-boxes__input
+										+radio("Радиокнопка 2")(name="radios", id="radio2")
+						.b-range-slider.b-component
+							h3.h3 6. Range-slider
+							.range-slider
+						.b-component
+							h3.h3 7. Hamburger
+							+hamburger
+				footer.footer
+					.footer__inner
+						.container
+							a(target="_blank" href="https://redsoft.ru" class="redsoft")
+								.redsoft__inner
+									span.redsoft__img
+										+icon('logo')
+									span.redsoft__caption Разработка сайта #[br] Redsoft
