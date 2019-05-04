@@ -1,5 +1,5 @@
 // Load app style
-import '../src/assets/styles/_app.scss';
+import '../src/assets/styles/app.scss';
 
 // JS npm scripts
 
@@ -35,13 +35,16 @@ const app = {
 				tel: '+7 (999) 999-99-99',
 				date: '99.99.9999',
 				email: 'email',
-				card: ['9{4} 9{4} 9{4} 9{4}', { placeholder: '∗' }]
+				card: [ '9{4} 9{4} 9{4} 9{4}', { placeholder: '∗' } ]
 			},
 			isMobile: function() {
 				return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 			},
 			isIE: function() {
-				return navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1;
+				return (
+					navigator.userAgent.indexOf('MSIE ') > -1 ||
+          navigator.userAgent.indexOf('Trident/') > -1
+				);
 			},
 			initMasks: function() {
 				Object.keys(this.masks).map((maskName, index) => {
@@ -58,17 +61,20 @@ const app = {
 				$('select').niceSelect();
 				$('input[type="number"]').niceNumber();
 				$('.js-popup').magnificPopup(this.mfpOpt);
-				$('.js-popup-close').click(function() { $.magnificPopup.close(); });
+				$('.js-popup-close').click(function() {
+					$.magnificPopup.close();
+				});
 				$('.scrollbar-outer').overlayScrollbars({});
 				this.initMasks();
-				noUiSlider.create(document.querySelector('.range-slider'), {
-					start: [20, 80],
+
+				document.querySelector('.range-slider') && noUiSlider.create(document.querySelector('.range-slider'), {
+					start: [ 20, 80 ],
 					connect: true,
 					behaviour: 'tap',
 					step: 10,
 					range: {
-						'min': 0,
-						'max': 100
+						min: 0,
+						max: 100
 					}
 				});
 			}
