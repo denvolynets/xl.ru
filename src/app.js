@@ -1,5 +1,5 @@
 // Load app style
-import '../src/assets/styles/_app.scss';
+import '../src/assets/styles/app.scss';
 
 // JS npm scripts
 
