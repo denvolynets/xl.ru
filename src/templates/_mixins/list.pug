@@ -16,7 +16,7 @@ include ../blocks/hamburger/hamburger
 
 
 mixin title(...titleParts)
-	- var t = "AntTrans"
+	- var t = "Your Website Name"
 	each titlePart in titleParts.reverse()
 		- t = titlePart + " / " + t
 	title #{t}
