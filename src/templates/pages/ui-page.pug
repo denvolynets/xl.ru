@@ -1,9 +1,6 @@
-include ../_mixins/list
-
-doctype html
-html(lang="ru")
-	include ../_shared/head
-	block head
+extends ../_layouts/master.pug
+block title
+	+title("Redsoft UI Kit")
 	body
 		#main.ui-kit
 			.page-container
