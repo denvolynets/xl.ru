@@ -1,4 +1,4 @@
-const { configUtils } = require('../webpack-config-utils.js');
+const { configUtils } = require('./webpack-config-utils.js');
 const Optimize = false;
 const path = require('path');
 const webpack = require('webpack');
@@ -14,7 +14,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
-const pugData = require('../src/templates/pugData.js');
+const pugData = require('./src/templates/pugData.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env) => {
@@ -32,7 +32,7 @@ module.exports = (env) => {
 	return {
 		mode: prod ? 'production' : 'development',
 		devtool: prod ? 'none' : 'inline-source-map',
-		context: path.resolve(__dirname, '../src'),
+		context: path.resolve(__dirname, './src'),
 		cache: true,
 		entry: {
 			app: './app.js'
@@ -45,17 +45,17 @@ module.exports = (env) => {
 		},
 		resolve: {
 			alias: {
-				'@': path.resolve(__dirname, '../src'),
-				'$Styles': path.resolve(__dirname, '../src/assets/styles/'),
-				'$Scripts': path.resolve(__dirname, '../src/assets/scripts/'),
-				'$Templates': path.resolve(__dirname, '../src/templates/'),
-				'$Assets': path.resolve(__dirname, '../src/assets/'),
-				'$Blocks': path.resolve(__dirname, '../src/templates/blocks'),
-				'$Components': path.resolve(__dirname, '../src/templates/components')
+				'@': path.resolve(__dirname, './src'),
+				'$Styles': path.resolve(__dirname, './src/assets/styles/'),
+				'$Scripts': path.resolve(__dirname, './src/assets/scripts/'),
+				'$Templates': path.resolve(__dirname, './src/templates/'),
+				'$Assets': path.resolve(__dirname, './src/assets/'),
+				'$Blocks': path.resolve(__dirname, './src/templates/blocks'),
+				'$Components': path.resolve(__dirname, './src/templates/components')
 			}
 		},
 		devServer: {
-			contentBase: path.resolve(__dirname, '../src'),
+			contentBase: path.resolve(__dirname, './src'),
 			overlay: true,
 			compress: true,
 			port: 9090,
@@ -98,7 +98,7 @@ module.exports = (env) => {
 				{
 					test: /\.svg$/,
 					include: [
-						path.resolve(__dirname, '../src/assets/images/svg/')
+						path.resolve(__dirname, './src/assets/images/svg/')
 					],
 					loader: 'svg-sprite-loader',
 					options: {
@@ -110,8 +110,8 @@ module.exports = (env) => {
 					test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
 					loader: 'url-loader',
 					exclude: [
-						path.resolve(__dirname, '../src/assets/images/svg/'),
-						path.resolve(__dirname, '../src/assets/fonts/'),
+						path.resolve(__dirname, './src/assets/images/svg/'),
+						path.resolve(__dirname, './src/assets/fonts/'),
 						path.resolve(__dirname, `${outputPath}/assets/svg-sptire/`)
 					],
 					options: {
@@ -123,7 +123,7 @@ module.exports = (env) => {
 				{
 					test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
 					include: [
-						path.resolve(__dirname, '../src/assets/fonts/')
+						path.resolve(__dirname, './src/assets/fonts/')
 					],
 					loader: 'url-loader',
 					options: {
@@ -215,11 +215,11 @@ module.exports = (env) => {
 					}
 				}),
 				new webpack.ProvidePlugin({
-					'window.jQuery': path.resolve(__dirname, '../node_modules/jquery/dist/jquery'),
-					'window.$': path.resolve(__dirname, '../node_modules/jquery/dist/jquery'),
-					'jQuery': path.resolve(__dirname, '../node_modules/jquery/dist/jquery'),
-					'$': path.resolve(__dirname, '../node_modules/jquery/dist/jquery'),
-					'Swiper': path.resolve(__dirname, '../node_modules/swiper/dist/js/swiper')
+					'window.jQuery': path.resolve(__dirname, './node_modules/jquery/dist/jquery'),
+					'window.$': path.resolve(__dirname, './node_modules/jquery/dist/jquery'),
+					'jQuery': path.resolve(__dirname, './node_modules/jquery/dist/jquery'),
+					'$': path.resolve(__dirname, './node_modules/jquery/dist/jquery'),
+					'Swiper': path.resolve(__dirname, './node_modules/swiper/dist/js/swiper')
 				})
 			];
 
