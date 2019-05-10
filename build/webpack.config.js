@@ -1,9 +1,7 @@
-
 const { configUtils } = require('../webpack-config-utils.js');
 const Optimize = false;
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
@@ -17,11 +15,12 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const pugData = require('../src/templates/pugData.js');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env) => {
-	let prod = env.NODE_ENV === 'production';
-	let outputPath = prod ? configUtils.outputPathProd : configUtils.outputPathDev;
-	let consoleStats = {
+	const prod = env.NODE_ENV === 'production';
+	const outputPath = prod ? configUtils.outputPathProd : configUtils.outputPathDev;
+	const consoleStats = {
 		all: false,
 		modules: true,
 		maxModules: 0,
@@ -35,21 +34,22 @@ module.exports = (env) => {
 		devtool: prod ? 'none' : 'inline-source-map',
 		context: path.resolve(__dirname, '../src'),
 		cache: true,
-		entry: [
-			'./vendor.js',
-			'./app.js'
-		],
+		entry: {
+			app: './app.js'
+		},
 		output: {
 			path: path.resolve(__dirname, outputPath),
 			publicPath: prod ? './' : '/',
-			filename: `${configUtils.jsPath}/app.bundle.js`
+			filename: `${configUtils.jsPath}/bundle.[name].js`,
+			chunkFilename: `${configUtils.jsPath}/[name].js`
 		},
 		devServer: {
 			contentBase: path.resolve(__dirname, '../src'),
 			overlay: true,
 			compress: true,
 			port: 9090,
-			stats: consoleStats
+			stats: consoleStats,
+			open: false
 		},
 		stats: consoleStats,
 		performance: {
@@ -57,130 +57,127 @@ module.exports = (env) => {
 		},
 		module: {
 			rules: (function(argv) {
-				let rules = [
-					{
-						test: /\.(js|jsx)$/,
-						exclude: /node_modules/,
-						use: [{
-							loader: 'babel-loader',
+				let rules = [{
+					test: /\.(js|jsx)$/,
+					exclude: /node_modules/,
+					use: [{
+						loader: 'babel-loader',
+						options: {
+							cacheDirectory: true
+						}
+					}]
+				},
+				{
+					test: /\.s?css$/,
+					use: [
+						'style-loader',
+						MiniCssExtractPlugin.loader,
+						'css-loader?sourceMap',
+						{
+							loader: 'postcss-loader',
 							options: {
-								cacheDirectory: true,
-								presets: ['es2015']
+								plugins: () => [require('autoprefixer')],
+								sourceMap: !prod
 							}
-						}]
-					},
-					{
-						test: /\.css$/,
-						use: ExtractTextPlugin.extract({
-							fallback: 'style-loader',
-							use: 'css-loader'
-						})
-					},
-					{
-						test: /\.(sass|scss)$/,
-						use: ExtractTextPlugin.extract({
-							fallback: 'style-loader',
-							use: [{
-								loader: 'css-loader',
-								query: {
-									importLoaders: 1,
-									sourceMap: !prod
-								}
-							},
-							'sass-loader?sourceMap'
-							]
-						})
-					},
-					{
-						test: /\.svg$/,
-						include: [
-							path.resolve(__dirname, '../src/assets/images/svg/')
-						],
-						loader: 'svg-sprite-loader',
-						options: {
-							extract: true,
-							spriteFilename: 'assets/images/svg-sprite/sprite.svg'
-						}
-					},
-					{
-						test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
-						loader: 'url-loader',
-						exclude: [
-							path.resolve(__dirname, '../src/assets/images/svg/'),
-							path.resolve(__dirname, '../src/assets/fonts/'),
-							path.resolve(__dirname, `${outputPath}/assets/svg-sptire/`)
-						],
-						options: {
-							emitFile: false,
-							limit: 3000,
-							name: '../../[path][name].[ext]'
-						}
-					},
-					{
-						test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
-						include: [
-							path.resolve(__dirname, '../src/assets/fonts/')
-						],
-						loader: 'url-loader',
-						options: {
-							limit: 5000,
-							publicPath: prod ? '../../' : '/',
-							name: prod ? '[path][name].[ext]' : '../[path][name].[ext]'
-						}
-					},
-					{
-						test: /\.(mp4)(\?.*)?$/,
-						loader: 'url-loader',
-						options: {
-							limit: 10000,
-							name: 'assets/videos/[name].[hash:7].[ext]'
-						}
-					},
-					{
-						test: /\.(sass|scss)$/,
-						loader: 'import-glob-loader'
-					},
-					{
-						test: /\.pug$/,
-						use: [
-							{
-								loader: 'file-loader',
-								options: {
-									name: `${configUtils.htmlFilesPath}[name].html`
-								}
-							},
-							{
-								loader: 'pug-html-loader',
-								options: {
-									pretty: false,
-									exports: false,
-									data: {
-										$data: pugData
-									}
-								}
-							}
-						]
+						},
+						'sass-loader?sourceMap',
+						'import-glob-loader'
+					]
+				},
+				{
+					test: /\.svg$/,
+					include: [
+						path.resolve(__dirname, '../src/assets/images/svg/')
+					],
+					loader: 'svg-sprite-loader',
+					options: {
+						extract: true,
+						spriteFilename: 'assets/images/svg-sprite/sprite.svg'
 					}
+				},
+				{
+					test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
+					loader: 'url-loader',
+					exclude: [
+						path.resolve(__dirname, '../src/assets/images/svg/'),
+						path.resolve(__dirname, '../src/assets/fonts/'),
+						path.resolve(__dirname, `${outputPath}/assets/svg-sptire/`)
+					],
+					options: {
+						emitFile: false,
+						limit: 3000,
+						name: '../../[path][name].[ext]'
+					}
+				},
+				{
+					test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+					include: [
+						path.resolve(__dirname, '../src/assets/fonts/')
+					],
+					loader: 'url-loader',
+					options: {
+						limit: 5000,
+						publicPath: prod ? '../../' : '/',
+						name: prod ? '[path][name].[ext]' : '../[path][name].[ext]'
+					}
+				},
+				{
+					test: /\.(mp4)(\?.*)?$/,
+					loader: 'url-loader',
+					options: {
+						limit: 10000,
+						name: 'assets/videos/[name].[hash:7].[ext]'
+					}
+				},
+				{
+					test: /\.pug$/,
+					use: [{
+						loader: 'file-loader',
+						options: {
+							name: `${configUtils.htmlFilesPath}[name].html`
+						}
+					},
+					{
+						loader: 'pug-html-loader',
+						options: {
+							pretty: false,
+							exports: false,
+							data: {
+								$data: pugData
+							}
+						}
+					}
+					]
+				}
 				];
 
 				if (configUtils.esLint) {
-					rules.push(
-						{
-							test: /\.js$/,
-							exclude: /node_modules/,
-							use: [
-								{
-									loader: 'eslint-loader'
-								}
-							]
-						}
-					);
+					rules.push({
+						test: /\.js$/,
+						exclude: /node_modules/,
+						use: [{
+							loader: 'eslint-loader'
+						}]
+					});
 				}
 				return rules;
 			})(argv)
 		},
+		optimization: {
+			splitChunks: {
+				cacheGroups: {
+					vendors: {
+						test: /[\\/]node_modules[\\/]/,
+						name: 'bundle.vendors',
+						enforce: true,
+						chunks: 'all'
+					}
+				}
+			}
+		},
 		plugins: (function(argv) {
 			let plugins = [
+				new webpack.HashedModuleIdsPlugin(),
 				new CleanWebpackPlugin(),
 				new SpriteLoaderPlugin({
 					plainSprite: true,
@@ -188,17 +185,14 @@ module.exports = (env) => {
 						id: 'svg-sprite'
 					}
 				}),
-				new CopyWebpackPlugin([
-					{
-						from: 'assets/images',
-						to: 'assets/images'
-					}
-				]),
-				new ExtractTextPlugin({
-					filename: `${configUtils.cssPath}/app.bundle.css`,
-					allChunks: true
+				new CopyWebpackPlugin([{
+					from: 'assets/images',
+					to: 'assets/images'
+				}]),
+				new MiniCssExtractPlugin({
+					filename: `${configUtils.cssPath}/bundle.[name].css`,
+					chunkFilename: `${configUtils.cssPath}/[name].css`
 				}),
-
 				new WebpackBuildNotifierPlugin({
 					title: 'RedSoft',
 					suppressSuccess: 'initial',
@@ -255,8 +249,7 @@ module.exports = (env) => {
 					new ParallelUglifyPlugin({
 						cacheDir: path.join('node_modules', '.cache', 'parallel-uglify'),
 						sourceMap: !prod,
-						uglifyES: {
-						}
+						uglifyES: {}
 					})
 				);
 			}

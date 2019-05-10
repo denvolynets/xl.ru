@@ -3,7 +3,10 @@ head
 	include meta_common
 	include meta_social_website
 
-	+statcss('./assets/css/app.bundle.css')
-	+statjs('./assets/js/app.bundle.js')
+	+statcss('./assets/css/bundle.vendors.css')
+	+statcss('./assets/css/bundle.app.css')
+
+	+statjs('./assets/js/bundle.vendors.js')
+	+statjs('./assets/js/bundle.app.js')
 
 	include meta_social_article

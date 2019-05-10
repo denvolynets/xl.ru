@@ -1,6 +1,10 @@
-extends ../_layouts/master.pug
-block title
-	+title("Redsoft UI Kit")
+include ../_layouts/bemto/bemto
+include ../_mixins/list
+
+doctype html
+html(lang="ru")
+	include ../_shared/head
+	block head
 	body
 		#main.ui-kit
 			.page-container

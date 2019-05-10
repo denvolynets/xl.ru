@@ -1,6 +1,5 @@
 export default function carousel() {
 	let slidersCategories = [];
-
 	$('.carousel .swiper-container').each(function() {
 		let t = $(this);
 		let params = t.parent().data('swiper');

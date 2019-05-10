@@ -1,0 +1,15 @@
+@import '../utils/variables.scss';
+
+#d {
+	&-js,
+	&-css {
+		background-color: transparent;
+		color: $clr_main;
+		border: 1px solid $clr_main;
+
+		&:hover {
+			background-color: $clr_main;
+			color: #fff;
+		}
+	}
+}

@@ -2,6 +2,7 @@
 import '../src/assets/styles/app.scss';
 
 // JS npm scripts
+import './libs';
 
 // JS assets scripts
 import imgToSvg from './assets/scripts/imgToSvg';
@@ -14,11 +15,21 @@ import hamburger from './templates/blocks/hamburger/hamburger';
 import svg4everybody from 'svg4everybody';
 import noUiSlider from 'nouislider';
 
+// Пример разбиения файлов на отдельные чанки
+const chunks = {
+	styles: () => importName('./assets/styles/dynamic/dynamic.scss', 'chunk.dynamic-scss'), // путь к файлу или массив, название чанка
+	script: () => importName('./assets/scripts/dynamic', 'chunk.dynamic-js')
+};
+
 const app = {
 	load: () => {
 		app.bindEvents();
 	},
 	bindEvents: () => {
+		// Динамическая подрузка чанков
+		$('#d-js').one('click', () => chunks.script().then((data) => data.default()));
+		$('#d-css').one('click', () => chunks.styles());
+
 		let initData = {
 			mfpOpt: {
 				type: 'inline',
@@ -42,8 +53,7 @@ const app = {
 			},
 			isIE: function() {
 				return (
-					navigator.userAgent.indexOf('MSIE ') > -1 ||
-          navigator.userAgent.indexOf('Trident/') > -1
+					navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1
 				);
 			},
 			initMasks: function() {
@@ -95,9 +105,9 @@ const app = {
 
 $(document).ready(app.load);
 
-function requireAll(r) {
+const requireAll = (r) => {
 	r.keys().forEach(r);
-}
+};
 
 requireAll(require.context('./assets/images/svg/', true, /\.svg$/));
 requireAll(require.context('./templates/pages/', true, /\.pug$/));
