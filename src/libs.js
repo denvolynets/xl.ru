@@ -11,4 +11,4 @@ import 'jquery-validation';
 import 'jquery-validation/dist/localization/messages_ru';
 
 // JS libs folder packages
-import './assets/libs/jquery.nice-select'; // кастомизирован под jquery-validate
+import './assets/libs/jquery.nice-select'; // кастомизирован под jquery-validation
