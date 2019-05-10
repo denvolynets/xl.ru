@@ -69,7 +69,7 @@
 	"optionalDependencies": {
 		"jquery": "^3.3.1",
 		"jquery.nice-number": "^2.0.0",
-		"jquery-nice-select": "^1.1.0",
+		"jquery-nice-select": "github:denvolynets/jquery-nice-select",
 		"magnific-popup": "^1.1.0",
 		"overlayscrollbars": "^1.6.2",
 		"swiper": "^4.4.6",
