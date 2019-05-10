@@ -33,10 +33,11 @@
 	&-fill {
 		background-color: $clr_main;
 		color: $clr_wh;
-		border: 0;
+		border-color: $clr_main;
 
 		&:hover {
 			background-color: $clr_main_1;
+			border-color: $clr_main_1;
 		}
 	}
 
@@ -44,9 +45,11 @@
 	&:disabled {
 		background-color: rgba($disabled_bg, .9);
 		color: $disabled_cl;
+		border-color: rgba($disabled_bg, .9);
 
 		&:hover {
 			background-color: rgba($disabled_bg, 1);
+			border-color: rgba($disabled_bg, 1);
 		}
 	}
 }

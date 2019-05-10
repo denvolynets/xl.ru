@@ -43,6 +43,17 @@ module.exports = (env) => {
 			filename: `${configUtils.jsPath}/bundle.[name].js`,
 			chunkFilename: `${configUtils.jsPath}/[name].js`
 		},
+		resolve: {
+			alias: {
+				'@': path.resolve(__dirname, '../src'),
+				'$Styles': path.resolve(__dirname, '../src/assets/styles/'),
+				'$Scripts': path.resolve(__dirname, '../src/assets/scripts/'),
+				'$Templates': path.resolve(__dirname, '../src/templates/'),
+				'$Assets': path.resolve(__dirname, '../src/assets/'),
+				'$Blocks': path.resolve(__dirname, '../src/templates/blocks'),
+				'$Components': path.resolve(__dirname, '../src/templates/components')
+			}
+		},
 		devServer: {
 			contentBase: path.resolve(__dirname, '../src'),
 			overlay: true,
