@@ -1,25 +1,25 @@
 // Load app style
-import '$Styles/app.scss';
+import '@Styles/app.scss';
 
 // JS npm scripts
 import './libs';
 
 // JS assets scripts
-import imgToSvg from '$Scripts/imgToSvg';
-import toggleTabs from '$Scripts/toggleTabs';
-import formValidate from '$Scripts/formValidate';
+import imgToSvg from '@Scripts/imgToSvg';
+import toggleTabs from '@Scripts/toggleTabs';
+import formValidate from '@Scripts/formValidate';
 
 // JS template components
-import carousel from '$Blocks/carousel/carousel';
-import hamburger from '$Blocks/hamburger/hamburger';
+import carousel from '@Blocks/carousel/carousel';
+import hamburger from '@Blocks/hamburger/hamburger';
 
 import svg4everybody from 'svg4everybody';
 import noUiSlider from 'nouislider';
 
 // Пример разбиения файлов на отдельные чанки
 const Chunks = {
-	styles: () => importName('$Styles/dynamic/dynamic.scss', 'chunk.dynamic-scss'), // путь к файлу или массив, название чанка
-	script: () => importName('$Scripts/dynamic', 'chunk.dynamic-js')
+	styles: () => importName('@Styles/dynamic/dynamic.scss', 'chunk.dynamic-scss'), // путь к файлу или массив, название чанка
+	script: () => importName('@Scripts/dynamic.js', 'chunk.dynamic-js')
 };
 
 const app = {

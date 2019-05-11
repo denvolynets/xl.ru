@@ -1,4 +1,4 @@
-@import '$Styles/utils/variables.scss';
+@import '@Styles/utils/variables.scss';
 
 #d {
 	&-js,
@@ -9,7 +9,7 @@
 
 		&:hover {
 			background-color: $clr_main;
-			color: #fff;
+			color: $clr_white;
 		}
 	}
 }

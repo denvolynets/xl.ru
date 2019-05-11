@@ -6,7 +6,7 @@
 	border-color: rgba($clr_main, 1);
 	border-radius: $br_r;
 	font-family: $ff_bold;
-	font-size: $fs_1;
+	font-size: $fsz_h6;
 	color: $clr_black;
 	float: none;
 
@@ -32,20 +32,20 @@
 
 		&:hover {
 			.option {
-				background-color: rgba($clr_main_1, .85) !important;
+				background-color: rgba($clr_main_dark, .85) !important;
 
 				&:not(:hover) {
-					background-color: $clr_main_1 !important;
+					background-color: $clr_main_dark !important;
 				}
 			}
 		}
 	}
 
 	.option {
-		background-color: $clr_main_1;
+		background-color: $clr_main_dark;
 		border-radius: $br_r;
 		border: 1px solid rgba($clr_main, 1);
-		color: $clr_wh;
+		color: $clr_white;
 
 		&.selected {
 			display: none;

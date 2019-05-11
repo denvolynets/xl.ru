@@ -46,12 +46,12 @@ module.exports = (env) => {
 		resolve: {
 			alias: {
 				'@': path.resolve(__dirname, './src'),
-				'$Styles': path.resolve(__dirname, './src/assets/styles/'),
-				'$Scripts': path.resolve(__dirname, './src/assets/scripts/'),
-				'$Templates': path.resolve(__dirname, './src/templates/'),
-				'$Assets': path.resolve(__dirname, './src/assets/'),
-				'$Blocks': path.resolve(__dirname, './src/templates/blocks'),
-				'$Components': path.resolve(__dirname, './src/templates/components')
+				'@Styles': path.resolve(__dirname, './src/assets/styles/'),
+				'@Scripts': path.resolve(__dirname, './src/assets/scripts/'),
+				'@Templates': path.resolve(__dirname, './src/templates/'),
+				'@Assets': path.resolve(__dirname, './src/assets/'),
+				'@Blocks': path.resolve(__dirname, './src/templates/blocks'),
+				'@Components': path.resolve(__dirname, './src/templates/components')
 			}
 		},
 		devServer: {

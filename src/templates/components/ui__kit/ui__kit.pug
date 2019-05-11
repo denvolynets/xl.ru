@@ -1,11 +1,11 @@
 mixin ui__kit()
 	.container
 		.b-component.b-dynamic
-			h3.h3 Динамическая подгрузка JS/CSS файлов (смотрим вкладку 'network')
+			h2.h2 Динамическая подгрузка JS/CSS файлов (смотрим вкладку 'network')
 			+btn('fill')#d-js Загрузить JS-файл
 			+btn('fill')#d-css Загрузить CSS-файл
 		.b-buttons.b-component
-			h3.h3 1. Buttons
+			h2.h2 1. Buttons
 				.anchor#b-buttons
 			+btn btn-primary
 			+btn('fill') btn-fill
@@ -13,7 +13,7 @@ mixin ui__kit()
 			+btn('fill','submit', false, 'btn-submit')
 			+btn('disabled') btn-disabled
 		.b-forms.b-component
-			h3.h3 2. Form
+			h2.h2 2. Form
 				.anchor#b-forms
 			form.form
 				+formField('text', 'ФИО')(
@@ -53,11 +53,11 @@ mixin ui__kit()
 					+btn('fill','submit', false, 'Отправить')
 
 		.b-carousel.b-component
-			h3.h3 3. Carousel
+			h2.h2 3. Carousel
 				.anchor#b-carousel
 			+carousel()
 		.b-typographie.b-component
-			h3.h3 4. Titles
+			h2.h2 4. Titles
 				.anchor#b-typographie
 				h1.h1 Redsoft h1
 				h2.h2 Redsoft h2
@@ -66,7 +66,7 @@ mixin ui__kit()
 				h5.h5 Redsoft h5
 				h6.h6 Redsoft h6
 		.b-component
-			h3.h3 5. Checkbox, Radio-input
+			h2.h2 5. Checkbox, Radio-input
 				.anchor#b-checkboxes
 			.b-boxes
 				.b-boxes__block
@@ -80,14 +80,14 @@ mixin ui__kit()
 					.b-boxes__input
 						+radio("Радиокнопка 2")(name="radios", id="radio2")
 		.b-range-slider.b-component
-			h3.h3 6. Range-slider
+			h2.h2 6. Range-slider
 				.anchor#b-range-slider
 			.range-slider
 		.b-component
-			h3.h3 7. Hamburger
+			h2.h2 7. Hamburger
 				.anchor#hamburger
 			+hamburger
 		.b-component
-			h3.h3 8. Popups
+			h2.h2 8. Popups
 				.anchor#popups
 			+btn-popup('fill', '#contact') Open popup

@@ -2,7 +2,7 @@
 	.header {
 		opacity: 1;
 		background-color: $clr_main;
-		padding: 5px 0;
+		padding: 15px 0;
 		z-index: 10;
 		position: fixed;
 		top: 0;
@@ -22,7 +22,7 @@
 
 		.hamburger {
 			.line {
-				background-color: #fff;
+				background-color: $clr_white;
 			}
 		}
 
@@ -32,22 +32,23 @@
 		}
 
 		&__logo {
-			color: #fff;
+			color: $clr_white;
 
 			h1 {
 				margin-bottom: 0;
+				font-weight: normal;
 			}
 		}
 	}
 
 	.menu {
 		position: absolute;
-		top: 64px;
+		top: 61px;
 		min-width: 150px;
 		border-left: 1px solid $clr_main;
 		border-right: 1px solid $clr_main;
 		border-bottom: 1px solid $clr_main;
-		background-color: #fff;
+		background-color: $clr_white;
 		opacity: 0;
 		left: 9999px;
 		transition: opacity 0.2s;
@@ -61,7 +62,7 @@
 
 			&:hover {
 				background-color: $clr_main;
-				color: #fff;
+				color: $clr_white;
 			}
 		}
 
@@ -75,8 +76,8 @@
 		}
 
 		&-trigger {
-			border: 2px solid #fff;
-			color: #fff;
+			border: 2px solid $clr_white;
+			color: $clr_white;
 			font-size: 20px;
 			cursor: pointer;
 			z-index: 11;
@@ -100,9 +101,9 @@
 	}
 
 	.b-component {
-		margin-bottom: 50px;
-		border-bottom: 1px solid #e12b2b;
-		padding-bottom: 50px;
+		margin-bottom: em(6);
+		border-bottom: 1px solid $clr_main;
+		padding-bottom: em(6);
 
 		h3 {
 			position: relative;

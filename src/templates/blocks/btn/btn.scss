@@ -1,7 +1,7 @@
 .btn {
 	display: inline-block;
 	padding: 6px 30px;
-	color: $clr_primary;
+	color: $clr_dark;
 	text-align: center;
 	line-height: 1.6;
 	text-transform: uppercase;
@@ -20,36 +20,36 @@
 
 		&:hover {
 			background-color: $clr_main;
-			color: #fff;
+			color: $clr_white;
 		}
 	}
 
 	&-primary {
 		&:hover {
-			border: 1px solid $clr_light;
+			border: 1px solid $clr_disabled_bg;
 		}
 	}
 
 	&-fill {
 		background-color: $clr_main;
-		color: $clr_wh;
+		color: $clr_white;
 		border-color: $clr_main;
 
 		&:hover {
-			background-color: $clr_main_1;
-			border-color: $clr_main_1;
+			background-color: $clr_main_dark;
+			border-color: $clr_main_dark;
 		}
 	}
 
 	&-disabled,
 	&:disabled {
-		background-color: rgba($disabled_bg, .9);
-		color: $disabled_cl;
-		border-color: rgba($disabled_bg, .9);
+		background-color: rgba($clr_disabled_bg, .9);
+		color: $clr_white;
+		border-color: rgba($clr_disabled_bg, .9);
 
 		&:hover {
-			background-color: rgba($disabled_bg, 1);
-			border-color: rgba($disabled_bg, 1);
+			background-color: rgba($clr_disabled_bg, 1);
+			border-color: rgba($clr_disabled_bg, 1);
 		}
 	}
 }

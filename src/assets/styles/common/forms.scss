@@ -17,7 +17,7 @@ input[type="password"] {
 	border-radius: $br_r;
 
 	&::placeholder {
-		color: $clr_dark_2;
+		color: $clr_dark;
 	}
 
 	&:focus {
@@ -38,7 +38,7 @@ textarea {
 	outline: none;
 
 	&::placeholder {
-		color: $clr_dark_2;
+		color: $clr_dark;
 	}
 
 	&:focus {
@@ -75,9 +75,9 @@ input[type="checkbox"] {
 			left: 0;
 			width: 22px;
 			height: 22px;
-			border: 1px solid #cdd1da;
+			border: 1px solid $clr_grey;
 			border-radius: 50%;
-			background: #fff;
+			background: $clr_white;
 			transition: all $trans;
 		}
 

@@ -1,44 +1,5 @@
-
-.redsoft {
-	text-decoration: none;
-	display: inline-block;
-	color: $clr_main;
-
-	&__inner {
-		display: flex;
-		align-items: center;
-
-		&:hover {
-			svg {
-				fill: $clr_primary;
-			}
-
-			.redsoft__caption {
-				color: $clr_primary;
-			}
-		}
+.g {
+	&-hide {
+		display: none;
 	}
-
-	&__caption {
-		padding-left: 20px;
-		transition: all .2s;
-	}
-
-	&__img {
-		width: 50px;
-		height: 50px;
-
-		svg {
-			fill: $clr_main;
-			transition: all .2s;
-		}
-	}
-}
-
-.g-hide {
-	display: none;
-}
-
-.g-hidden {
-	display: none;
 }

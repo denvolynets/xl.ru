@@ -1,9 +1,9 @@
 .os-host-resize-disabled.os-host-scrollbar-horizontal-hidden > .os-scrollbar-vertical {
 	width: 40px;
 	padding: 0;
-	border-top: 1px solid $clr_gray_2;
-	border-bottom: 1px solid $clr_gray_2;
-	border-right: 1px solid $clr_gray_2;
+	border-top: 1px solid $clr_border;
+	border-bottom: 1px solid $clr_border;
+	border-right: 1px solid $clr_border;
 	border-top-right-radius: $br_r;
 	border-bottom-right-radius: $br_r;
 	right: 1px;
@@ -47,7 +47,7 @@
 
 	&:before {
 		content: '';
-		background-color: $clr_gray_2;
+		background-color: $clr_border;
 		display: block;
 		position: absolute;
 		left: 0;
