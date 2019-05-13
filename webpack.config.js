@@ -151,7 +151,7 @@ module.exports = (env) => {
 					{
 						loader: 'pug-html-loader',
 						options: {
-							pretty: false,
+							pretty: true,
 							exports: false,
 							data: {
 								$data: pugData
