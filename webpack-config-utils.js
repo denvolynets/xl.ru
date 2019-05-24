@@ -5,7 +5,7 @@ exports.configUtils = {
 	jsPath: 'assets/js', // путь для Js относительно outputPathProd || outputPathDev;
 	cssPath: 'assets/css', // путь для CSS  относительно outputPathProd || outputPathDev;
 	htmlFilesPath: './', // относительно outputPathProd || outputPathDev;
-	publicPathProdInlineCSS: '../../', // publicPuth к файлам внутри итоговых CSS файлов (по умолчанию, для папки outputPathProd - '../../');
+	publicPathInlineCSS: '../../', // publicPuth к файлам внутри CSS (по умолчанию, для папки outputPathProd - '../../');
 	styleLint: true,
 	esLint: true
 };

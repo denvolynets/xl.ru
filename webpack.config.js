@@ -104,7 +104,7 @@ module.exports = (env) => {
 							loader: SvgStorePlugin.loader,
 							options: {
 								name: 'assets/images/svg-sprite/sprite.svg',
-								publicPath: prod ? configUtils.publicPathProdInlineCSS : '../../',
+								publicPath: prod ? configUtils.publicPathProdInCSS : '../../',
 								iconName: '[name]'
 							}
 						},
@@ -141,7 +141,7 @@ module.exports = (env) => {
 					options: {
 						emitFile: true,
 						limit: 1,
-						publicPath: prod ? configUtils.publicPathProdInlineCSS : '../../',
+						publicPath: prod ? configUtils.publicPathProdInCSS : '../../',
 						name: `[path][name].[ext]`
 					}
 				},
@@ -153,7 +153,7 @@ module.exports = (env) => {
 					loader: 'url-loader',
 					options: {
 						limit: 5000,
-						publicPath: prod ? configUtils.publicPathProdInlineCSS : '/',
+						publicPath: prod ? configUtils.publicPathProdInCSS : '/',
 						name: prod ? '[path][name].[ext]' : '../[path][name].[ext]'
 					}
 				},
