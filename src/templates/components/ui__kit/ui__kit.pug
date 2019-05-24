@@ -91,3 +91,20 @@ mixin ui__kit()
 			h2.h2 8. Popups
 				.anchor#popups
 			+btn-popup('fill', '#contact') Open popup
+		.b-component.b-backgrounds
+			h2.h2 8. Images
+			.b-backgrounds__container
+				.b-backgrounds__item
+					h4 #[b SVG icon from sprite] (background)
+					div
+				.b-backgrounds__item
+					h4 #[b JPG] (background)
+					div
+				.b-backgrounds__item
+					h4 #[b SVG] (from IMG tag)
+					+icon('null')
+				.b-backgrounds__item
+					h4 #[b JPG] (from IMG tag)
+					div
+						+img('banner.jpg', 'Redsoft-ALT')
+

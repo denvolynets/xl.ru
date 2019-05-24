@@ -4,7 +4,6 @@ const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -16,7 +15,7 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const pugData = require('./src/templates/pugData.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const SvgStorePlugin = require('external-svg-sprite-loader');
 module.exports = (env) => {
 	const prod = env.NODE_ENV === 'production';
 	const outputPath = prod ? configUtils.outputPathProd : configUtils.outputPathDev;
@@ -98,37 +97,63 @@ module.exports = (env) => {
 				{
 					test: /\.svg$/,
 					include: [
-						path.resolve(__dirname, './src/assets/images/svg/')
+						path.resolve(__dirname, './src/assets/images/svg-icons/')
 					],
-					loader: 'svg-sprite-loader',
-					options: {
-						extract: true,
-						spriteFilename: 'assets/images/svg-sprite/sprite.svg'
-					}
+					use: [
+						{
+							loader: SvgStorePlugin.loader,
+							options: {
+								name: 'assets/images/svg-sprite/sprite.svg',
+								publicPath: prod ? configUtils.publicPathProdInlineCSS : '../../',
+								iconName: '[name]'
+							}
+						},
+						{
+							loader: 'svgo-loader',
+							options: {
+								plugins: [
+									{
+										removeTitle: true
+									},
+									{
+										convertColors: {
+											shorthex: true
+										}
+									},
+									{
+										convertPathData: true
+									}
+								]
+							}
+						}
+					]
 				},
 				{
-					test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
+					test: /\.(png|jpe?g|gif|ico|svg)(\?.*)?$/,
 					loader: 'url-loader',
-					exclude: [
-						path.resolve(__dirname, './src/assets/images/svg/'),
+					include: [
 						path.resolve(__dirname, './src/assets/fonts/'),
-						path.resolve(__dirname, `${outputPath}/assets/svg-sptire/`)
+						path.resolve(__dirname, './src/assets/images/')
+					],
+					exclude: [
+						path.resolve(__dirname, './src/assets/images/svg-icons/')
 					],
 					options: {
-						emitFile: false,
-						limit: 3000,
-						name: '../../[path][name].[ext]'
+						emitFile: true,
+						limit: 1,
+						publicPath: prod ? configUtils.publicPathProdInlineCSS : '../../',
+						name: `[path][name].[ext]`
 					}
 				},
 				{
-					test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+					test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
 					include: [
 						path.resolve(__dirname, './src/assets/fonts/')
 					],
 					loader: 'url-loader',
 					options: {
 						limit: 5000,
-						publicPath: prod ? '../../' : '/',
+						publicPath: prod ? configUtils.publicPathProdInlineCSS : '/',
 						name: prod ? '[path][name].[ext]' : '../[path][name].[ext]'
 					}
 				},
@@ -142,22 +167,23 @@ module.exports = (env) => {
 				},
 				{
 					test: /\.pug$/,
-					use: [{
-						loader: 'file-loader',
-						options: {
-							name: `${configUtils.htmlFilesPath}[name].html`
-						}
-					},
-					{
-						loader: 'pug-html-loader',
-						options: {
-							pretty: true,
-							exports: false,
-							data: {
-								$data: pugData
+					use: [
+						{
+							loader: 'file-loader',
+							options: {
+								name: `${configUtils.htmlFilesPath}[name].html`
+							}
+						},
+						{
+							loader: 'pug-html-loader',
+							options: {
+								pretty: true,
+								exports: false,
+								data: {
+									$data: pugData
+								}
 							}
 						}
-					}
 					]
 				}
 				];
@@ -189,13 +215,16 @@ module.exports = (env) => {
 		plugins: (function(argv) {
 			let plugins = [
 				new webpack.HashedModuleIdsPlugin(),
-				new CleanWebpackPlugin(),
-				new SpriteLoaderPlugin({
-					plainSprite: true,
-					spriteAttrs: {
-						id: 'svg-sprite'
+				new SvgStorePlugin({
+					sprite: {
+						startX: 0,
+						startY: 0,
+						deltaX: 10,
+						deltaY: 10,
+						iconHeight: 50
 					}
 				}),
+				new CleanWebpackPlugin(),
 				new CopyWebpackPlugin([{
 					from: 'assets/images',
 					to: 'assets/images'
@@ -223,7 +252,7 @@ module.exports = (env) => {
 				})
 			];
 
-			if (argv.env.NODE_ENV === 'production') {
+			if (prod) {
 				plugins.push(
 					new OptimizeCssAssetsPlugin({
 						cssProcessor: require('cssnano'),

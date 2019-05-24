@@ -115,6 +115,50 @@
 		}
 	}
 
+	.b-backgrounds {
+		&__container {
+			display: flex;
+		}
+
+		&__item {
+			margin-right: 20px;
+
+			div {
+				width: 250px;
+				height: 250px;
+				background-repeat: no-repeat;
+				background-size: contain;
+				display: flex;
+				align-items: flex-end;
+			}
+
+			&:nth-child(1) {
+				div {
+					background-image: url('../../assets/images/svg-icons/null.svg');
+				}
+			}
+
+			&:nth-child(2) {
+				div {
+					background-image: url('../../assets/images/banner.jpg');
+					background-size: cover;
+				}
+			}
+
+			&:nth-child(4) {
+				div {
+					width: 250px;
+					overflow: hidden;
+				}
+				
+				img {
+					height: 250px;
+					width: auto;
+				}
+			}
+		}
+	}
+
 	.b-boxes {
 		display: flex;
 

@@ -108,5 +108,5 @@ const requireAll = (r) => {
 	r.keys().forEach(r);
 };
 
-requireAll(require.context('./assets/images/svg/', true, /\.svg$/));
+requireAll(require.context('./assets/images/svg-icons/', true, /\.svg$/));
 requireAll(require.context('./templates/pages/', true, /\.pug$/));

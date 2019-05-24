@@ -22,8 +22,7 @@
 		src:
 			url('../fonts/#{$font-file}.eot?#iefix') format('embedded-opentype'),
 			url('../fonts/#{$font-file}.woff') format('woff'),
-			url('../fonts/#{$font-file}.ttf') format('truetype'),
-			url('../fonts/#{$font-file}.svg') format('svg');
+			url('../fonts/#{$font-file}.ttf') format('truetype');
 		font-style: #{$font-style};
 		font-weight: #{$font-weight};
 		text-rendering: optimizeLegibility;
