@@ -7,12 +7,12 @@
 	margin: 0 0 em(1);
 	line-height: 1.2;
 	font-weight: 300;
+	font-family: $ff_bold;
 }
 
 %h1 {
 	font-size: $fsz_h1;
-	line-height: .8;
-	font-family: $ff_exbold;
+	line-height: .92;
 }
 
 %h2 {

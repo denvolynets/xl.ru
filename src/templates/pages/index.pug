@@ -1,4 +1,68 @@
 extends ../_layouts/master.pug
 block title
-	+title("Redsoft UI Kit")
+	+title('Redsoft UI Kit')
 block content
+	+b.SECTION.section-one.js-spinner.c-spinner
+		+e.logo.js-animate-logo
+			+imgSvg('logo-b')
+		+e.main.container
+			+e.H1.title.js-animate-title(data-title=`["В чем особенность хрупких людей", "Такое Обычное действие...", "...Как поднятие чашки", "Может привести к перелому"]`) В чем особенность хрупких людей
+			+e.wrapper
+				+e.girl.js-animate-girl
+					+imgSvg('girl')
+				+e.flowers.js-animate-flowers
+					+imgSvg('flowers')
+		+e.DIV.lighting.js-animate-lighting
+
+		+e.nav
+			+e.nav-arrow.js-animate-nav
+				+imgSvg('arrow')
+		+e.bottom
+			+e.scroll.js-animate-scroll-text Скролл
+			+e.progressbar.js-animate-progressbar
+				+e.progressbar__line.js-animate-progressbar-line
+			+e.share.js-animate-share-btn
+				+imgSvg('share')
+		+e.DIV.callback.js-animate-callback
+			+e.ASIDE.sidebar
+				+e.sidebar-container
+					+e.H2.sidebar-title Один рубль в фонд помощи хрупким
+					+e.DIV.sidebar-separator
+					+e.H2.sidebar-title Незаметно для тебя, но огромная помощь для хрупких
+			+e.FORM.form.form.js-section-form
+				+e.H4.form-title Вместе крепче стали
+				+e.form-container
+					+e.HEADER.form-top
+						+e.form-radios.js-form__radios
+							each radio in [50, 100, 300, 500, 1000]
+								+formField('radio', radio)(name="radios", id=`radio-form-${radio}`)
+						+e.SPAN.form-or или
+						+e.form-input
+							+formFieldIcon('tel', '850', 'rouble')(name="amount")
+					+e.MAIN.form-main
+						+formField('text', 'Ваше имя')(
+							data-msg="Поле ФИО обязательно для заполнения",
+							data-msg-minlength="Пожалуйста, введите не меньше 1 символа",
+							minlength="1"
+						)
+						+formField('text', 'Адрес эл. почты')(name="email", required).email-input
+						+formField('text', 'Ваш коментарий')(name="comment")
+					+e.DIV.form-agreegment
+						+formField('checkbox')(name="checkbox-oferta", id="checkbox-oferta", required) Я принимаю #[a(href='/') договор оферты]
+						+formField('checkbox')(name="checkbox-personal", id="checkbox-personal", required) Я принимаю #[a(href='/') соглашение об использовании персональных данных]
+					+e.FOOTER.form-footer
+						+btn('fill','submit', false, 'Пожертвовать')
+			+e.DIV.success.js-animate-success
+				+e.H1.success-title Ваше пожертвование #[br]выполнено!
+				+e.H2.success-subtitle Мы искренне благодарим Вас #[br]за неравнодушие!
+				+btn('fill','submit', false, 'Повторить платеж')
+				+e.success-socials.js-socials
+					ul
+						each item in ['facebook', 'vk', 'twitter', 'instagram', 'mail-ru']
+							li
+								a(target="_blank" href='/')
+									+imgSvg(item)
+						li.js-socials-btn
+							+imgSvg('close')
+
+

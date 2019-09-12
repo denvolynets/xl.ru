@@ -5,51 +5,20 @@
 body {
 	font-family: $ff_main;
 	min-height: 100vh;
-	overflow-x: hidden;
-	color: $clr_dark;
+	overflow: hidden;
+	color: $clr_main;
 	font-size: $fsz_main;
-	line-height: 1.4;
+	line-height: 1.09;
 	transition: all $trans;
-	background: transparent;
+	background: $clr_main_bg;
 	margin: 0;
+	text-transform: uppercase;
 }
 
 html {
 	scroll-behavior: smooth;
 }
 
-.redsoft {
-	text-decoration: none;
-	display: inline-block;
-	color: $clr_main;
-
-	&__inner {
-		display: flex;
-		align-items: center;
-
-		&:hover {
-			svg {
-				fill: $clr_primary;
-			}
-
-			.redsoft__caption {
-				color: $clr_primary;
-			}
-		}
-	}
-
-	&__caption {
-		padding-left: 20px;
-		transition: all .2s;
-	}
-
-	&__img {
-		width: 50px;
-		height: 50px;
-
-		svg {
-			fill: $clr_main;
-			transition: all .2s;
-		}
-	}
+#main {
+	overflow: hidden;
 }

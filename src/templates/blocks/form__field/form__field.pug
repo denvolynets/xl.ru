@@ -1,4 +1,4 @@
-mixin formField(type="text", placeholder, options = [], textarea = false)
+mixin formField(type="text", placeholder, options = [])
 	if (type == 'text' || type == 'tel' || type == 'password')
 		.form__field.js-form__field
 			input&attributes(attributes)(
@@ -14,6 +14,7 @@ mixin formField(type="text", placeholder, options = [], textarea = false)
 	else if (type == 'checkbox')
 		.form__field.js-form__field.form__field-checkbox
 			+checkbox(placeholder)&attributes(attributes)(data-msg="")
+				block
 	else if (type == 'checkbox')
 		.form__field.js-form__field.form__field-checkbox
 			+checkbox(placeholder)&attributes(attributes)(data-msg="")
@@ -24,6 +25,17 @@ mixin formField(type="text", placeholder, options = [], textarea = false)
 		.form__field.js-form__field
 			textarea(type='textarea' class="form__textarea", placeholder=`${placeholder}` data-validate=`${validate}`)
 
+mixin formFieldIcon(type, placeholder, icon)
+	.form__field.form__field-icon.js-form__field
+		input&attributes(attributes)(
+			type=`${type}`,
+			autocomplete="off",
+			class=`form__input`,
+			placeholder=`${placeholder}`
+		)
+		span.icon
+			+imgSvg(icon)
+		span.error-label
 
 
 mixin radio(text)
@@ -35,6 +47,7 @@ mixin radio(text)
 mixin checkbox(text)
 	input(type="checkbox")&attributes(attributes)
 	label(for=attributes.id)=text
+		block
 
 
 

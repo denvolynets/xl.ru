@@ -1,5 +1,12 @@
 .g {
 	&-hide {
 		display: none;
+
+		&_s {
+			position: absolute;
+			opacity: 0;
+			pointer-events: none;
+			z-index: -9999;
+		}
 	}
 }

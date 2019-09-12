@@ -7,7 +7,7 @@
 		font-size: 16px;
 
 		&:hover {
-			border-color: $clr_main;
+			border-color: $clr_primary;
 		}
 
 		.list {
@@ -67,12 +67,39 @@
 			}
 		}
 
+		&-icon {
+			input {
+				padding-right: 40px;
+			}
+
+			.icon {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 20px;
+				height: 100%;
+				right: 17px;
+			}
+		}
+
 		label.error {
 			color: $clr_error;
 			position: absolute;
 			bottom: -10px;
 			left: 0;
 			font-size: 14px;
+		}
+
+		input,
+		textarea {
+			background-color: $clr_main_bg;
+			border: none;
+			border-bottom: 1px solid $clr_border;
+			color: $clr_main;
+
+			&::placeholder {
+				color: $clr_dark;
+			}
 		}
 
 		select {

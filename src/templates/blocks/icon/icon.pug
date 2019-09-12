@@ -4,3 +4,6 @@ mixin icon(name='null')
             use(xlink:href=`${imgPath}svg-sprite/sprite.svg#${name}`)
 mixin img(name='null', alt)
     img(src=`./assets/images/${name}` alt=alt)&attributes(attributes)
+
+mixin imgSvg(name='null')
+    img.svg(src=`./assets/images/svg-icons/${name}.svg`)&attributes(attributes)

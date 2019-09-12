@@ -6,10 +6,5 @@ html(lang="ru")
 	include ../_shared/head
 	block head
 	body
-		#main
-			.page-container
-				+header()
-				block content
-			+footer()
-		.g-hide
-			+popups()
+		#main.js-main
+			block content

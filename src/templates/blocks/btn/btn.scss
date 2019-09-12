@@ -1,18 +1,18 @@
 .btn {
 	display: inline-block;
-	padding: 6px 30px;
+	padding: 7px 42px;
 	color: $clr_dark;
 	text-align: center;
 	line-height: 1.6;
 	text-transform: uppercase;
 	text-decoration: none;
-	border-radius: $br_r;
 	border: 1px solid $clr_border;
 	transition: all .2s;
 	cursor: pointer;
 	box-sizing: border-box;
 	margin-right: 5px;
 	vertical-align: middle;
+	font-size: $fsz_h3;
 
 	&-border {
 		border: 1px solid $clr_main;
@@ -31,13 +31,13 @@
 	}
 
 	&-fill {
-		background-color: $clr_main;
+		background-color: $clr_primary;
 		color: $clr_white;
-		border-color: $clr_main;
+		border-color: $clr_primary;
 
 		&:hover {
-			background-color: $clr_main_dark;
-			border-color: $clr_main_dark;
+			background-color: lighten($clr_primary, 10%);
+			border-color: lighten($clr_primary, 10%);
 		}
 	}
 

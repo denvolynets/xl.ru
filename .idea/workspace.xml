@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="065b7f13-c19c-4dc1-b2e7-6b402d0578c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/scripts/animations/PageAnimateGSAP.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/scripts/animations/a_socials.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/scripts/animations/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/scripts/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/scripts/helpers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/templates/pages/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/css/bundle.app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/css/bundle.vendors.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/css/chunk.dynamic-scss.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/CirceBold/Circe-Bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/CirceBold/Circe-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/CirceBold/Circe-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/CirceExtraBold/Circe-ExtraBold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/CirceExtraBold/Circe-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/CirceExtraBold/Circe-ExtraBold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/CirceRegular/Circe-Regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/CirceRegular/Circe-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/CirceRegular/Circe-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/SegoeUI-Bold/SegoeUI-Bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/SegoeUI-Bold/SegoeUI-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/SegoeUI-Bold/SegoeUI-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/SegoeUI/SegoeUI.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/SegoeUI/SegoeUI.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/SegoeUI/SegoeUI.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/banner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/null.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-sprite/sprite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/js/bundle.app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/js/bundle.vendors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/js/chunk.dynamic-js.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/js/chunk.dynamic-scss.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/typographie.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/ui-page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceBold/Circe-Bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceBold/Circe-Bold.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceBold/Circe-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceBold/Circe-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceExtraBold/Circe-ExtraBold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceExtraBold/Circe-ExtraBold.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceExtraBold/Circe-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceExtraBold/Circe-ExtraBold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceExtraLight/Circe-ExtraLight.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceExtraLight/Circe-ExtraLight.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceExtraLight/Circe-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceExtraLight/Circe-ExtraLight.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceLight/Circe-Light.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceLight/Circe-Light.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceLight/Circe-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceLight/Circe-Light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceRegular/Circe-Regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceRegular/Circe-Regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceRegular/Circe-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceRegular/Circe-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceThin/Circe-Thin.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceThin/Circe-Thin.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceThin/Circe-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/CirceThin/Circe-Thin.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/SegoeUI-Bold/SegoeUI-Bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/SegoeUI-Bold/SegoeUI-Bold.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/SegoeUI-Bold/SegoeUI-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/SegoeUI-Bold/SegoeUI-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/SegoeUI/SegoeUI.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/SegoeUI/SegoeUI.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/SegoeUI/SegoeUI.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/SegoeUI/SegoeUI.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/svg-icons/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/svg-icons/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/imgToSvg.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/imgToSvg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles/common/forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/common/forms.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles/layout/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/layout/fonts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles/layout/general.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/layout/general.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles/layout/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/layout/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles/layout/typo.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/layout/typo.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles/utils/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/utils/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/libs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/libs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/_layouts/master.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/_layouts/master.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/_shared/head.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/_shared/head.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/blocks/btn/btn.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/blocks/btn/btn.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/blocks/btn/btn.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/blocks/btn/btn.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/blocks/form__field/form__field.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/blocks/form__field/form__field.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/blocks/form__field/form__field.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/blocks/form__field/form__field.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/blocks/icon/icon.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/blocks/icon/icon.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/blocks/icon/icon.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/blocks/icon/icon.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/pages/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/pages/index.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="xl.ru" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1QeLzkSSP36LpCLrMnXuiS1s17i" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules/.bin/stylelint" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.stylelint" value="$PROJECT_DIR$/node_modules/stylelint" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="065b7f13-c19c-4dc1-b2e7-6b402d0578c9" name="Default Changelist" comment="" />
+      <created>1568126380021</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568126380021</updated>
+      <workItem from="1568126381324" duration="76077000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

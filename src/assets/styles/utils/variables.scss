@@ -1,6 +1,7 @@
-$ff_main: 'CirceRegular', Helvetica, Arial, sans-serif;
-$ff_bold: 'CirceBold', Helvetica, Arial, sans-serif;
-$ff_exbold: 'Circe-ExtraBold', Helvetica, Arial, sans-serif;
+$ff_main: 'Akrobat', Helvetica, Arial, sans-serif;
+$ff_bold: 'Akrobat-Bold', Helvetica, Arial, sans-serif;
+$ff_exbold: 'Akrobat', Helvetica, Arial, sans-serif;
+$ff_roboto: 'Roboto', Helvetica, Arial, sans-serif;
 $fsz_main:16px;
 $margin-padding:10px;
 $width_xs_s:550px;
@@ -10,9 +11,9 @@ $width_lg:1169px;
 $width_lgx:1366px;
 
 //FONTS
-$fsz_h1:4em;
-$fsz_h2:2.6em;
-$fsz_h3:1.95em;
+$fsz_h1:7.13em;
+$fsz_h2:2.13em;
+$fsz_h3:1.75em;
 $fsz_h4:1.25em;
 $fsz_h5:1.125em;
 $fsz_h6:1em;
@@ -20,18 +21,20 @@ $fsz_small:0.85em;
 $fw_b: 700;
 
 //COLORS
-$clr_main:#e12b2b;
+$clr_main:#042c52;
 $clr_main_dark: #c12929;
+$clr_main_bg: #f1e2d2;
+$clr_main_bg_light: #f8f1e9;
 $clr_disabled_bg: #aaafb3;
 $clr_white: #fff;
 $clr_grey: #cdd1da;
-$clr_primary:#002250;
+$clr_primary:#0d62b1;
 $clr_error:#e12b2b;
 $clr_highlight:#77ab60;
 $clr_yell: #ffd554;
-$clr_border:#e8e8e8;
+$clr_border:#c6ced3;
 $clr_black: #000;
-$clr_dark: #4e4e4e;
+$clr_dark: #949494;
 
 $trans:.3s ease;
 $br_r: 4px;
@@ -83,6 +86,6 @@ $icon_width:20px;
 $icon_bg: url('/dist/img/sprite.svg');
 
 //GRID
-$grid_width:1210px;
+$grid_width:1220px;
 $grid_gutter:40px;
 $grid_columns:12;
