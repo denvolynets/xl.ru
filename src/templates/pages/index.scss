@@ -233,7 +233,11 @@
 			flex: 1 0 auto;
 
 			&-container {
-				max-width: calc(720px - 105px * 2);
+				max-width: 720px;
+
+				@include media($width_lgxl) {
+					max-width: calc(720px - 105px * 2);
+				}
 			}
 
 			.form__field {

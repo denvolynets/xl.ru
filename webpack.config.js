@@ -16,7 +16,6 @@ const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 const pugData = require('./src/templates/pugData.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const SvgStorePlugin = require('external-svg-sprite-loader');
-const PORT = 8081;
 module.exports = (env) => {
 	const prod = env.NODE_ENV === 'production';
 	const outputPath = prod ? configUtils.outputPathProd : configUtils.outputPathDev;
@@ -58,7 +57,7 @@ module.exports = (env) => {
 			contentBase: path.resolve(__dirname, './src'),
 			overlay: true,
 			compress: true,
-			port: PORT,
+			port: 9090,
 			stats: consoleStats,
 			open: false
 		},
@@ -231,16 +230,16 @@ module.exports = (env) => {
 					filename: `${configUtils.cssPath}/bundle.[name].css`,
 					chunkFilename: `${configUtils.cssPath}/[name].css`
 				}),
-				// new WebpackBuildNotifierPlugin({
-				// 	title: 'Dolgo-rf',
-				// 	suppressSuccess: 'initial',
-				// 	activateTerminalOnError: true
-				// }),
+				new WebpackBuildNotifierPlugin({
+					title: 'Dolgo-rf',
+					suppressSuccess: 'initial',
+					activateTerminalOnError: true
+				}),
 				new FriendlyErrorsWebpackPlugin({
 					compilationSuccessInfo: {
-						messages: [prod ? `Build complete at folder "${configUtils.outputPathProd.replace(/\./g, '')}"` : `You server is running here http://localhost:${PORT}`],
+						messages: [prod ? `Build complete at folder "${configUtils.outputPathProd.replace(/\./g, '')}"` : 'You server is running here http://localhost:9090'],
 						notes: ['Some additional notes to be displayed upon successful compilation']
-
+						
 					}
 				}),
 				new webpack.ProvidePlugin({
@@ -264,13 +263,13 @@ module.exports = (env) => {
 							}]
 						},
 						canPrint: true
+					}),
+					new ImageminPlugin({
+						pngquant: {
+							quality: '70'
+						},
+						test: /\.(jpe?g|png|gif)$/i
 					})
-					// new ImageminPlugin({
-					// 	pngquant: {
-					// 		quality: '70'
-					// 	},
-					// 	test: /\.(jpe?g|png|gif)$/i
-					// })
 				);
 			}
 			
