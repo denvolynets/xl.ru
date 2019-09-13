@@ -4,10 +4,13 @@ block title
 block content
 	+b.SECTION.section-one.js-spinner.c-spinner
 		+e.logo.js-animate-logo
-			+imgSvg('logo-b')
+			a(href='/')
+				div(data-depth='0.3')
+					+imgSvg('logo-b')
 		+e.main.container
-			+e.H1.title.js-animate-title(data-title=`["В чем особенность хрупких людей", "Такое Обычное действие...", "...Как поднятие чашки", "Может привести к перелому"]`) В чем особенность хрупких людей
-			+e.wrapper
+			+e.H1.title(data-depth='0.125')
+				.js-animate-title(data-title=`["В чем особенность хрупких людей", "Такое Обычное действие...", "...Как поднятие чашки", "Может привести к перелому"]`) В чем особенность хрупких людей
+			+e.wrapper(data-depth='0.2')
 				+e.girl.js-animate-girl
 					+imgSvg('girl')
 				+e.flowers.js-animate-flowers
@@ -21,21 +24,21 @@ block content
 			+e.scroll.js-animate-scroll-text Скролл
 			+e.progressbar.js-animate-progressbar
 				+e.progressbar__line.js-animate-progressbar-line
-			+e.share.js-animate-share-btn
+			+e.A.share.js-animate-share-btn(href='/')
 				+imgSvg('share')
 		+e.DIV.callback.js-animate-callback
-			+e.ASIDE.sidebar
+			+e.ASIDE.sidebar.js-animate-sidebar
 				+e.sidebar-container
 					+e.H2.sidebar-title Один рубль в фонд помощи хрупким
 					+e.DIV.sidebar-separator
 					+e.H2.sidebar-title Незаметно для тебя, но огромная помощь для хрупких
-			+e.FORM.form.form.js-section-form
+			+e.FORM.form.js-form.js-animate-form
 				+e.H4.form-title Вместе крепче стали
 				+e.form-container
 					+e.HEADER.form-top
 						+e.form-radios.js-form__radios
 							each radio in [50, 100, 300, 500, 1000]
-								+formField('radio', radio)(name="radios", id=`radio-form-${radio}`)
+								+formField('radio', radio)(name="radios", value=radio, id=`radio-form-${radio}`)
 						+e.SPAN.form-or или
 						+e.form-input
 							+formFieldIcon('tel', '850', 'rouble')(name="amount")
@@ -52,10 +55,13 @@ block content
 						+formField('checkbox')(name="checkbox-personal", id="checkbox-personal", required) Я принимаю #[a(href='/') соглашение об использовании персональных данных]
 					+e.FOOTER.form-footer
 						+btn('fill','submit', false, 'Пожертвовать')
+			+e.DIV.bg-layer.js-animate-bg-layer
 			+e.DIV.success.js-animate-success
+				+e.success-bg
+					+imgSvg('flowers-2')
 				+e.H1.success-title Ваше пожертвование #[br]выполнено!
 				+e.H2.success-subtitle Мы искренне благодарим Вас #[br]за неравнодушие!
-				+btn('fill','submit', false, 'Повторить платеж')
+				+btn('fill','submit', false, 'Повторить платеж').js-repeat-pay-btn
 				+e.success-socials.js-socials
 					ul
 						each item in ['facebook', 'vk', 'twitter', 'instagram', 'mail-ru']

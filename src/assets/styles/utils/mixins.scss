@@ -1,5 +1,3 @@
-/* src/assets/styles/utils/_mixins.scss  */
-
 @mixin isFlex($align: center, $justify: center, $direction: row, $wrap: wrap) {
 	display: flex;
 	align-items: $align;
@@ -29,92 +27,6 @@
 	}
 }
 
-@mixin arrow($color, $width, $padding, $dir) {
-	$rotate: 0deg;
-
-	@if ($dir=='up') {
-		$rotate: -135deg;
-	}
-
-	@else if ($dir=='down') {
-		$rotate: 45deg;
-	}
-
-	@else if ($dir=='left') {
-		$rotate: 135deg;
-	}
-
-	@else if ($dir=='right') {
-		$rotate: -45deg;
-	}
-
-	width: unset;
-	height: unset;
-	border: solid #{$color};
-	border-width: 0 #{$width} #{$width} 0;
-	display: inline-block;
-	padding: #{$padding};
-	transform: rotate($rotate);
-}
-
-@mixin triangle($color, $width, $dir) {
-	$rotate: 0deg;
-
-	@if ($dir=='up') {
-		$rotate: 0deg;
-	}
-
-	@else if ($dir=='down') {
-		$rotate: 180deg;
-	}
-
-	@else if ($dir=='left') {
-		$rotate: 90deg;
-	}
-
-	@else if ($dir=='right') {
-		$rotate: -90deg;
-	}
-
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 0 #{$width} #{$width} #{$width};
-	border-color: transparent transparent #{$color} transparent;
-	transform: rotate($rotate);
-}
-
-@mixin hexagon($color, $width) {
-	width: #{$width};
-	height: calc(#{$width} - (#{$width} / 2.4));
-	background: #{$color};
-	position: relative;
-
-	&:before {
-		content: "";
-		position: absolute;
-		top: calc(-#{$width} / 4);
-		left: 0;
-		width: 0;
-		height: 0;
-		border-left: calc(#{$width} / 2) solid transparent;
-		border-right: calc(#{$width} / 2) solid transparent;
-		border-bottom: calc(#{$width} / 4) solid #{$color};
-	}
-
-	&:after {
-		content: "";
-		position: absolute;
-		bottom: calc(-#{$width} / 4);
-		left: 0;
-		width: 0;
-		height: 0;
-		border-left: calc(#{$width} / 2) solid transparent;
-		border-right: calc(#{$width} / 2) solid transparent;
-		border-top: calc(#{$width} / 4) solid #{$color};
-	}
-}
-
 @mixin clearfix() {
 	zoom: 1;
 
@@ -126,16 +38,6 @@
 
 	&:after {
 		clear: both;
-	}
-}
-
-@mixin lf-child_reset() {
-	&:last-child {
-		margin-bottom: 0;
-	}
-
-	&:first-child {
-		margin-top: 0;
 	}
 }
 

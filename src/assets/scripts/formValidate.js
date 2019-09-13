@@ -46,7 +46,6 @@ export default function formValidate() {
 			validResultClasses.apply(this, [element, 'unhighlight', formClasses]);
 		},
 		submitHandler: function(form) {
-			alert('Форма успешно отправлена!');
 		}
 	});
 

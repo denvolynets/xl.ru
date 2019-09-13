@@ -13,6 +13,7 @@
 /*
   Layout
 */
+
 @import './layout/normalize';
 @import './layout/fonts';
 @import './layout/typo';
@@ -32,5 +33,4 @@
 /*
   PUG components
 */
-@import '../../templates/components/**/*.scss';
 @import '../../templates/pages/*.scss';

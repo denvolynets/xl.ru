@@ -9,6 +9,8 @@ import svg4everybody from 'svg4everybody';
 import imgToSvg from '@Scripts/imgToSvg';
 import formValidate from '@Scripts/formValidate';
 import PageAnimate from '@Scripts/animations';
+import { formSubmit } from '@Scripts/formSubmit';
+
 const app = {
 	load: () => {
 		app.bindEvents();
@@ -41,7 +43,8 @@ const app = {
 		svg4everybody();
 		formValidate();
 		await imgToSvg();
-		new PageAnimate();
+		const pageAnimate = new PageAnimate();
+		formSubmit(pageAnimate);
 	}
 };
 

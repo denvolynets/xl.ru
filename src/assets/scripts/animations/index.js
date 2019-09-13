@@ -1,7 +1,7 @@
 import WheelIndicator from 'wheel-indicator';
-
-import { animateSocials } from '@Scripts/animations/a_socials';
-import { imgToSvgData } from '@Scripts/imgToSvg';
+import Parallax from 'parallax-js';
+import 'tilt.js';
+import { socialsAnimate } from '@Scripts/socialsAnimate';
 import { PageAnimateGSAP } from './PageAnimateGSAP';
 import { C_ANIMATE_CLASSES, C_CSS_CLASSES, C_DOM_CLASSES } from '@Scripts/constants';
 
@@ -13,11 +13,13 @@ export default class PageAnimate extends PageAnimateGSAP {
 	}
 	
 	async init() {
-		animateSocials();
+		socialsAnimate();
 		this.setDefaultAnimateState();
 		await this.onLightingGenerate();
 		this.onWheelIndicator();
 		this.onChangeSpinner();
+		
+		const parallaxInstance = [...document.querySelectorAll(`.${C_DOM_CLASSES.parallaxParent}`)].map(el => new Parallax(el));
 	}
 	
 	onChangeSpinner() {
@@ -43,9 +45,7 @@ export default class PageAnimate extends PageAnimateGSAP {
 				const nowTime = (new Date()).getTime();
 				const diff = Math.abs((nowTime - currentTime) / this.scrollDelay);
 				
-				if (diff < 1) {
-				
-				} else {
+				if (diff >= 1) {
 					this.scrollDir = e.direction;
 					this.onScroll();
 					currentTime = nowTime;

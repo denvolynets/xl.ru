@@ -1,11 +1,12 @@
 import { Back, Elastic, TweenMax, Circ } from 'gsap/TweenMax';
-import { C_ANIMATE_CLASSES, C_DIR_DOWN } from '@Scripts/constants';
+import { C_ANIMATE_CLASSES, C_DIR_DOWN, C_REVERSE } from '@Scripts/constants';
 import { h_getWW, h_jsonParse } from '@Scripts/helpers';
 import { imgToSvgData } from '@Scripts/imgToSvg';
 
 export class PageAnimateGSAP {
 	constructor() {
 		this.animationStep = 1;
+		this.animationEnd = false;
 		
 		this.scrollDelay = 0;
 		this.scrollEnable = true;
@@ -25,14 +26,27 @@ export class PageAnimateGSAP {
 		
 		this.lightingTotalLength = 0;
 		this.lightingActive = 0;
+		this.lightingImageCount = 32;
 		
 		this.updateProgressBar();
+		this.onArrowClick();
+	}
+	
+	set setScrollEnable(val) {
+		this.scrollEnable = val;
+	}
+	
+	onArrowClick() {
+		$(`.${C_ANIMATE_CLASSES.navArrow}`).click(() => {
+			this.scrollDir = C_DIR_DOWN;
+			this.onScroll();
+		});
 	}
 	
 	onLightingGenerate() {
 		return new Promise(resolve => {
 			let images = [];
-			for (let i = 1; i <= 16; i++) {
+			for (let i = 1; i <= this.lightingImageCount; i++) {
 				images.push(`./assets/images/lighting/Union${i}.svg`);
 			}
 			images = images.sort(function(a, b) {
@@ -51,39 +65,14 @@ export class PageAnimateGSAP {
 		});
 	}
 	
-	onLightingChangeFixDirection(frame, scollDownDirection) {
-		this.scrollDirPrev.push({
-			active: this.lightingActive,
-			dir: this.scrollDir
-		});
-		
-		// if (this.scrollDirPrev.length > frame) this.scrollDirPrev = this.scrollDirPrev.slice(0, frame - 1);
-		//
-		// if (this.scrollDirPrev.length >= 2 &&
-		// 	this.scrollDirPrev[this.scrollDirPrev.length - 1].dir !== this.scrollDirPrev[this.scrollDirPrev.length - 2].dir
-		// ) {
-		// 	this.scrollDirPrev[this.scrollDirPrev.length - 1].dir = this.scrollDirPrev[this.scrollDirPrev.length - 2].dir;
-		// 	if (this.scrollDirPrev[this.scrollDirPrev.length - 2].dir === C_DIR_DOWN) {
-		// 		this.scrollDirPrev[this.scrollDirPrev.length - 1].active = this.scrollDirPrev[this.scrollDirPrev.length - 2].active + 1;
-		// 	} else {
-		// 		this.scrollDirPrev[this.scrollDirPrev.length - 1].active = this.scrollDirPrev[this.scrollDirPrev.length - 2].active - 1;
-		// 	}
-		//
-		// 	this.scrollDirPrev[this.scrollDirPrev.length - 2].dir === C_DIR_DOWN ? this.lightingActive += 1 : this.lightingActive -= 1;
-		// } else {
-		// 	scollDownDirection ? this.lightingActive += 1 : this.lightingActive -= 1;
-		// }
-		scollDownDirection ? this.lightingActive += 1 : this.lightingActive -= 1;
-	}
-	
-	onLightingChange(scollDownDirection) {
+	onLightingChange(scrollDownDirection) {
 		return new Promise(resolve => {
-			const frame = this.lightingTotalLength / this.slideTotalLength;
+			const frame = Math.ceil(this.lightingTotalLength / this.slideTotalLength);
 			const timePerOneFrame = this.slideSpeed / frame;
 			const el = $(`.${C_ANIMATE_CLASSES.lightingItem}`);
 			this.scrollEnable = false;
 			const updateLighting = setInterval(() => {
-				this.onLightingChangeFixDirection(frame, scollDownDirection);
+				scrollDownDirection ? this.lightingActive += 1 : this.lightingActive -= 1;
 				this.scrollEnable = false;
 				
 				if (this.lightingActive >= this.lightingTotalLength) {
@@ -113,7 +102,6 @@ export class PageAnimateGSAP {
 					this.lightingActive <= 0
 				
 				) {
-					this.scrollEnable = true;
 					this.scrollDirPrev = [];
 					resolve();
 					clearInterval(updateLighting);
@@ -128,7 +116,7 @@ export class PageAnimateGSAP {
 	}
 	
 	setDefaultAnimateState() {
-		const hideKeys = ['callback', 'girl', 'flowers', 'title', 'navArrow', 'progressbar', 'scrollText', 'shareBtn'];
+		const hideKeys = ['sidebar', 'form', 'girl', 'callback', 'success', 'flowers', 'title', 'navArrow', 'progressbar', 'scrollText', 'shareBtn'];
 		const hideClasses = Object.keys(C_ANIMATE_CLASSES).reduce((acc, thing) => {
 			hideKeys.includes(thing) && acc.push(`.${C_ANIMATE_CLASSES[thing]}`);
 			return acc;
@@ -179,7 +167,7 @@ export class PageAnimateGSAP {
 			case !this.scrollDown() && this.animationStep === 4 || this.animationStep >= 5 && this.animationStep < this.progressBarStepsCountTotal:
 				this.step5();
 				break;
-			case this.animationStep === this.progressBarStepsCountTotal:
+			case this.animationStep === this.progressBarStepsCountTotal && this.scrollDown():
 				this.step6();
 				break;
 			default:
@@ -229,7 +217,7 @@ export class PageAnimateGSAP {
 		TweenMax.to(`.${C_ANIMATE_CLASSES.shareBtn}`, 1, {
 			y: 200,
 			autoAlpha: 0,
-			display: 'block',
+			display: 'flex',
 			ease: Elastic.easeOut.config(1, 0.9)
 		});
 	}
@@ -291,6 +279,7 @@ export class PageAnimateGSAP {
 			this.scrollEnable = false;
 			TweenMax.to(`.${C_ANIMATE_CLASSES.logo}`, 1.25, {
 				y: '-36%',
+				scale: 0.5,
 				ease: Elastic.easeOut.config(1, 0.9)
 			});
 			TweenMax.to(`.${C_ANIMATE_CLASSES.logoFirstPath}`, 1.25, {
@@ -340,7 +329,7 @@ export class PageAnimateGSAP {
 				ease: Elastic.easeOut.config(1, 0.9)
 			});
 			TweenMax.to(`.${C_ANIMATE_CLASSES.shareBtn}`, 1, {
-				display: 'block',
+				display: 'flex',
 				delay: 2,
 				autoAlpha: 1,
 				y: 0,
@@ -354,21 +343,20 @@ export class PageAnimateGSAP {
 	}
 	
 	step5() {
-		console.log(this.animationStep);
 		const titleWidth = $(`.${C_ANIMATE_CLASSES.title}`).outerWidth();
 		const titleOffsetLeft = $(`.${C_ANIMATE_CLASSES.title}`).offset().left;
 		this.scrollEnable = false;
+		this.animationEnd = false;
 		
 		TweenMax.to(`.${C_ANIMATE_CLASSES.title}`, this.slideSpeed / 1000, {
 			x: -titleOffsetLeft - titleWidth - 50,
 			autoAlpha: 0,
 			ease: Elastic.easeInOut.config(1, 0.75)
 		});
-		
 		TweenMax.to(`.${C_ANIMATE_CLASSES.title}`, 0, {
 			x: h_getWW() - titleOffsetLeft + titleWidth,
 			autoAlpha: 0,
-			delay: 0.72,
+			delay: 0.85,
 			onComplete: async() => {
 				this.scrollDown() ? this.slideActive += 1 : this.slideActive -= 1;
 				if (this.slideActive < 1) this.slideActive = 0;
@@ -380,33 +368,158 @@ export class PageAnimateGSAP {
 		});
 		TweenMax.to(`.${C_ANIMATE_CLASSES.title}`, this.slideSpeed / 1000, {
 			x: 0,
-			delay: 0.72,
+			delay: 0.85,
 			autoAlpha: 1,
-			onComplete: () => {
-			
-			},
 			ease: Elastic.easeInOut.config(1, 0.75)
+		});
+		TweenMax.to(`.${C_ANIMATE_CLASSES.girl}`, 1.25, {
+			display: 'block',
+			delay: 0.75,
+			autoAlpha: 1,
+			scale: 1,
+			y: '0%',
+			ease: Elastic.easeOut.config(1, 0.9)
+		});
+		TweenMax.to(`.${C_ANIMATE_CLASSES.callback}`, 1, {
+			delay: 0.75,
+			display: 'none',
+			autoAlpha: 0
+		});
+		TweenMax.to(`.${C_ANIMATE_CLASSES.sidebar}`, 1, {
+			display: 'none',
+			autoAlpha: 0,
+			x: '-100%',
+			ease: Elastic.easeOut.config(1, 0.9)
+		});
+		TweenMax.to(`.${C_ANIMATE_CLASSES.form}`, 1, {
+			display: 'none',
+			autoAlpha: 0,
+			x: '100%',
+			ease: Elastic.easeOut.config(1, 0.9)
+		});
+		TweenMax.to(`.${C_ANIMATE_CLASSES.flowers}`, 0.4, {
+			display: 'block',
+			delay: 1.55,
+			scale: 1,
+			y: 0,
+			autoAlpha: 1
+		});
+		TweenMax.to(`.${C_ANIMATE_CLASSES.sidebar}`, 1, {
+			display: 'none',
+			autoAlpha: 0,
+			x: '-100%',
+			delay: 0
+		});
+		TweenMax.to(`.${C_ANIMATE_CLASSES.form}`, 1, {
+			display: 'none',
+			autoAlpha: 0,
+			x: '100%'
+		});
+		TweenMax.to(`.${C_ANIMATE_CLASSES.bgLayer}`, 1, {
+			display: 'none',
+			autoAlpha: 0,
+			y: '-100%'
 		});
 	}
 	
 	step6() {
+		this.slideActive = this.slideTotalLength;
+		this.lightingActive = this.lightingTotalLength + 1;
 		this.scrollEnable = false;
+		
 		const titleWidth = $(`.${C_ANIMATE_CLASSES.title}`).outerWidth();
 		const titleOffsetLeft = $(`.${C_ANIMATE_CLASSES.title}`).offset().left;
+		
 		TweenMax.to(`.${C_ANIMATE_CLASSES.title}`, 1, {
 			x: -titleOffsetLeft - titleWidth - 50,
 			autoAlpha: 0,
 			ease: Back.easeOut.config(1.4)
 		});
-		
-		TweenMax.to(`.${C_ANIMATE_CLASSES.flowers}`, 1, {
-			y: '100%',
-			scale: 0.75,
-			delay: 0.35,
+		TweenMax.to(`.${C_ANIMATE_CLASSES.flowers}`, 0.35, {
+			display: 'block',
 			autoAlpha: 0,
-			ease: Back.easeOut.config(1.4),
-			onComplete: async() => {
+			delay: 0.75,
+			y: 40,
+			scale: 0.9
+		});
+		TweenMax.to(`.${C_ANIMATE_CLASSES.callback}`, 1, {
+			delay: 0.75,
+			display: 'flex',
+			autoAlpha: 1
+		});
+		TweenMax.to(`.${C_ANIMATE_CLASSES.sidebar}`, 1, {
+			delay: 1.35,
+			display: 'flex',
+			x: '0%',
+			autoAlpha: 1,
+			ease: Elastic.easeOut.config(1, 0.9)
+		});
+		if (!this.animationEnd) {
+			TweenMax.to(`.${C_ANIMATE_CLASSES.bgLayer}`, 1, {
+				delay: 2.35,
+				display: 'flex',
+				y: '30%',
+				autoAlpha: 1,
+				ease: Elastic.easeOut.config(1, 0.9)
+			});
+		}
+		TweenMax.to(`.${C_ANIMATE_CLASSES.bgLayer}`, 0.75, {
+			delay: 3.6,
+			y: '100%',
+			ease: Elastic.easeOut.config(1, 0.9)
+		});
+		TweenMax.to(`.${C_ANIMATE_CLASSES.form}`, 1, {
+			delay: 3.7,
+			x: '0%',
+			display: 'flex',
+			autoAlpha: 1,
+			ease: Elastic.easeOut.config(1, 1.5),
+			onComplete: () => {
 				this.scrollEnable = true;
+				this.animationEnd = true;
+			}
+		});
+	}
+	
+	step7(reverse) {
+		return new Promise(resolve => {
+			if (reverse === C_REVERSE) {
+				TweenMax.to(`.${C_ANIMATE_CLASSES.success}`, 1, {
+					delay: 0,
+					x: '100%',
+					autoAlpha: 0,
+					ease: Elastic.easeOut.config(1, 1.5)
+				});
+				TweenMax.to(`.${C_ANIMATE_CLASSES.form}`, 1, {
+					delay: 0.1,
+					y: '0%',
+					autoAlpha: 1,
+					ease: Elastic.easeOut.config(1, 1.5),
+					onComplete: () => {
+						resolve();
+					}
+				});
+			} else {
+				TweenMax.to(`.${C_ANIMATE_CLASSES.form}`, 1, {
+					delay: 0,
+					y: '100%',
+					display: 'flex',
+					autoAlpha: 0,
+					ease: Elastic.easeOut.config(1, 1.5)
+				});
+				TweenMax.fromTo(`.${C_ANIMATE_CLASSES.success}`, 1, {
+					x: '100%',
+					autoAlpha: 0
+				}, {
+					delay: 0.1,
+					x: '0%',
+					display: 'flex',
+					autoAlpha: 1,
+					ease: Elastic.easeOut.config(1, 1.5),
+					onComplete: () => {
+						resolve();
+					}
+				});
 			}
 		});
 	}

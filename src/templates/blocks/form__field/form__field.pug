@@ -42,19 +42,7 @@ mixin radio(text)
 	input(type="radio")&attributes(attributes)
 	label(for=attributes.id)=text
 
-
-
 mixin checkbox(text)
 	input(type="checkbox")&attributes(attributes)
 	label(for=attributes.id)=text
 		block
-
-
-
-mixin selectBox(options, defaultText)
-	select&attributes(attributes)(data-default-text=`${defaultText ? defaultText : ''}`)
-		each option in options
-			if (option == '')
-				option(value="", data-display="Выберите значение") Выберите значение
-			else
-				option(value=option)=option

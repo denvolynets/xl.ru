@@ -27,7 +27,7 @@ $.validator.addMethod('vmcardsonly', function(value, element, param) {
 
 const vData = {
 	formClasses: {
-		name: '.form',
+		name: '.js-form',
 		field: '.js-form__field',
 		fieldRadio: '.js-form__radios',
 		btn: '.btn',

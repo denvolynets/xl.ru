@@ -3,9 +3,22 @@
 		min-height: 100vh;
 		display: flex;
 		transition: opacity $trans;
+		overflow: hidden;
+		position: relative;
 
 		&.c-spinner {
-			opacity: 0;
+			&:before {
+				width: 70px;
+				height: 70px;
+				margin-top: -35px;
+				margin-left: -35px;
+				border-radius: 50%;
+				border-top: 3px solid $clr_main;
+			}
+
+			> * {
+				opacity: 0;
+			}
 		}
 
 		&__main {
@@ -13,6 +26,7 @@
 			align-items: center;
 			justify-content: space-between;
 			width: 100%;
+			transform-style: unset !important;
 		}
 
 		&__nav {
@@ -44,6 +58,12 @@
 				&:hover {
 					transform: translateX(10px);
 				}
+
+				&:focus,
+				&:focus-within,
+				&:active {
+					transform: translateX(0);
+				}
 			}
 		}
 
@@ -60,18 +80,31 @@
 			top: 0;
 			position: absolute;
 			pointer-events: none;
+			z-index: 15;
+
+			a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 
 			svg {
 				fill: $clr_main;
 				width: 626px;
+				height: 260px;
 				pointer-events: all;
 			}
 		}
 
 		&__wrapper {
 			display: flex;
-			position: relative;
+			position: relative !important;
 			width: 50%;
+
+			@include media($width_lgxl) {
+				width: 40vw;
+				max-width: 450px;
+			}
 		}
 
 		&__girl {
@@ -169,7 +202,7 @@
 			align-items: flex-end;
 			justify-content: center;
 			flex-direction: column;
-			width: 45%;
+			width: 40%;
 
 			&-container {
 				padding: 0 105px 0 160px;
@@ -195,7 +228,13 @@
 			flex-direction: column;
 			justify-content: center;
 			padding-left: 105px;
+			padding-right: 105px;
 			max-width: none;
+			flex: 1 0 auto;
+
+			&-container {
+				max-width: calc(720px - 105px * 2);
+			}
 
 			.form__field {
 				margin-bottom: 0;
@@ -359,11 +398,22 @@
 			}
 		}
 
+		&__bg-layer {
+			position: absolute;
+			left: 40%;
+			top: auto;
+			bottom: 0;
+			height: 100%;
+			right: 0;
+			background-color: $clr_white;
+			z-index: 200;
+		}
+
 		&__success {
 			position: absolute;
 			z-index: 4;
 			background-color: $clr_main_bg_light;
-			left: 45%;
+			left: 40%;
 			top: 0;
 			bottom: 0;
 			right: 0;
@@ -372,6 +422,13 @@
 			flex-direction: column;
 			justify-content: center;
 			align-items: flex-start;
+			flex: 1 0 auto;
+
+			&-bg {
+				position: absolute;
+				right: 105px;
+				z-index: -1;
+			}
 
 			&-title {
 				font-size: 68px;
@@ -435,6 +492,10 @@
 						&:last-child {
 							margin: 0;
 							padding: 20px;
+
+							svg {
+								transform: rotate(45deg);
+							}
 						}
 					}
 				}
@@ -454,6 +515,10 @@
 								margin-right: 30px;
 								padding-left: 0;
 								padding-right: 0;
+
+								svg {
+									transform: rotate(0);
+								}
 							}
 
 							@for $i from 2 through 10 {

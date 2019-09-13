@@ -6,6 +6,7 @@ export const C_CSS_CLASSES = {
 export const C_ANIMATE_CLASSES = {
 	success: 'js-animate-success',
 	form: 'js-animate-form',
+	sidebar: 'js-animate-sidebar',
 	callback: 'js-animate-callback',
 	girl: 'js-animate-girl',
 	flowers: 'js-animate-flowers',
@@ -20,14 +21,19 @@ export const C_ANIMATE_CLASSES = {
 	navArrow: 'js-animate-nav svg',
 	lighting: 'js-animate-lighting',
 	lightingItem: 'js-animate-lighting-item',
-	
+	bgLayer: 'js-animate-bg-layer',
 	spinnerEl: 'js-spinner'
 };
 
 export const C_DOM_CLASSES = {
 	main: 'js-main',
 	socialsBtn: 'js-socials-btn',
-	socials: 'js-socials'
+	socials: 'js-socials',
+	form: 'js-form',
+	repeatPayBtn: 'js-repeat-pay-btn',
+	parallaxParent: 'js-parallax-parent'
 };
 
 export const C_DIR_DOWN = 'down';
+export const C_REVERSE = 'reverse';
+export const C_RESET = 'reset';
