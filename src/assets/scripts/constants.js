@@ -37,3 +37,11 @@ export const C_DOM_CLASSES = {
 export const C_DIR_DOWN = 'down';
 export const C_REVERSE = 'reverse';
 export const C_RESET = 'reset';
+
+export const C_DISPLAY_NONE = 'none';
+export const C_DISPLAY_BLOCK = 'block';
+export const C_DISPLAY_FLEX = 'flex';
+
+export const C_PERCENTAGE_0 = '0%';
+export const C_PERCENTAGE_100 = '100%';
+export const C_PERCENTAGE_100_MIN = '-100%';

@@ -6,10 +6,10 @@ import './libs';
 import svg4everybody from 'svg4everybody';
 
 // JS assets scripts
-import imgToSvg from '@Scripts/imgToSvg';
-import formValidate from '@Scripts/formValidate';
-import PageAnimate from '@Scripts/animations';
-import { formSubmit } from '@Scripts/formSubmit';
+import { imgToSvg } from '@Scripts/helpers';
+import formValidate from '@Scripts/Form/FormValidate';
+import PageAnimate from '@Scripts/PageAnimate/PageAnimate';
+import { formSubmit } from '@Scripts/Form/FormSubmit';
 
 const app = {
 	load: () => {
