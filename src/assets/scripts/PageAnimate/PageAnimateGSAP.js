@@ -153,23 +153,25 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 	
 	async onAnimate() {
 		this.setScrollEnable = false;
-		// if (this.animationStep === 3 && !this.scrollDown()) {
-		// 	this.setScrollEnable = false;
-		// 	await this.onLightingChange(this.scrollDown());
-		// 	TweenMax.to(`.${C_ANIMATE_CLASSES.lightingItem}`, 0.15, {
-		// 		display: C_DISPLAY_NONE,
-		// 		autoAlpha: 0
-		// 	});
-		// 	await this.step3(1);
-		// 	await this.step2(2);
-		// 	this.animationStep = 2;
-		// 	// this.updateProgressBar();
-		// 	return;
-		// } else {
-		// 	// TweenMax.killAll();
-		// 	// this.updateProgressBar();
-		// }
-		this.updateProgressBar();
+		if (this.animationStep === 3 && !this.scrollDown()) {
+			this.setScrollEnable = false;
+			this.updateProgressBar();
+			await this.onLightingChange(this.scrollDown());
+			TweenMax.to(`.${C_ANIMATE_CLASSES.lightingItem}`, 0.15, {
+				display: C_DISPLAY_NONE,
+				autoAlpha: 0
+			});
+			await this.step3(1);
+			this.updateProgressBar();
+			await this.step2(2);
+			this.animationStep = 2;
+			this.updateProgressBar();
+			return;
+		} else {
+			// TweenMax.killAll();
+			this.updateProgressBar();
+		}
+		
 		switch (true) {
 			case this.animationStep === 1:
 				this.step1();
