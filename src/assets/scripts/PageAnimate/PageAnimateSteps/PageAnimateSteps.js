@@ -44,6 +44,7 @@ export class PageAnimateSteps {
 	}
 	
 	onInitAnimate() {
+		if (!this.scrollEl) return;
 		return new Promise(resolve => {
 			this.setScrollEnable = false;
 			TweenMax.fromTo(`.${C_ANIMATE_CLASSES.logoFirstPath}`, this.animationStepSpeed, {

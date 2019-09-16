@@ -1,5 +1,4 @@
 import WheelIndicator from 'wheel-indicator';
-import Parallax from 'parallax-js';
 import 'tilt.js';
 import Hammer from 'hammerjs';
 import { PageAnimateGSAP } from './PageAnimateGSAP';
@@ -9,8 +8,10 @@ import {
 	C_CSS_CLASSES,
 	C_DIR_DOWN,
 	C_DIR_UP,
-	C_DOM_CLASSES
+	C_DOM_CLASSES, C_PERCENTAGE_0
 } from '@Scripts/constants';
+import { TweenMax } from 'gsap/TweenMax';
+import { stepLogoFinal } from '@Scripts/PageAnimate/PageAnimateSteps/steps/step1';
 
 export default class PageAnimate extends PageAnimateGSAP {
 	constructor() {
@@ -22,7 +23,11 @@ export default class PageAnimate extends PageAnimateGSAP {
 	async init() {
 		this.onSocialsAnimate();
 		
-		if (!this.scrollEl) return;
+		if (!this.scrollEl) {
+			await stepLogoFinal.apply(this);
+			this.onChangeSpinner();
+			return;
+		}
 		this.setDefaultAnimateState();
 		await this.onLightingGenerate();
 		this.onWheelIndicator();

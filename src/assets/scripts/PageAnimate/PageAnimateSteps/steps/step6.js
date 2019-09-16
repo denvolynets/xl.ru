@@ -43,13 +43,13 @@ export function step6() {
 		ease: this.animationEasing
 	});
 	TweenMax.to(`.${C_ANIMATE_CLASSES.callback}`, this.animationStepSpeed, {
-		delay: 0.75,
+		delay: 0.25,
 		display: C_DISPLAY_FLEX,
 		autoAlpha: 1,
 		ease: this.animationEasing
 	});
 	TweenMax.to(`.${C_ANIMATE_CLASSES.sidebar}`, this.animationStepSpeed, {
-		delay: 1.35,
+		delay: 0.85,
 		display: C_DISPLAY_FLEX,
 		x: C_PERCENTAGE_0,
 		autoAlpha: 1,
@@ -58,7 +58,7 @@ export function step6() {
 	if (!this.animationEnd) {
 		TweenMax.fromTo(`.${C_ANIMATE_CLASSES.bgLayer}`, this.animationStepSpeed, {
 		}, {
-			delay: 2.35,
+			delay: 1.35,
 			display: C_DISPLAY_FLEX,
 			y: C_WW.md() ? C_PERCENTAGE_0 : '30%',
 			autoAlpha: 1,
@@ -67,7 +67,7 @@ export function step6() {
 	}
 	TweenMax.fromTo(`.${C_ANIMATE_CLASSES.bgLayer}`, this.animationStepSpeed - 0.25, {
 	}, {
-		delay: C_WW.md() ? 3.3 : 3.6,
+		delay: C_WW.md() ? 1.4 : 2.1,
 		y: C_PERCENTAGE_100,
 		autoAlpha: 1,
 		display: C_DISPLAY_FLEX,
@@ -75,11 +75,11 @@ export function step6() {
 	});
 	TweenMax.to(`.${C_ANIMATE_CLASSES.logoCallback}`, this.animationStepSpeed, {
 		y: C_PERCENTAGE_0,
-		delay: C_WW.md() ? 2.6 : 3.6,
+		delay: C_WW.md() ? 1.6 : 2.2,
 		ease: this.animationEasing
 	});
 	TweenMax.to(`.${C_ANIMATE_CLASSES.form}`, this.animationStepSpeed, {
-		delay: C_WW.md() ? 2.7 : 3.7,
+		delay: C_WW.md() ? 1.7 : 2.3,
 		x: C_PERCENTAGE_0,
 		display: C_DISPLAY_FLEX,
 		autoAlpha: 1,
@@ -93,6 +93,6 @@ export function step6() {
 		autoAlpha: 1,
 		scaleX: -1,
 		scaleY: -1,
-		delay: 4.5
+		delay: 2.4
 	});
 }
