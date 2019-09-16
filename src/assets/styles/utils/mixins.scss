@@ -55,6 +55,40 @@
 	}
 }
 
+@mixin mediaH($height, $option:0) {
+	@if $option==0 {
+		@media (max-height: $height) {
+			@content;
+		}
+	}
+
+	@else if $option==1 {
+		@media (min-height: $height + 1px) {
+			@content;
+		}
+	}
+}
+
+@mixin mediaWH($width, $height, $option:0) {
+	@if $option==0 {
+		@media (max-height: $height) and (max-width: $width) {
+			@content;
+		}
+	}
+
+	@else if $option==1 {
+		@media (min-height: $height + 1px) and (min-width: $width + 1px) {
+			@content;
+		}
+	}
+
+	@else if $option==2 {
+		@media (min-width: $width + 1px) and (max-height: $height) {
+			@content;
+		}
+	}
+}
+
 @mixin placeholder {
 	&::-webkit-input-placeholder {
 		@content;

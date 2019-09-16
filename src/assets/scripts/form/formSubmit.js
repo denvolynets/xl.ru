@@ -1,5 +1,5 @@
 import { C_CSS_CLASSES, C_DOM_CLASSES, C_RESET, C_REVERSE } from '@Scripts/constants';
-import vData from '@Scripts/Form/FormValidateMethods';
+import vData from '@Scripts/form/formValidateMethods';
 const { checkFormOnInit } = vData;
 export function formSubmit(pageAnimate) {
 	$(`.${C_DOM_CLASSES.form}`).each(function() {
@@ -13,11 +13,12 @@ export function formSubmit(pageAnimate) {
 			// TODO - интегрировать с back-end`ом;
 			$.get(`./assets/images/svg-icons/logo.svg?${formData}`, function(data) {
 				// TODO - колбек в случае успеха;
-				pageAnimate.setScrollEnable = false;
-				pageAnimate.step7();
 				$this.trigger(C_RESET);
 				$this.find('button').removeClass(C_CSS_CLASSES.spinnerClass);
 				checkFormOnInit.apply(vData);
+				
+				pageAnimate.setScrollEnable = false;
+				pageAnimate.step7();
 			});
 		});
 	});

@@ -17,11 +17,19 @@
 	@include media($width_lgxl) {
 		font-size: $fsz_h1 * .75;
 	}
+
+	@include media($width_xs) {
+		font-size: $fsz_h1_xs;
+	}
 }
 
 %h2 {
 	font-size: $fsz_h2;
 	font-weight: 400;
+
+	@include media($width_xs) {
+		font-size: $fsz_h2_xs;
+	}
 }
 
 %h3 {

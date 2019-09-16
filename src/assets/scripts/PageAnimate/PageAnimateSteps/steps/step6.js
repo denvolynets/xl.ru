@@ -1,4 +1,10 @@
-import { C_ANIMATE_CLASSES, C_DISPLAY_BLOCK, C_DISPLAY_FLEX, C_PERCENTAGE_100, C_PERCENTAGE_0 } from '@Scripts/constants';
+import {
+	C_ANIMATE_CLASSES,
+	C_DISPLAY_BLOCK,
+	C_DISPLAY_FLEX,
+	C_PERCENTAGE_100,
+	C_PERCENTAGE_0, C_DOM_CLASSES, C_CSS_CLASSES, C_WW, C_PERCENTAGE_100_MIN
+} from '@Scripts/constants';
 import { TweenMax } from 'gsap/TweenMax';
 
 export function step6() {
@@ -7,14 +13,28 @@ export function step6() {
 	
 	this.slideActive = this.slideTotalLength;
 	this.lightingActive = this.lightingTotalLength + 1;
-	this.scrollEnable = false;
+	this.setScrollEnable = false;
 	
-	TweenMax.to(`.${C_ANIMATE_CLASSES.title}`, 1, {
+	$(`.${C_DOM_CLASSES.main}`).addClass(C_CSS_CLASSES.lastAnimationStep);
+	
+	TweenMax.to(`.${C_ANIMATE_CLASSES.logo}`, this.animationStepSpeed, {
+		y: C_PERCENTAGE_100_MIN,
+		ease: this.animationEasing
+	});
+	TweenMax.to(`.${C_ANIMATE_CLASSES.bottom}`, this.animationStepSpeed, {
+		y: C_PERCENTAGE_100,
+		ease: this.animationEasing
+	});
+	TweenMax.to(`.${C_ANIMATE_CLASSES.navArrowRight}`, this.animationStepSpeed, {
+		x: this.scrollDown() ? C_PERCENTAGE_100 : C_PERCENTAGE_0,
+		autoAlpha: this.scrollDown() ? 0 : 1
+	});
+	TweenMax.to(`.${C_ANIMATE_CLASSES.title}`, this.animationStepSpeed, {
 		x: -titleOffsetLeft - titleWidth - 50,
 		autoAlpha: 0,
 		ease: this.animationEasing
 	});
-	TweenMax.to(`.${C_ANIMATE_CLASSES.flowers}`, 0.35, {
+	TweenMax.to(`.${C_ANIMATE_CLASSES.flowers}`, this.animationStepSpeed - 0.65, {
 		display: C_DISPLAY_BLOCK,
 		autoAlpha: 0,
 		delay: 0.75,
@@ -22,13 +42,13 @@ export function step6() {
 		scale: 0.9,
 		ease: this.animationEasing
 	});
-	TweenMax.to(`.${C_ANIMATE_CLASSES.callback}`, 1, {
+	TweenMax.to(`.${C_ANIMATE_CLASSES.callback}`, this.animationStepSpeed, {
 		delay: 0.75,
 		display: C_DISPLAY_FLEX,
 		autoAlpha: 1,
 		ease: this.animationEasing
 	});
-	TweenMax.to(`.${C_ANIMATE_CLASSES.sidebar}`, 1, {
+	TweenMax.to(`.${C_ANIMATE_CLASSES.sidebar}`, this.animationStepSpeed, {
 		delay: 1.35,
 		display: C_DISPLAY_FLEX,
 		x: C_PERCENTAGE_0,
@@ -36,28 +56,43 @@ export function step6() {
 		ease: this.animationEasing
 	});
 	if (!this.animationEnd) {
-		TweenMax.to(`.${C_ANIMATE_CLASSES.bgLayer}`, 1, {
+		TweenMax.fromTo(`.${C_ANIMATE_CLASSES.bgLayer}`, this.animationStepSpeed, {
+		}, {
 			delay: 2.35,
 			display: C_DISPLAY_FLEX,
-			y: '30%',
+			y: C_WW.md() ? C_PERCENTAGE_0 : '30%',
 			autoAlpha: 1,
 			ease: this.animationEasing
 		});
 	}
-	TweenMax.to(`.${C_ANIMATE_CLASSES.bgLayer}`, 0.75, {
-		delay: 3.6,
+	TweenMax.fromTo(`.${C_ANIMATE_CLASSES.bgLayer}`, this.animationStepSpeed - 0.25, {
+	}, {
+		delay: C_WW.md() ? 3.3 : 3.6,
 		y: C_PERCENTAGE_100,
+		autoAlpha: 1,
+		display: C_DISPLAY_FLEX,
 		ease: this.animationEasing
 	});
-	TweenMax.to(`.${C_ANIMATE_CLASSES.form}`, 1, {
-		delay: 3.7,
+	TweenMax.to(`.${C_ANIMATE_CLASSES.logoCallback}`, this.animationStepSpeed, {
+		y: C_PERCENTAGE_0,
+		delay: C_WW.md() ? 2.6 : 3.6,
+		ease: this.animationEasing
+	});
+	TweenMax.to(`.${C_ANIMATE_CLASSES.form}`, this.animationStepSpeed, {
+		delay: C_WW.md() ? 2.7 : 3.7,
 		x: C_PERCENTAGE_0,
 		display: C_DISPLAY_FLEX,
 		autoAlpha: 1,
 		ease: this.animationEasing,
 		onComplete: () => {
-			this.scrollEnable = true;
 			this.animationEnd = true;
 		}
+	});
+	TweenMax.to(`.${C_ANIMATE_CLASSES.navArrowLeft}`, this.animationStepSpeed, {
+		x: C_PERCENTAGE_0,
+		autoAlpha: 1,
+		scaleX: -1,
+		scaleY: -1,
+		delay: 4.5
 	});
 }

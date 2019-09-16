@@ -14,7 +14,9 @@ $width_lgxl: 1660px;
 
 //FONTS
 $fsz_h1:7.13em;
+$fsz_h1_xs: 2.88em;
 $fsz_h2:2.13em;
+$fsz_h2_xs:1.38em;
 $fsz_h3:1.75em;
 $fsz_h4:1.25em;
 $fsz_h5:1.125em;
@@ -91,3 +93,9 @@ $icon_bg: url('/dist/img/sprite.svg');
 $grid_width:1220px;
 $grid_gutter:40px;
 $grid_columns:12;
+
+$callback_padding: 105px;
+$callback_padding_md: 40px;
+$callback_padding_xs: 24px;
+$callback_padding_lg: 60px;
+$callback_padding_lg_x: 125px;

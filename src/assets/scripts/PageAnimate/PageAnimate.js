@@ -1,9 +1,16 @@
 import WheelIndicator from 'wheel-indicator';
 import Parallax from 'parallax-js';
 import 'tilt.js';
-
+import Hammer from 'hammerjs';
 import { PageAnimateGSAP } from './PageAnimateGSAP';
-import { C_ANIMATE_CLASSES, C_CSS_CLASSES, C_DOM_CLASSES } from '@Scripts/constants';
+import {
+	C_ANIMATE_CLASSES,
+	C_CHECK_MOBILE,
+	C_CSS_CLASSES,
+	C_DIR_DOWN,
+	C_DIR_UP,
+	C_DOM_CLASSES
+} from '@Scripts/constants';
 
 export default class PageAnimate extends PageAnimateGSAP {
 	constructor() {
@@ -29,7 +36,7 @@ export default class PageAnimate extends PageAnimateGSAP {
 	onScroll() {
 		if (!this.scrollEnable) return;
 		if (!this.scrollDown()) {
-			if (this.animationStep === 2) this.scrollEnable = true;
+			if (this.animationStep === 2) this.setScrollEnable = true;
 			if (this.animationStep > 1) this.animationStep -= 1;
 		} else {
 			if (this.animationStep < this.progressBarStepsCountTotal) this.animationStep += 1;
@@ -39,23 +46,40 @@ export default class PageAnimate extends PageAnimateGSAP {
 	
 	onWheelIndicator() {
 		let currentTime = (new Date()).getTime();
-		new WheelIndicator({
-			elem: this.scrollEl,
-			callback: (e) => {
+		
+		if (C_CHECK_MOBILE()) {
+			const mc = new Hammer(this.scrollEl);
+			mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+			mc.on('swipeup swipedown', (ev) => {
 				const nowTime = (new Date()).getTime();
 				const diff = Math.abs((nowTime - currentTime) / this.scrollDelay);
 				
 				if (diff >= 1) {
-					this.scrollDir = e.direction;
+					this.scrollDir = ev.type === 'swipedown' ? C_DIR_UP : C_DIR_DOWN;
 					this.onScroll();
 					currentTime = nowTime;
 				}
-			}
-		});
+			});
+		} else {
+			new WheelIndicator({
+				preventMouse: false,
+				elem: this.scrollEl,
+				callback: (e) => {
+					const nowTime = (new Date()).getTime();
+					const diff = Math.abs((nowTime - currentTime) / this.scrollDelay);
+					
+					if (diff >= 1) {
+						this.scrollDir = e.direction;
+						this.onScroll();
+						currentTime = nowTime;
+					}
+				}
+			});
+		}
 	}
 	
 	onSocialsAnimate() {
-		$(`.${C_DOM_CLASSES.socialsBtn}`).click(function() {
+		$(`.${C_DOM_CLASSES.socialsBtn}, .${C_DOM_CLASSES.socialsBtnOpen}`).click(function() {
 			$(`.${C_DOM_CLASSES.socials}`).toggleClass(C_CSS_CLASSES.show);
 		});
 	}

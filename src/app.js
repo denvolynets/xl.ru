@@ -7,9 +7,11 @@ import svg4everybody from 'svg4everybody';
 
 // JS assets scripts
 import { imgToSvg } from '@Scripts/helpers';
-import formValidate from '@Scripts/Form/FormValidate';
+import formValidate from '@Scripts/form/formValidate';
 import PageAnimate from '@Scripts/PageAnimate/PageAnimate';
-import { formSubmit } from '@Scripts/Form/FormSubmit';
+import { formSubmit } from '@Scripts/form/formSubmit';
+import '@Scripts/jqFunctions/jqFunctions';
+import { C_DOM_CLASSES, C_REGEX } from '@Scripts/constants';
 
 const app = {
 	load: () => {
@@ -45,6 +47,8 @@ const app = {
 		await imgToSvg();
 		const pageAnimate = new PageAnimate();
 		formSubmit(pageAnimate);
+		
+		$(`.${C_DOM_CLASSES.inputNumber}`).inputFilter((value) => C_REGEX.number.test(value));
 	}
 };
 

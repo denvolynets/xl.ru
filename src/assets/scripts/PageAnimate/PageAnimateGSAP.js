@@ -1,6 +1,13 @@
 import { TweenMax, Circ } from 'gsap/TweenMax';
 
-import { C_ANIMATE_CLASSES, C_DIR_DOWN, C_DISPLAY_BLOCK, C_DISPLAY_NONE } from '@Scripts/constants';
+import {
+	C_ANIMATE_CLASSES,
+	C_CSS_CLASSES,
+	C_DIR_DOWN, C_DIR_UP,
+	C_DISPLAY_BLOCK,
+	C_DISPLAY_NONE,
+	C_DOM_CLASSES, C_PERCENTAGE_0, C_REVERSE
+} from '@Scripts/constants';
 import { PageAnimateSteps } from '@Scripts/PageAnimate/PageAnimateSteps/PageAnimateSteps';
 import { imgToSvgData } from '@Scripts/helpers';
 
@@ -10,6 +17,7 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 		this.animationStep = 1;
 		this.animationEnd = false;
 		this.animationEasing = Circ.easeInOut;
+		this.animationStepSpeed = 1;
 		
 		this.scrollDelay = 0;
 		this.scrollEnable = true;
@@ -19,13 +27,13 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 		
 		this.slideActive = 0;
 		this.slideTotal = $(`.${C_ANIMATE_CLASSES.title}`).data('title');
-		this.slideTotalLength = parseFloat(this.slideTotal.length);
-		this.slideSpeed = 1500;
+		this.slideTotalLength = this.slideTotal.length;
+		this.slideSpeed = 1.5;
 		
 		this.progressBarEl = $(`.${C_ANIMATE_CLASSES.progressbarLine}`);
 		this.progressBarPercentage = 0;
 		this.progressBarStepsCount = 6;
-		this.progressBarStepsCountTotal = parseFloat(this.progressBarStepsCount + this.slideTotalLength) - 2;
+		this.progressBarStepsCountTotal = this.progressBarStepsCount + this.slideTotalLength - 2;
 		
 		this.lightingTotalLength = 0;
 		this.lightingActive = 0;
@@ -33,52 +41,58 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 		
 		this.updateProgressBar();
 		this.onArrowClick();
+		this.onInitAnimate();
 	}
 	
 	set setScrollEnable(val) {
 		this.scrollEnable = val;
+		$(`.${C_DOM_CLASSES.main}`)[val ? 'addClass' : 'removeClass'](C_CSS_CLASSES.scrollable);
 	}
 	
 	onArrowClick() {
-		$(`.${C_ANIMATE_CLASSES.navArrow}`).click(() => {
+		$(`.${C_ANIMATE_CLASSES.navArrowRight}`).click(() => {
 			this.scrollDir = C_DIR_DOWN;
 			this.onScroll();
 		});
-	}
-	
-	onLightingGenerate() {
-		return new Promise(resolve => {
-			let images = [];
-			for (let i = 1; i <= this.lightingImageCount; i++) {
-				images.push(`./assets/images/lighting/Union${i}.svg`);
-			}
-			images = images.sort(function(a, b) {
-				return b.index - a.index;
-			});
-			imgToSvgData(images).then((data) => {
-				[...data].map((svg, index) => {
-					svg.item.css({ 'z-index': index + 1 });
-					svg.item.addClass(`section-one__lighting-item ${C_ANIMATE_CLASSES.lightingItem}`);
-					svg.item.attr('data-index', svg.index);
-					$(`.${C_ANIMATE_CLASSES.lighting}`).append(svg.item);
-				});
-				this.lightingTotalLength = data.length;
-				resolve();
+		$(`.${C_ANIMATE_CLASSES.navArrowLeft}`).click(async() => {
+			this.scrollDir = C_DIR_UP;
+			this.setScrollEnable = true;
+			this.onScroll();
+			TweenMax.to(`.${C_ANIMATE_CLASSES.navArrowRight}`, this.animationStepSpeed, {
+				x: C_PERCENTAGE_0,
+				autoAlpha: 1,
+				delay: this.animationStepSpeed + 0.5
 			});
 		});
+	}
+	
+	async onLightingGenerate() {
+		let images = [];
+		for (let i = 1; i <= this.lightingImageCount; i++) images.push(`./assets/images/lighting/Union${i}.svg`);
+		images = images.sort((a, b) => b.index - a.index);
+		const data = [...await imgToSvgData(images)];
+		
+		data.map((svg, index) => {
+			svg.item.css({ 'z-index': index + 1 });
+			svg.item.addClass(`section-one__lighting-item ${C_ANIMATE_CLASSES.lightingItem}`);
+			svg.item.attr('data-index', svg.index);
+			$(`.${C_ANIMATE_CLASSES.lighting}`).append(svg.item);
+		});
+		
+		return this.lightingTotalLength = data.length;
 	}
 	
 	onLightingChange(scrollDownDirection) {
 		return new Promise(resolve => {
 			const frame = Math.ceil(this.lightingTotalLength / this.slideTotalLength);
-			const timePerOneFrame = this.slideSpeed / frame;
+			const timePerOneFrame = this.slideSpeed * 1000 / frame;
 			const el = $(`.${C_ANIMATE_CLASSES.lightingItem}`);
 			
-			this.scrollEnable = false;
+			this.setScrollEnable = false;
 			
 			const updateLighting = setInterval(() => {
 				scrollDownDirection ? this.lightingActive += 1 : this.lightingActive -= 1;
-				this.scrollEnable = false;
+				this.setScrollEnable = false;
 				
 				if (this.lightingActive >= this.lightingTotalLength) {
 					this.lightingActive = this.lightingTotalLength;
@@ -117,11 +131,15 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 	
 	updateProgressBar() {
 		this.progressBarPercentage = this.animationStep / this.progressBarStepsCountTotal * 100;
-		this.progressBarEl.css('width', `${this.progressBarPercentage}%`);
+		
+		TweenMax.to(this.progressBarEl, this.slideSpeed, {
+			width: `${this.progressBarPercentage}%`,
+			ease: this.animationEasing
+		});
 	}
 	
 	setDefaultAnimateState() {
-		const hideKeys = ['sidebar', 'form', 'girl', 'callback', 'success', 'flowers', 'title', 'navArrow', 'progressbar', 'scrollText', 'shareBtn'];
+		const hideKeys = ['sidebar', 'form', 'girl', 'callback', 'success', 'flowers', 'title', 'navArrowRight', 'navArrowLeft', 'progressbar', 'scrollText', 'socialsContainer'];
 		const hideClasses = Object.keys(C_ANIMATE_CLASSES).reduce((acc, thing) => {
 			hideKeys.includes(thing) && acc.push(`.${C_ANIMATE_CLASSES[thing]}`);
 			return acc;
@@ -137,7 +155,7 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 	
 	async onAnimate() {
 		if (this.animationStep === 3 && !this.scrollDown()) {
-			this.scrollEnable = false;
+			this.setScrollEnable = false;
 			await this.onLightingChange(this.scrollDown());
 			TweenMax.to(`.${C_ANIMATE_CLASSES.lightingItem}`, 0.15, {
 				display: C_DISPLAY_NONE,
@@ -165,9 +183,9 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 				break;
 			case this.animationStep === 4 && this.scrollDown():
 				await this.step4();
-				this.scrollEnable = false;
+				this.setScrollEnable = false;
 				await this.onLightingChange(this.scrollDown());
-				this.scrollEnable = true;
+				this.setScrollEnable = true;
 				break;
 			case !this.scrollDown() && this.animationStep === 4 || this.animationStep >= 5 && this.animationStep < this.progressBarStepsCountTotal:
 				this.step5();

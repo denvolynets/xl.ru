@@ -1,4 +1,4 @@
-import vData from './FormValidateMethods.js';
+import vData from './formValidateMethods.js';
 
 export default function formValidate() {
 	let { formClasses, btnSubmitDisabled, validResultClasses, checkFormOnInit } = vData;

@@ -1,0 +1,11 @@
+mixin socials()
+    +b.socials.js-socials
+        +e.open.js-socials-btn-open
+           +imgSvg('share')
+        ul
+            each item in ['facebook', 'vk', 'twitter', 'instagram', 'mail-ru']
+                li
+                    a(target="_blank" href='/')
+                        +imgSvg(item)
+            li.js-socials-btn
+                +imgSvg('close').js-socials-close
