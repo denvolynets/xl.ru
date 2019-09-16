@@ -1,4 +1,4 @@
-$iconCount: 6;
+$iconCount: 5;
 
 $size_xs: 52px;
 $sizeOpen_xs: 48px;
@@ -78,6 +78,17 @@ $mWidth: $iconCount * $iconSize + $iconGutterOut * $iconCount + $iconGutterOut;
 			svg {
 				width: $iconSize;
 				height: $iconSize;
+
+				path {
+					transition: all $trans;
+					fill: $clr_primary;
+				}
+
+				&:hover {
+					path {
+						fill: $clr_yell;
+					}
+				}
 			}
 
 			&:first-child {
@@ -100,6 +111,16 @@ $mWidth: $iconCount * $iconSize + $iconGutterOut * $iconCount + $iconGutterOut;
 
 				svg {
 					transform: rotate(45deg);
+
+					path {
+						fill: $clr_black;
+					}
+
+					&:hover {
+						path {
+							fill: $clr_black;
+						}
+					}
 				}
 			}
 

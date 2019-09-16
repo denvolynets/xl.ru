@@ -130,11 +130,9 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 	}
 	
 	updateProgressBar() {
-		this.progressBarPercentage = this.animationStep / this.progressBarStepsCountTotal * 100;
-		
-		TweenMax.to(this.progressBarEl, this.slideSpeed, {
-			width: `${this.progressBarPercentage}%`,
-			ease: this.animationEasing
+		this.progressBarPercentage = (this.animationStep - 1) / (this.progressBarStepsCountTotal - 1) * 100;
+		TweenMax.to(this.progressBarEl, this.animationStepSpeed, {
+			width: `${this.progressBarPercentage}%`
 		});
 	}
 	
@@ -154,23 +152,24 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 	}
 	
 	async onAnimate() {
-		if (this.animationStep === 3 && !this.scrollDown()) {
-			this.setScrollEnable = false;
-			await this.onLightingChange(this.scrollDown());
-			TweenMax.to(`.${C_ANIMATE_CLASSES.lightingItem}`, 0.15, {
-				display: C_DISPLAY_NONE,
-				autoAlpha: 0
-			});
-			await this.step3(1);
-			await this.step2(2);
-			this.animationStep = 2;
-			this.updateProgressBar();
-			return;
-		} else {
-			TweenMax.killAll();
-			this.updateProgressBar();
-		}
-		
+		this.setScrollEnable = false;
+		// if (this.animationStep === 3 && !this.scrollDown()) {
+		// 	this.setScrollEnable = false;
+		// 	await this.onLightingChange(this.scrollDown());
+		// 	TweenMax.to(`.${C_ANIMATE_CLASSES.lightingItem}`, 0.15, {
+		// 		display: C_DISPLAY_NONE,
+		// 		autoAlpha: 0
+		// 	});
+		// 	await this.step3(1);
+		// 	await this.step2(2);
+		// 	this.animationStep = 2;
+		// 	// this.updateProgressBar();
+		// 	return;
+		// } else {
+		// 	// TweenMax.killAll();
+		// 	// this.updateProgressBar();
+		// }
+		this.updateProgressBar();
 		switch (true) {
 			case this.animationStep === 1:
 				this.step1();

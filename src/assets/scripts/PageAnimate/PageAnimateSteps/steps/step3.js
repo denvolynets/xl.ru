@@ -3,13 +3,12 @@ import { C_ANIMATE_CLASSES, C_PERCENTAGE_0 } from '@Scripts/constants';
 
 export function step3(disableScroll) {
 	return new Promise(resolve => {
-		this.setScrollEnable = disableScroll !== 1;
+		// this.setScrollEnable = disableScroll !== 1;
 		
 		TweenMax.to(`.${C_ANIMATE_CLASSES.logo}`, this.animationStepSpeed + 0.25, {
-			scale: 0.5,
+			scale: 0.70,
 			delay: this.scrollDown() ? 0 : 1.15,
-			y: C_PERCENTAGE_0,
-			ease: this.animationEasing,
+			y: '-25%',
 			onComplete: () => {
 				if (disableScroll !== 1) this.setScrollEnable = true;
 				resolve();
@@ -17,7 +16,6 @@ export function step3(disableScroll) {
 		});
 		TweenMax.to(`.${C_ANIMATE_CLASSES.logoFirstPath}`, this.animationStepSpeed + 0.25, {
 			y: 45,
-			ease: this.animationEasing,
 			delay: this.scrollDown() ? 0 : this.animationStepSpeed + 0.35
 		});
 		

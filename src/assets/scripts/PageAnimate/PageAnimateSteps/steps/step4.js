@@ -12,12 +12,10 @@ export function step4() {
 		this.setScrollEnable = false;
 		TweenMax.to(`.${C_ANIMATE_CLASSES.logo}`, this.animationStepSpeed + 0.25, {
 			y: '-41%',
-			scale: 0.5,
-			ease: this.animationEasing
+			scale: 0.5
 		});
 		TweenMax.to(`.${C_ANIMATE_CLASSES.logoFirstPath}`, this.animationStepSpeed + 0.25, {
-			y: 8,
-			ease: this.animationEasing
+			y: 8
 		});
 		TweenMax.to(`.${C_ANIMATE_CLASSES.title}`, this.animationStepSpeed, {
 			display: C_DISPLAY_BLOCK,
@@ -105,23 +103,23 @@ export function step4Restore() {
 		display: C_DISPLAY_BLOCK,
 		ease: this.animationEasing
 	});
-	TweenMax.to(`.${C_ANIMATE_CLASSES.progressbar}`, this.animationStepSpeed, {
-		y: 200,
-		autoAlpha: 0,
-		display: C_DISPLAY_BLOCK,
-		ease: this.animationEasing,
-		delay: 1
-	});
-	TweenMax.to(`.${C_ANIMATE_CLASSES.scrollText}`, this.animationStepSpeed, {
-		y: 200,
-		autoAlpha: 0,
-		display: C_DISPLAY_BLOCK,
-		ease: this.animationEasing
-	});
-	TweenMax.to(`.${C_ANIMATE_CLASSES.socialsContainer}`, this.animationStepSpeed, {
-		y: 200,
-		autoAlpha: 0,
-		display: C_DISPLAY_FLEX,
-		ease: this.animationEasing
-	});
+	// TweenMax.to(`.${C_ANIMATE_CLASSES.progressbar}`, this.animationStepSpeed, {
+	// 	y: 200,
+	// 	autoAlpha: 0,
+	// 	display: C_DISPLAY_BLOCK,
+	// 	ease: this.animationEasing,
+	// 	delay: 1
+	// });
+	// TweenMax.to(`.${C_ANIMATE_CLASSES.scrollText}`, this.animationStepSpeed, {
+	// 	y: 200,
+	// 	autoAlpha: 0,
+	// 	display: C_DISPLAY_BLOCK,
+	// 	ease: this.animationEasing
+	// });
+	// TweenMax.to(`.${C_ANIMATE_CLASSES.socialsContainer}`, this.animationStepSpeed, {
+	// 	y: 200,
+	// 	autoAlpha: 0,
+	// 	display: C_DISPLAY_FLEX,
+	// 	ease: this.animationEasing
+	// });
 }

@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="065b7f13-c19c-4dc1-b2e7-6b402d0578c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/onInitAnimate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateGSAP.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateGSAP.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/PageAnimateSteps.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/PageAnimateSteps.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step1.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step6.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step6.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/pages/success.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/pages/success.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step3.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step4.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles/utils/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/utils/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/blocks/socials/socials.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/blocks/socials/socials.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/blocks/socials/socials.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/blocks/socials/socials.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +115,7 @@
       <updated>1568126380021</updated>
       <workItem from="1568126381324" duration="94937000" />
       <workItem from="1568356079916" duration="1780000" />
-      <workItem from="1568459501498" duration="54906000" />
+      <workItem from="1568459501498" duration="58797000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1568300889766</created>
@@ -147,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568647015754</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- десктоп/адаптив;">
+      <created>1568648918804</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1568648918804</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
