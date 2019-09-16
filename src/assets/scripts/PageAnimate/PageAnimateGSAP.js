@@ -27,7 +27,7 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 		
 		this.slideActive = 0;
 		this.slideTotal = $(`.${C_ANIMATE_CLASSES.title}`).data('title');
-		this.slideTotalLength = this.slideTotal.length;
+		this.slideTotalLength = this.slideTotal ? this.slideTotal.length : 0;
 		this.slideSpeed = 1.5;
 		
 		this.progressBarEl = $(`.${C_ANIMATE_CLASSES.progressbarLine}`);

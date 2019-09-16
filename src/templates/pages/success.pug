@@ -1,0 +1,21 @@
+extends ../_layouts/master.pug
+block title
+    +title('html UI Kit')
+block content
+    +b.SECTION.section-one
+        +e.DIV.callback
+            +e.ASIDE.sidebar
+                +e.sidebar-container
+                    +e.H2.sidebar-title Один рубль в фонд помощи хрупким
+                    +e.DIV.sidebar-separator
+                    +e.H2.sidebar-title Незаметно для тебя, но огромная помощь для хрупких
+            +e.form-scroll-wrapper
+                +e.DIV.success
+                    +e.success-bg
+                        +imgSvg('flowers-2')
+                    +e.H1.success-title Ваше пожертвование #[br]выполнено!
+                    +e.H2.success-subtitle Мы искренне благодарим Вас #[br]за неравнодушие!
+                    +btn('fill','submit', false, 'Повторить платеж').js-repeat-pay-btn
+                    +socials()
+
+

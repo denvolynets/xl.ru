@@ -13,18 +13,21 @@ export function formSubmit(pageAnimate) {
 			// TODO - интегрировать с back-end`ом;
 			$.get(`./assets/images/svg-icons/logo.svg?${formData}`, function(data) {
 				// TODO - колбек в случае успеха;
-				$this.trigger(C_RESET);
-				$this.find('button').removeClass(C_CSS_CLASSES.spinnerClass);
-				checkFormOnInit.apply(vData);
-				
-				pageAnimate.setScrollEnable = false;
-				pageAnimate.step7();
+				setTimeout(() => {
+					$this.trigger(C_RESET);
+					$this.find('button').removeClass(C_CSS_CLASSES.spinnerClass);
+					checkFormOnInit.apply(vData);
+					window.location.href = 'success.html';
+					// pageAnimate.setScrollEnable = false;
+					// pageAnimate.step7();
+				}, 1000);
 			});
 		});
 	});
 	
 	$(`.${C_DOM_CLASSES.repeatPayBtn}`).click(async function() {
-		await pageAnimate.step7(C_REVERSE);
-		pageAnimate.setScrollEnable = true;
+		window.location.href = 'index.html';
+		// await pageAnimate.step7(C_REVERSE);
+		// pageAnimate.setScrollEnable = true;
 	});
 }

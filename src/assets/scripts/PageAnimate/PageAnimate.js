@@ -21,12 +21,12 @@ export default class PageAnimate extends PageAnimateGSAP {
 	
 	async init() {
 		this.onSocialsAnimate();
+		
+		if (!this.scrollEl) return;
 		this.setDefaultAnimateState();
 		await this.onLightingGenerate();
 		this.onWheelIndicator();
 		this.onChangeSpinner();
-		
-		const parallaxInstance = [...document.querySelectorAll(`.${C_DOM_CLASSES.parallaxParent}`)].map(el => new Parallax(el));
 	}
 	
 	onChangeSpinner() {
