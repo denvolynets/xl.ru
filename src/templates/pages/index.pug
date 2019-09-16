@@ -2,14 +2,14 @@ extends ../_layouts/master.pug
 block title
 	+title('Redsoft UI Kit')
 block content
-	+b.SECTION.section-one.js-spinner.c-spinner
+	+b.SECTION.section-one.js-spinner.c-spinner.js-main
 		+e.logo.js-animate-logo.section-one__logo-top
 			a(href='/')
 				+imgSvg('logo-b')
 		+e.main.container
 			+e.H1.title(data-depth='0.125')
-				//.js-animate-title(data-title=`["В чем особенность хрупких людей", "Такое Обычное действие...", "...Как поднятие чашки", "Может привести к перелому"]`) В чем особенность хрупких людей
-				.js-animate-title(data-title=`["В чем особенность хрупких людей", "Такое Обычное действие..."]`) В чем особенность хрупких людей
+				.js-animate-title(data-title=`["В чем особенность хрупких людей", "Такое Обычное действие...", "...Как поднятие чашки", "Может привести к перелому"]`) В чем особенность хрупких людей
+				//.js-animate-title(data-title=`["В чем особенность хрупких людей", "Такое Обычное действие..."]`) В чем особенность хрупких людей
 			+e.wrapper(data-depth='0.2')
 				+e.girl.js-animate-girl
 					+imgSvg('girl')
