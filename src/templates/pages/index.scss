@@ -3,7 +3,7 @@
 		display: flex;
 		transition: opacity $trans;
 		overflow: hidden;
-		position: fixed;
+		position: absolute;
 		top: 0;
 		bottom: 0;
 		left: 0;
@@ -309,7 +309,7 @@
 			display: flex;
 
 			@include media($width_md) {
-				position: fixed;
+				position: absolute;
 				flex-wrap: wrap;
 				height: auto;
 				overflow-x: hidden;
@@ -340,7 +340,7 @@
 			flex-direction: column;
 			width: 40%;
 			height: 100%;
-			position: fixed;
+			position: absolute;
 			top: 0;
 			bottom: 0;
 			overflow-y: auto;
@@ -426,7 +426,7 @@
 			}
 
 			&-scroll-wrapper {
-				position: fixed;
+				position: absolute;
 				left: 40%;
 				top: 0;
 				bottom: 0;
