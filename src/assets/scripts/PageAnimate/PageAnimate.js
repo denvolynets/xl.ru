@@ -1,5 +1,5 @@
 import WheelIndicator from 'wheel-indicator';
-import 'tilt.js';
+// import 'tilt.js';
 import Hammer from 'hammerjs';
 import { PageAnimateGSAP } from './PageAnimateGSAP';
 import {
@@ -10,7 +10,7 @@ import {
 	C_DIR_UP,
 	C_DOM_CLASSES, C_PERCENTAGE_0
 } from '@Scripts/constants';
-import { TweenMax } from 'gsap/TweenMax';
+// import { TweenMax } from 'gsap/TweenMax';
 import { stepLogoFinal } from '@Scripts/PageAnimate/PageAnimateSteps/steps/step1';
 
 export default class PageAnimate extends PageAnimateGSAP {
