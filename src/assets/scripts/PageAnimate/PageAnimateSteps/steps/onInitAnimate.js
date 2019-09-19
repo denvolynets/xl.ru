@@ -37,27 +37,9 @@ export function onInitAnimate() {
 	if (!document.querySelector(`.${C_DOM_CLASSES.main}`)) return;
 	return new Promise(resolve => {
 		this.setScrollEnable = false;
-		TweenMax.fromTo(`.${C_ANIMATE_CLASSES.logoFirstPath}`, this.animationStepSpeed, {
-			scale: 1.75,
-			y: '-10%',
-			x: '400%',
+		TweenMax.fromTo(`.${C_ANIMATE_CLASSES.logo}`, this.animationStepSpeed, {
 			autoAlpha: 0
 		}, {
-			x: C_PERCENTAGE_0,
-			scale: 1,
-			y: C_PERCENTAGE_0,
-			autoAlpha: 1
-		});
-		
-		TweenMax.fromTo(`.${C_ANIMATE_CLASSES.logoSecondPath}`, this.animationStepSpeed, {
-			scale: 1.75,
-			y: '10%',
-			x: '-400%',
-			autoAlpha: 0
-		}, {
-			x: C_PERCENTAGE_0,
-			scale: 1,
-			y: C_PERCENTAGE_0,
 			autoAlpha: 1,
 			onComplete: () => {
 				this.setScrollEnable = true;
@@ -65,6 +47,34 @@ export function onInitAnimate() {
 				resolve();
 			}
 		});
+		// TweenMax.fromTo(`.${C_ANIMATE_CLASSES.logoFirstPath}`, this.animationStepSpeed, {
+		// 	scale: 1.75,
+		// 	y: '-10%',
+		// 	x: '400%',
+		// 	autoAlpha: 0
+		// }, {
+		// 	x: C_PERCENTAGE_0,
+		// 	scale: 1,
+		// 	y: C_PERCENTAGE_0,
+		// 	autoAlpha: 1
+		// });
+		//
+		// TweenMax.fromTo(`.${C_ANIMATE_CLASSES.logoSecondPath}`, this.animationStepSpeed, {
+		// 	scale: 1.75,
+		// 	y: '10%',
+		// 	x: '-400%',
+		// 	autoAlpha: 0
+		// }, {
+		// 	x: C_PERCENTAGE_0,
+		// 	scale: 1,
+		// 	y: C_PERCENTAGE_0,
+		// 	autoAlpha: 1,
+		// 	onComplete: () => {
+		// 		this.setScrollEnable = true;
+		// 		this.goToEnd();
+		// 		resolve();
+		// 	}
+		// });
 		
 		onBottomAnimate.apply(this);
 	});

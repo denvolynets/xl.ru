@@ -53,7 +53,9 @@ export default class PageAnimate extends PageAnimateGSAP {
 		let currentTime = (new Date()).getTime();
 		
 		if (C_CHECK_MOBILE()) {
-			const mc = new Hammer(this.scrollEl);
+			const mc = new Hammer(this.scrollEl, {
+				touchAction: 'pan-x'
+			});
 			mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 			mc.on('swipeup swipedown', (ev) => {
 				const nowTime = (new Date()).getTime();

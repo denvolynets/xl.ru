@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="065b7f13-c19c-4dc1-b2e7-6b402d0578c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/onInitAnimate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/onInitAnimate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/pages/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/pages/index.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,7 +109,7 @@
       <workItem from="1568126381324" duration="94937000" />
       <workItem from="1568356079916" duration="1780000" />
       <workItem from="1568459501498" duration="61778000" />
-      <workItem from="1568743053165" duration="1704000" />
+      <workItem from="1568743053165" duration="4685000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1568300889766</created>
@@ -172,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568744059486</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="- десктоп/адаптив;">
+      <created>1568746139595</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1568746139595</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
