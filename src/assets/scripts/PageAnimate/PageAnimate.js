@@ -53,6 +53,16 @@ export default class PageAnimate extends PageAnimateGSAP {
 		let currentTime = (new Date()).getTime();
 		
 		if (C_CHECK_MOBILE()) {
+			let disableScroll = false;
+			let scrollPos = 0;
+			const stopScroll = () => {
+				disableScroll = true;
+				scrollPos = $(window).scrollTop();
+			};
+			const enableScroll = () => {
+				disableScroll = false;
+			};
+			
 			const mc = new Hammer(this.scrollEl, {
 				touchAction: C_CHECK_IOS() ? 'pan-y' : 'none'
 				// recognizers: [
@@ -61,7 +71,6 @@ export default class PageAnimate extends PageAnimateGSAP {
 			});
 			mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 			mc.on('swipeup swipedown', (ev) => {
-				console.log(ev);
 				const nowTime = (new Date()).getTime();
 				const diff = Math.abs((nowTime - currentTime) / this.scrollDelay);
 				
@@ -70,6 +79,19 @@ export default class PageAnimate extends PageAnimateGSAP {
 					this.onScroll();
 					currentTime = nowTime;
 				}
+			});
+			
+			$(window).bind('scroll', function() {
+				if (disableScroll) {
+					console.log('wowow');
+					$(`.${C_ANIMATE_CLASSES.callbackScrollWrapper}`).scrollTop(scrollPos);
+					$(window).scrollTop(scrollPos);
+					$('html, body').scrollTop(scrollPos);
+					$(`.${C_DOM_CLASSES.main}`).scrollTop(scrollPos);
+				}
+			});
+			$(window).bind('touchmove', function() {
+				$(window).trigger('scroll');
 			});
 		} else {
 			new WheelIndicator({
