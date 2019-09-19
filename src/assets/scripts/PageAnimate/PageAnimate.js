@@ -54,10 +54,10 @@ export default class PageAnimate extends PageAnimateGSAP {
 		
 		if (C_CHECK_MOBILE()) {
 			const mc = new Hammer(this.scrollEl, {
-				touchAction: 'pan-y',
-				recognizers: [
-					[Hammer.Pan, { direction: Hammer.DIRECTION_HORIZONTAL }]
-				]
+				touchAction: 'pan-y'
+				// recognizers: [
+				// 	[Hammer.Pan, { direction: Hammer.DIRECTION_HORIZONTAL }]
+				// ]
 			});
 			mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 			mc.on('swipeup swipedown', (ev) => {
