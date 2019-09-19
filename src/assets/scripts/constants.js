@@ -66,5 +66,6 @@ export const C_WW = {
 
 export const C_CHECK_SAFARI = () => /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 export const C_CHECK_MOBILE = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+export const C_CHECK_IOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 export const C_CHECK_FIREFOX = () => typeof InstallTrigger !== 'undefined';
 export const C_CHECK_IE = () => navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1;

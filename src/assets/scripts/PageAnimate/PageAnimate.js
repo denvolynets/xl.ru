@@ -3,7 +3,7 @@ import WheelIndicator from 'wheel-indicator';
 import Hammer from 'hammerjs';
 import { PageAnimateGSAP } from './PageAnimateGSAP';
 import {
-	C_ANIMATE_CLASSES,
+	C_ANIMATE_CLASSES, C_CHECK_IOS,
 	C_CHECK_MOBILE,
 	C_CSS_CLASSES,
 	C_DIR_DOWN,
@@ -54,13 +54,14 @@ export default class PageAnimate extends PageAnimateGSAP {
 		
 		if (C_CHECK_MOBILE()) {
 			const mc = new Hammer(this.scrollEl, {
-				touchAction: 'pan-y'
+				touchAction: C_CHECK_IOS() ? 'pan-y' : 'none'
 				// recognizers: [
 				// 	[Hammer.Pan, { direction: Hammer.DIRECTION_HORIZONTAL }]
 				// ]
 			});
 			mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 			mc.on('swipeup swipedown', (ev) => {
+				console.log(ev);
 				const nowTime = (new Date()).getTime();
 				const diff = Math.abs((nowTime - currentTime) / this.scrollDelay);
 				
