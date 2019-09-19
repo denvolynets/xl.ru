@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="065b7f13-c19c-4dc1-b2e7-6b402d0578c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/onInitAnimate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/onInitAnimate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/pages/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/pages/index.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +106,7 @@
       <workItem from="1568126381324" duration="94937000" />
       <workItem from="1568356079916" duration="1780000" />
       <workItem from="1568459501498" duration="61778000" />
-      <workItem from="1568743053165" duration="4685000" />
+      <workItem from="1568743053165" duration="5082000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1568300889766</created>
@@ -181,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568746139595</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="- ios fix;">
+      <created>1568908550437</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1568908550437</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +210,7 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="- build;" />
     <MESSAGE value="- десктоп/адаптив;" />
-    <option name="LAST_COMMIT_MESSAGE" value="- десктоп/адаптив;" />
+    <MESSAGE value="- ios fix;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- ios fix;" />
   </component>
 </project>
