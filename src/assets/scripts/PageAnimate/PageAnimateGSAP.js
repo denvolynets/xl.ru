@@ -1,7 +1,7 @@
 import { TweenMax, Circ } from 'gsap/TweenMax';
 
 import {
-	C_ANIMATE_CLASSES,
+	C_ANIMATE_CLASSES, C_CHECK_MOBILE,
 	C_CSS_CLASSES,
 	C_DIR_DOWN, C_DIR_UP,
 	C_DISPLAY_BLOCK,
@@ -58,6 +58,13 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 			this.scrollDir = C_DIR_UP;
 			this.setScrollEnable = true;
 			this.onScroll();
+			
+			if (C_CHECK_MOBILE()) {
+				this.hammer.set({
+					touchAction: 'none'
+				});
+			}
+			
 			TweenMax.to(`.${C_ANIMATE_CLASSES.navArrowRight}`, this.animationStepSpeed, {
 				x: C_PERCENTAGE_0,
 				autoAlpha: 1,

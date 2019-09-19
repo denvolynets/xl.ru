@@ -16,6 +16,7 @@ import { stepLogoFinal } from '@Scripts/PageAnimate/PageAnimateSteps/steps/step1
 export default class PageAnimate extends PageAnimateGSAP {
 	constructor() {
 		super();
+		this.hammer = '';
 		this.scrollEl = document.querySelector(`.${C_DOM_CLASSES.main}`);
 		this.init();
 	}
@@ -63,14 +64,11 @@ export default class PageAnimate extends PageAnimateGSAP {
 				disableScroll = false;
 			};
 			
-			const mc = new Hammer(this.scrollEl, {
-				touchAction: C_CHECK_IOS() ? 'pan-y' : 'none'
-				// recognizers: [
-				// 	[Hammer.Pan, { direction: Hammer.DIRECTION_HORIZONTAL }]
-				// ]
+			this.hammer = new Hammer(this.scrollEl, {
+				touchAction: 'none'
 			});
-			mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-			mc.on('swipeup swipedown', (ev) => {
+			this.hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+			this.hammer.on('swipeup swipedown', (ev) => {
 				const nowTime = (new Date()).getTime();
 				const diff = Math.abs((nowTime - currentTime) / this.scrollDelay);
 				

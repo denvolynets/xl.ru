@@ -85,6 +85,9 @@ export function step6() {
 		autoAlpha: 1,
 		ease: this.animationEasing,
 		onComplete: () => {
+			this.hammer.set({
+				touchAction: 'pan-y'
+			});
 			this.animationEnd = true;
 		}
 	});
