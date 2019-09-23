@@ -85,9 +85,8 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 			svg.item.attr('data-index', svg.index);
 			svg.item.attr('preserveAspectRatio', 'none');
 			TweenMax.to(svg.item, 0, {
-				clip: `rect(0px, ${C_GET_WW()}px, ${C_GET_WH()}px, ${C_GET_WW()}px)`,
-				display: C_DISPLAY_BLOCK,
-				autoAlpha: 0
+				display: C_DISPLAY_NONE,
+				autoAlpha: 1
 			});
 			$(`.${C_ANIMATE_CLASSES.lighting}`).append(svg.item);
 		});
@@ -100,7 +99,7 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 			const frame = Math.ceil(this.lightingTotalLength / this.slideTotalLength);
 			const timePerOneFrame = this.slideSpeed * 1000 / frame;
 			const lightItems = $(`.${C_ANIMATE_CLASSES.lightingItem}`);
-			const lightSpeed = 0.1;
+			const lightSpeed = 0;
 			const delay = timePerOneFrame + ((lightSpeed * 1000) / frame);
 			// const delay = timePerOneFrame;
 			this.setScrollEnable = false;
@@ -117,11 +116,11 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 				}
 				const checkIndex = scrollDownDirection ? (this.lightingActive - 1) : this.lightingActive - 0;
 				lightItems.each((i, el) => {
-					if ($(el).data('index') == checkIndex) {
+					if ($(el).data('index') == this.lightingActive - 1) {
 						TweenMax.to($(el), lightSpeed, {
 							display: C_DISPLAY_BLOCK,
-							autoAlpha: scrollDownDirection ? 1 : 0.5,
-							clip: scrollDownDirection ? `rect(0px, ${C_GET_WW()}px, ${C_GET_WH()}px, ${0}px)` : `rect(0px, ${C_GET_WW()}px, ${C_GET_WH()}px, ${C_GET_WW()}px)`,
+							autoAlpha: scrollDownDirection ? 1 : 1,
+							// clip: scrollDownDirection ? `rect(0px, ${C_GET_WW()}px, ${C_GET_WH()}px, ${0}px)` : `rect(0px, ${C_GET_WW()}px, ${C_GET_WH()}px, ${C_GET_WW()}px)`,
 							onComplete: () => {
 								// lightItems.each((iPrev, elPrev) => {
 								// 	if (scrollDownDirection ? iPrev < checkIndex : iPrev > checkIndex) {
@@ -132,6 +131,12 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 								// 	}
 								// });
 							}
+						});
+					} else {
+						TweenMax.to($(el), lightSpeed, {
+							display: C_DISPLAY_NONE,
+							autoAlpha: 1
+							// clip: `rect(0px, ${C_GET_WW()}px, ${C_GET_WH()}px, ${C_GET_WW()}px)`
 						});
 					}
 				});
