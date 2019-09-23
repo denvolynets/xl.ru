@@ -1,11 +1,17 @@
+- const socialsList = [
+-   {'name': 'facebook', 'link': 'https://www.facebook.com/sharer/sharer.php?u=https://dobroshrift.ru'},
+-   {'name': 'vk', 'link': 'https://vk.com/share.php?url=https://dobroshrift.ru'},
+-   {'name': 'twitter', 'link': 'http://twitter.com/share?url=https://dobroshrift.ru'},
+-   {'name': 'mail-ru', 'link': 'https://connect.ok.ru/offer?url=https://dobroshrift.ru'}
+- ]
 mixin socials()
     +b.socials.js-socials
         +e.open.js-socials-btn-open
            +imgSvg('share')
         ul
-            each item in ['facebook', 'vk', 'twitter', 'mail-ru']
+            each item in socialsList
                 li
-                    a(target="_blank" href='/')
-                        +imgSvg(item)
+                    a(target="_blank" href=item.link)
+                        +imgSvg(item.name)
             li.js-socials-btn
                 +imgSvg('close').js-socials-close
