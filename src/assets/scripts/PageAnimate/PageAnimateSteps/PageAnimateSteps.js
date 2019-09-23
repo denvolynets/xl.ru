@@ -11,9 +11,6 @@ import { step7 } from '@Scripts/PageAnimate/PageAnimateSteps/steps/step7';
 import {
 	C_ANIMATE_CLASSES,
 	C_DIR_DOWN,
-	C_DISPLAY_BLOCK, C_DISPLAY_FLEX,
-	C_DOM_CLASSES,
-	C_PERCENTAGE_0,
 	C_PERCENTAGE_100
 } from '@Scripts/constants';
 import { onInitAnimate } from '@Scripts/PageAnimate/PageAnimateSteps/steps/onInitAnimate';

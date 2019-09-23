@@ -59,9 +59,11 @@ export const C_REGEX = {
 	number: /^\d*$/
 };
 
+export const C_GET_WH = () => $(window).height();
+export const C_GET_WW = () => $(window).width();
 export const C_WW = {
-	xs: () => $(window).width() <= 768,
-	md: () => $(window).width() <= 1024
+	xs: () => C_GET_WW() <= 768,
+	md: () => C_GET_WW() <= 1024
 };
 
 export const C_CHECK_SAFARI = () => /^((?!chrome|android).)*safari/i.test(navigator.userAgent);

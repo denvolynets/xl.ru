@@ -2,10 +2,126 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="065b7f13-c19c-4dc1-b2e7-6b402d0578c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_10.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_11.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_12.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_13.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_14.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_15.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_16.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_4.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_5.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_6.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_7.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_8.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/lighting/fr_9.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/css/bundle.app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Akrobat/Akrobat-Bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Akrobat/Akrobat-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Akrobat/Akrobat-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Akrobat/Akrobat-Regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Akrobat/Akrobat-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Akrobat/Akrobat-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Roboto/Roboto-Regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Roboto/Roboto-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Roboto/Roboto-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union10.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union11.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union12.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union13.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union14.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union15.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union16.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union17.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union18.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union19.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union20.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union21.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union22.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union23.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union24.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union25.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union26.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union27.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union28.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union29.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union30.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union31.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union32.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union7.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/Union9.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/arrow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/check.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/close.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/facebook.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/flowers-2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/flowers.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/girl.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/instagram.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/logo-b.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/mail-ru.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/null.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/rouble.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/share.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/twitter.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/vk.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-sprite/sprite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/js/bundle.app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/js/bundle.vendors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/success.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union10.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union11.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union12.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union13.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union14.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union15.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union16.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union17.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union18.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union19.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union20.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union21.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union22.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union23.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union24.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union25.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union26.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union27.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union28.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union29.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union30.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union31.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union32.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union7.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lighting/Union9.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateGSAP.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateGSAP.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/PageAnimateSteps.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/PageAnimateSteps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step5.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step5.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step6.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step6.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/pages/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/pages/index.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/pages/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/pages/index.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,13 +165,14 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\OSPanel\domains\denvolynets-GITHUB\xl.ru\src" />
+      <recent name="D:\OSPanel\domains\denvolynets-GITHUB\xl.ru\src\assets\scripts\Form" />
+      <recent name="D:\OSPanel\domains\denvolynets-GITHUB\xl.ru\src\assets\scripts" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\OSPanel\domains\denvolynets-GITHUB\xl.ru\src\assets\images\lighting" />
       <recent name="D:\OSPanel\domains\denvolynets-GITHUB\xl.ru\src\assets\styles\common" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\OSPanel\domains\denvolynets-GITHUB\xl.ru\src\assets\scripts\Form" />
-      <recent name="D:\OSPanel\domains\denvolynets-GITHUB\xl.ru\src\assets\scripts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -109,7 +226,10 @@
       <workItem from="1568126381324" duration="94937000" />
       <workItem from="1568356079916" duration="1780000" />
       <workItem from="1568459501498" duration="61778000" />
-      <workItem from="1568743053165" duration="8359000" />
+      <workItem from="1568743053165" duration="10148000" />
+      <workItem from="1569059145327" duration="806000" />
+      <workItem from="1569059984250" duration="12847000" />
+      <workItem from="1569245976785" duration="558000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1568300889766</created>
@@ -223,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568911371066</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="- ios fix;">
+      <created>1568912202054</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1568912202054</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

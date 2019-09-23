@@ -9,7 +9,7 @@ import {
 } from '@Scripts/constants';
 import { TweenMax } from 'gsap/TweenMax';
 import { h_getWW } from '@Scripts/helpers';
-export function step5() {
+export function step5(slideAnimate = true) {
 	return new Promise(resolve => {
 		const titleWidth = $(`.${C_ANIMATE_CLASSES.title}`).outerWidth();
 		const titleOffsetLeft = $(`.${C_ANIMATE_CLASSES.title}`).offset().left;
@@ -52,11 +52,13 @@ export function step5() {
 			delay: 0.85,
 			ease: this.animationEasing,
 			onComplete: async() => {
-				this.scrollDown() ? this.slideActive += 1 : this.slideActive -= 1;
-				if (this.slideActive < 1) this.slideActive = 0;
-				if (this.slideActive >= this.slideTotalLength - 1) this.slideActive = this.slideTotalLength - 1;
-				$(`.${C_ANIMATE_CLASSES.title}`).html(this.slideTotal[this.slideActive]);
-				await this.onLightingChange(this.scrollDown());
+				if (slideAnimate) {
+					this.scrollDown() ? this.slideActive += 1 : this.slideActive -= 1;
+					if (this.slideActive < 1) this.slideActive = 0;
+					if (this.slideActive >= this.slideTotalLength - 1) this.slideActive = this.slideTotalLength - 1;
+					$(`.${C_ANIMATE_CLASSES.title}`).html(this.slideTotal[this.slideActive]);
+					await this.onLightingChange(this.scrollDown());
+				}
 				resolve();
 				this.setScrollEnable = true;
 			}

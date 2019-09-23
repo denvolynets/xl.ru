@@ -3,14 +3,13 @@ import WheelIndicator from 'wheel-indicator';
 import Hammer from 'hammerjs';
 import { PageAnimateGSAP } from './PageAnimateGSAP';
 import {
-	C_ANIMATE_CLASSES, C_CHECK_IOS,
+	C_ANIMATE_CLASSES,
 	C_CHECK_MOBILE,
 	C_CSS_CLASSES,
 	C_DIR_DOWN,
 	C_DIR_UP,
-	C_DOM_CLASSES, C_PERCENTAGE_0
+	C_DOM_CLASSES
 } from '@Scripts/constants';
-// import { TweenMax } from 'gsap/TweenMax';
 import { stepLogoFinal } from '@Scripts/PageAnimate/PageAnimateSteps/steps/step1';
 
 export default class PageAnimate extends PageAnimateGSAP {
@@ -54,16 +53,6 @@ export default class PageAnimate extends PageAnimateGSAP {
 		let currentTime = (new Date()).getTime();
 		
 		if (C_CHECK_MOBILE()) {
-			let disableScroll = false;
-			let scrollPos = 0;
-			const stopScroll = () => {
-				disableScroll = true;
-				scrollPos = $(window).scrollTop();
-			};
-			const enableScroll = () => {
-				disableScroll = false;
-			};
-			
 			this.hammer = new Hammer(this.scrollEl, {
 				touchAction: 'none'
 			});
@@ -77,19 +66,6 @@ export default class PageAnimate extends PageAnimateGSAP {
 					this.onScroll();
 					currentTime = nowTime;
 				}
-			});
-			
-			$(window).bind('scroll', function() {
-				if (disableScroll) {
-					console.log('wowow');
-					$(`.${C_ANIMATE_CLASSES.callbackScrollWrapper}`).scrollTop(scrollPos);
-					$(window).scrollTop(scrollPos);
-					$('html, body').scrollTop(scrollPos);
-					$(`.${C_DOM_CLASSES.main}`).scrollTop(scrollPos);
-				}
-			});
-			$(window).bind('touchmove', function() {
-				$(window).trigger('scroll');
 			});
 		} else {
 			new WheelIndicator({
