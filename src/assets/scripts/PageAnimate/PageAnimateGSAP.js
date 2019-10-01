@@ -17,7 +17,7 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 		this.animationStep = 1;
 		this.animationEnd = false;
 		this.animationEasing = Circ.easeInOut;
-		this.animationStepSpeed = 1;
+		this.animationStepSpeed = C_CHECK_MOBILE() ? 0.5 : 1;
 		
 		this.scrollDelay = 0;
 		this.scrollEnable = true;
@@ -28,7 +28,7 @@ export class PageAnimateGSAP extends PageAnimateSteps {
 		this.slideActive = 0;
 		this.slideTotal = $(`.${C_ANIMATE_CLASSES.title}`).data('title');
 		this.slideTotalLength = this.slideTotal ? this.slideTotal.length : 0;
-		this.slideSpeed = 1;
+		this.slideSpeed = C_CHECK_MOBILE() ? 0.5 : 1;
 		
 		this.progressBarEl = $(`.${C_ANIMATE_CLASSES.progressbarLine}`);
 		this.progressBarPercentage = 0;

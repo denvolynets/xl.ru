@@ -35,16 +35,16 @@ export function step6() {
 			autoAlpha: 0,
 			ease: this.animationEasing
 		});
-		TweenMax.to(`.${C_ANIMATE_CLASSES.flowers}`, this.animationStepSpeed - 0.65, {
+		TweenMax.to(`.${C_ANIMATE_CLASSES.flowers}`, this.animationStepSpeed / 2, {
 			display: C_DISPLAY_BLOCK,
 			autoAlpha: 0,
-			delay: 0.75,
+			delay: C_CHECK_MOBILE() ? 0.75 / 2 : 0.75,
 			y: 40,
 			scale: 0.9,
 			ease: this.animationEasing
 		});
 		TweenMax.to(`.${C_ANIMATE_CLASSES.callback}`, this.animationStepSpeed, {
-			delay: 0.25,
+			delay: C_CHECK_MOBILE() ? 0.25 / 2 : 0.25,
 			display: C_DISPLAY_FLEX,
 			autoAlpha: 1,
 			ease: this.animationEasing
@@ -59,7 +59,7 @@ export function step6() {
 		if (!this.animationEnd) {
 			TweenMax.fromTo(`.${C_ANIMATE_CLASSES.bgLayer}`, this.animationStepSpeed, {
 			}, {
-				delay: 1.35,
+				delay: C_CHECK_MOBILE() ? 1.35 / 2 : 1.35,
 				display: C_DISPLAY_FLEX,
 				y: C_WW.md() ? C_PERCENTAGE_0 : '30%',
 				autoAlpha: 1,
@@ -68,7 +68,7 @@ export function step6() {
 		}
 		TweenMax.fromTo(`.${C_ANIMATE_CLASSES.bgLayer}`, this.animationStepSpeed - 0.25, {
 		}, {
-			delay: C_WW.md() ? 1.4 : 2.1,
+			delay: C_CHECK_MOBILE() ? C_WW.md() ? 1.4 / 2 : 2.1 / 2 : C_WW.md() ? 1.4 : 2.1,
 			y: C_PERCENTAGE_100,
 			autoAlpha: 1,
 			display: C_DISPLAY_FLEX,
@@ -76,11 +76,11 @@ export function step6() {
 		});
 		TweenMax.to(`.${C_ANIMATE_CLASSES.logoCallback}`, this.animationStepSpeed, {
 			y: C_PERCENTAGE_0,
-			delay: C_WW.md() ? 1.6 : 2.2,
+			delay: C_CHECK_MOBILE() ? C_WW.md() ? 1.6 / 2 : 2.2 / 2 : C_WW.md() ? 1.6 : 2.2,
 			ease: this.animationEasing
 		});
 		TweenMax.to(`.${C_ANIMATE_CLASSES.form}`, this.animationStepSpeed, {
-			delay: C_WW.md() ? 1.7 : 2.3,
+			delay: C_CHECK_MOBILE() ? C_WW.md() ? 1.7 / 2 : 2.3 / 2 : C_WW.md() ? 1.7 : 2.3,
 			x: C_PERCENTAGE_0,
 			display: C_DISPLAY_FLEX,
 			autoAlpha: 1,
@@ -100,7 +100,7 @@ export function step6() {
 			autoAlpha: 1,
 			scaleX: -1,
 			scaleY: -1,
-			delay: 2.4,
+			delay: C_CHECK_MOBILE() ? 2.4 / 2 : 2.4,
 			onComplete: () => {
 				resolve();
 			}

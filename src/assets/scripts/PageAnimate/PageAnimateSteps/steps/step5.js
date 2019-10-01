@@ -1,5 +1,5 @@
 import {
-	C_ANIMATE_CLASSES, C_CSS_CLASSES,
+	C_ANIMATE_CLASSES, C_CHECK_MOBILE, C_CSS_CLASSES,
 	C_DISPLAY_BLOCK,
 	C_DISPLAY_FLEX,
 	C_DISPLAY_NONE, C_DOM_CLASSES,
@@ -49,7 +49,7 @@ export function step5(slideAnimate = true) {
 		TweenMax.to(`.${C_ANIMATE_CLASSES.title}`, 0, {
 			x: h_getWW() - titleOffsetLeft + titleWidth,
 			autoAlpha: 0,
-			delay: 0.85,
+			delay: C_CHECK_MOBILE() ? 0.85 / 2 : 0.85,
 			ease: this.animationEasing,
 			onComplete: async() => {
 				if (slideAnimate) {
@@ -65,20 +65,20 @@ export function step5(slideAnimate = true) {
 		});
 		TweenMax.to(`.${C_ANIMATE_CLASSES.title}`, this.slideSpeed, {
 			x: 0,
-			delay: 0.85,
+			delay: C_CHECK_MOBILE() ? 0.85 / 2 : 0.85,
 			autoAlpha: 1,
 			ease: this.animationEasing
 		});
 		TweenMax.to(`.${C_ANIMATE_CLASSES.girl}`, this.animationStepSpeed + 0.25, {
 			display: C_DISPLAY_BLOCK,
-			delay: 0.75,
+			delay: C_CHECK_MOBILE() ? 0.75 / 2 : 0.75,
 			autoAlpha: 1,
 			scale: 1,
 			y: C_PERCENTAGE_0,
 			ease: this.animationEasing
 		});
 		TweenMax.to(`.${C_ANIMATE_CLASSES.callback}`, this.animationStepSpeed, {
-			delay: 0.75,
+			delay: C_CHECK_MOBILE() ? 0.75 / 2 : 0.75,
 			display: C_DISPLAY_NONE,
 			autoAlpha: 0,
 			ease: this.animationEasing
@@ -97,7 +97,7 @@ export function step5(slideAnimate = true) {
 		});
 		TweenMax.to(`.${C_ANIMATE_CLASSES.flowers}`, this.animationStepSpeed - 0.6, {
 			display: C_DISPLAY_BLOCK,
-			delay: 1.55,
+			delay: C_CHECK_MOBILE() ? 1.55 / 2 : 1.55,
 			scale: 1,
 			y: 0,
 			autoAlpha: 1,
@@ -120,7 +120,7 @@ export function step5(slideAnimate = true) {
 			display: C_DISPLAY_NONE,
 			autoAlpha: 0,
 			y: C_PERCENTAGE_100_MIN,
-			delay: this.scrollDown() ? 0 : 2,
+			delay: C_CHECK_MOBILE() ? this.scrollDown() ? 0 : 2 / 2 : this.scrollDown() ? 0 : 2,
 			ease: this.animationEasing
 		});
 	});

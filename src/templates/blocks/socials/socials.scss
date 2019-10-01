@@ -20,7 +20,7 @@ $mWidth: $iconCount * $iconSize + $iconGutterOut * $iconCount + $iconGutterOut;
 	border-radius: 50px;
 	max-width: $size;
 	height: $size;
-	transition: all $trans;
+	transition: max-width $trans, max-height $trans, opacity $trans, width $trans, height $trans, background-color $trans;
 	width: 100%;
 	overflow: hidden;
 	display: flex;

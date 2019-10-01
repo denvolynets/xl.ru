@@ -2,7 +2,8 @@ export const C_CSS_CLASSES = {
 	show: 'c-show',
 	spinnerClass: 'c-spinner',
 	scrollable: 'c-scrollable',
-	lastAnimationStep: 'c-animation-last-step'
+	lastAnimationStep: 'c-animation-last-step',
+	inputHasValue: 'c-input-has-value'
 };
 
 export const C_ANIMATE_CLASSES = {

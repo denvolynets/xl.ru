@@ -257,11 +257,11 @@
 			text-transform: uppercase;
 
 			@include media($width_xs) {
-				display: none !important;
+				position: absolute;
 			}
 
 			@include mediaWH($width_xs, 640px, 2) {
-				display: none !important;
+				//display: none !important;
 			}
 		}
 
@@ -285,12 +285,13 @@
 
 			@include media($width_xs) {
 				max-width: 100%;
-				width: calc(100% - 70px);
-				margin-left: 0;
+				width: calc(100% - 130px);
+				margin-left: auto;
+				right: -5px;
 			}
 
 			@include mediaH(640px) {
-				width: calc(100% - 60px);
+				//width: calc(100% - 60px);
 			}
 		}
 
@@ -519,8 +520,26 @@
 					width: calc(100% / 3);
 				}
 
+				span.icon {
+					path {
+						transition: all $trans;
+					}
+				}
+
 				input {
 					height: 100%;
+					transition: all $trans;
+
+					&.c-input-has-value {
+						background-color: $clr_primary;
+						color: $clr_white;
+
+						+ span.icon {
+							path {
+								fill: $clr_white;
+							}
+						}
+					}
 				}
 
 				&-radio {
@@ -645,6 +664,7 @@
 
 					&:last-child {
 						max-width: 100%;
+						width: 100%;
 					}
 
 					@include media($width_md) {

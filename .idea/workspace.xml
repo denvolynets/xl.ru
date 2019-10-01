@@ -3,7 +3,65 @@
   <component name="ChangeListManager">
     <list default="true" id="065b7f13-c19c-4dc1-b2e7-6b402d0578c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/blocks/socials/socials.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/blocks/socials/socials.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/css/bundle.app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Akrobat/Akrobat-Bold.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Akrobat/Akrobat-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Akrobat/Akrobat-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Akrobat/Akrobat-Regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Akrobat/Akrobat-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Akrobat/Akrobat-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Roboto/Roboto-Regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Roboto/Roboto-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/fonts/Roboto/Roboto-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_10.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_11.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_12.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_13.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_14.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_15.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_16.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_7.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/lighting/fr_9.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/arrow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/check.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/close.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/facebook.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/flowers-2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/flowers.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/girl.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/instagram.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/logo-b.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/mail-ru.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/null.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/rouble.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/share.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/twitter.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-icons/vk.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/images/svg-sprite/sprite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/js/bundle.app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/js/bundle.vendors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/success.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateGSAP.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateGSAP.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step3.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step4.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step4.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step5.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step5.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step6.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/PageAnimate/PageAnimateSteps/steps/step6.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts/form/formSubmit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scripts/form/formSubmit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/blocks/btn/btn.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/blocks/btn/btn.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/blocks/socials/socials.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/blocks/socials/socials.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/pages/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/pages/index.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/pages/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/pages/index.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +80,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="master-cdev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -111,7 +169,8 @@
       <workItem from="1568743053165" duration="10148000" />
       <workItem from="1569059145327" duration="806000" />
       <workItem from="1569059984250" duration="12847000" />
-      <workItem from="1569245976785" duration="2730000" />
+      <workItem from="1569245976785" duration="3891000" />
+      <workItem from="1569939364134" duration="3920000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1568300889766</created>
@@ -253,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569247609257</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="- build;">
+      <created>1569249169855</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1569249169855</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

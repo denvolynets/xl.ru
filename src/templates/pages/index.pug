@@ -46,7 +46,7 @@ block content
 									+formField('radio', radio)(name="radios", value=radio, id=`radio-form-${radio}`)
 							+e.SPAN.form-or или
 							+e.form-input
-								+formFieldIcon('tel', '850', 'rouble')(name="amount").js-input-number
+								+formFieldIcon('tel', '850', 'rouble')(name="amount").js-input-number.js-input-form
 						+e.MAIN.form-main
 							+formField('text', 'Ваше имя')(
 								data-msg="Поле ФИО обязательно для заполнения",
@@ -56,8 +56,8 @@ block content
 							+formField('text', 'Адрес эл. почты')(name="email" required).email-input
 							+formField('text', 'Ваш коментарий')(name="comment")
 						+e.DIV.form-agreegment
-							+formField('checkbox')(name="checkbox-oferta", id="checkbox-oferta" required) Я принимаю #[a(target="_blank" href='/') договор оферты]
-							+formField('checkbox')(name="checkbox-personal", id="checkbox-personal" required) Я принимаю #[a(target="_blank" href='/') соглашение об использовании персональных данных]
+							+formField('checkbox')(name="checkbox-oferta", id="checkbox-oferta" href="https://hrupkie.ru/donation-service-terms/" target="_blank" required) Я принимаю #[a(target="_blank" href='https://hrupkie.ru/donation-service-terms/') договор оферты]
+							+formField('checkbox')(name="checkbox-personal", id="checkbox-personal" required) Я принимаю #[a(target="_blank" href='https://hrupkie.ru/personal-data-usage-terms/') соглашение об использовании персональных данных]
 						+e.FOOTER.form-footer
 							+btn('fill','submit', false, 'Пожертвовать')
 					+socials()

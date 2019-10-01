@@ -30,4 +30,18 @@ export function formSubmit(pageAnimate) {
 		// await pageAnimate.step7(C_REVERSE);
 		// pageAnimate.setScrollEnable = true;
 	});
+	
+	$(`.${C_DOM_CLASSES.form} .form__field-radio input`).change(function() {
+		$(`.${C_DOM_CLASSES.inputNumber}`).removeClass(C_CSS_CLASSES.inputHasValue);
+		$(`.${C_DOM_CLASSES.form} .${C_DOM_CLASSES.inputNumber}`).val('');
+	});
+	
+	$(`.${C_DOM_CLASSES.form} .${C_DOM_CLASSES.inputNumber}`).on('input', function(event) {
+		$(`.${C_DOM_CLASSES.form} .form__field-radio input`).prop('checked', false);
+		if (event.target.value) {
+			$(this).addClass(C_CSS_CLASSES.inputHasValue);
+		} else {
+			$(this).removeClass(C_CSS_CLASSES.inputHasValue);
+		}
+	});
 }
